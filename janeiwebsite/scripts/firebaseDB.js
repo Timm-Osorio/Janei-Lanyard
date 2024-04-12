@@ -1,7 +1,6 @@
 
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, get, child} from "firebase/database";
-
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+import { getDatabase, ref, set, get, child} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 const firebaseConfig = {
   apiKey: "AIzaSyB7ZxE8vJo0r5QWKqJ9jfFWpySnHaRWsiQ",
   authDomain: "janeilanyarddb.firebaseapp.com",

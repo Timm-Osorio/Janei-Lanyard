@@ -26,17 +26,15 @@
 </style>
 <body class=" h-screen overflow-hidden">
     <section class="bg-cover bg-center h-full w-full bg-no-repeat" style="background-image: url('/janeiwebsite/assets/loginbgimg.png')">
-        <div class="w-full h-screen absolute top-0  left-0 z-[1] bg-[#ffffff9e] md:p-10 overflow-y-auto">
+        <div class="w-full h-screen absolute top-0  left-0 z-[1] bg-[#ffffff9e] md:p-10 overflow-y-scroll">
     <!--Content of the Registrationpage-->
-          <div class="scroll">
-           <!-- <div class="w-full flex justify-center mb-[-10%] md:mb-[-6%] lg:hidden  ">
-                <img src="/janeiwebsite/assets/logolanyard.png" alt="" srcset="">
-            </div>-->
-           
-            <div class="md:pl-14  md:pr-14 md:pt-10 p-5">
-                <div class="lg:flex shadow-gray-700 shadow-lg w-auto h ">
-                    <div class="lg:w-3/4 bg-slate-100 rounded-md ">
-                        <div class="textreg md:p-5 text-xl md:text-3xl font-bold w-auto p-5 text-center lg:text-left  md:relative   sticky z-50 md:rounded-none rounded-sm top-0 shadow-md  shadow-blue-600 "> REGISTRATION <span class="font-medium  ">FORM</span> </div>
+   
+         
+            <div class="md:pl-14 md:pr-14 md:pt-10 pt-5 pb-5 p-5">
+                
+                <div class="lg:flex shadow-gray-700 shadow-lg w-">
+                    <div class="lg:w-3/4 bg-slate-100 rounded-md h-auto">
+                        <div class="textreg md:p-5 text-xl md:text-3xl font-bold w-auto p-5 text-center lg:text-left sticky z-50 md:rounded-none rounded-sm top-0 shadow-md  shadow-blue-600 "> REGISTRATION <span class="font-medium  ">FORM</span> </div>
                         <div class="md:flex hidden z-50 ">
                             <div class="w-[200px] bg-black h-[5px] md:mt-[-3px] md:ml-5"></div>
                             <div class="w-[50px] bg-black h-[5px] md:mt-[-3px] md:ml-5"></div>
@@ -126,12 +124,32 @@
                         style="background-image: url('/janeiwebsite/assets/regpic.png');">
                         </div>
                     </div>
-                </div>
+               
             </div>
           </div>
     <!--End of the Registrationpage--> 
         </div>  
+    <!--Errors-->
+            <div class="pt-10 relative">
+                <div id="errorContainer" class="error w-64 rounded-full  bg-red-200 font-bold text-red-500 text-center sticky bottom-0 bg-transparent shadow-md  shadow-red-600 z-20 text-sm p-3 mx-auto"  style="display: none;">
+                    All fields are required!
+                </div>
+                <div id="errorContainer1" class="error w-80 md:w-96  rounded-full  bg-red-200 font-bold text-red-500 text-center sticky bottom-0 bg-transparent shadow-md  shadow-red-600 z-20 text-sm p-3 mx-auto"  style="display: none;">
+                    Password and Confirm password don't match!
+                </div>
+                <div id="errorContainer2" class="error md:w-96 w-full  md:rounded-full  bg-red-200 font-bold text-red-500 text-center sticky bottom-0 bg-transparent shadow-md  shadow-red-600 z-20 text-sm p-3 mx-auto"  style="display: none;">
+                    Email account already used!
+                </div>
+                <div id="errorContainer3" class="error w-80 md:w-96  rounded-full  bg-red-200 font-bold text-red-500 text-center sticky bottom-0 bg-transparent shadow-md  shadow-red-600 z-20 text-sm p-3 mx-auto"  style="display: none;">
+                    Username already used!
+                </div>
+                <div id="errorContainer4" class="error w-80 md:w-96  rounded-full  bg-red-200 font-bold text-red-500 text-center sticky bottom-0 bg-transparent shadow-md  shadow-red-600 z-20 text-sm p-3 mx-auto"  style="display: none;">
+                    Please follow the Email format!
+                </div>
+            </div>
+    <!--Errors end-->
     </section>
+    
 
 <!--Scripts-->    
 <script type="module" src="/janeiwebsite/scripts/registration.js"></script>
