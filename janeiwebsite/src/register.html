@@ -9,7 +9,7 @@
     <title>Janei Lanyard</title>
     <link rel="icon" type="icon" href="/janeiwebsite/assets/logolanyard.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    
+    <link rel="stylesheet" href="/janeiwebsite/styles/body.css">
 </head>
 <style>
 .text,img {
@@ -34,14 +34,14 @@
             </div>-->
            
             <div class="md:pl-14  md:pr-14 md:pt-10 p-5">
-                <div class="lg:flex shadow-gray-700 shadow-lg w-auto h-auto ">
+                <div class="lg:flex shadow-gray-700 shadow-lg w-auto h ">
                     <div class="lg:w-3/4 bg-slate-100 rounded-md ">
                         <div class="textreg md:p-5 text-xl md:text-3xl font-bold w-auto p-5 text-center lg:text-left  md:relative   sticky z-50 md:rounded-none rounded-sm top-0 shadow-md  shadow-blue-600 "> REGISTRATION <span class="font-medium  ">FORM</span> </div>
                         <div class="md:flex hidden z-50 ">
                             <div class="w-[200px] bg-black h-[5px] md:mt-[-3px] md:ml-5"></div>
                             <div class="w-[50px] bg-black h-[5px] md:mt-[-3px] md:ml-5"></div>
                         </div>
-                        <form action="#" method="POST" class="mx-auto">
+                        <form action="#" method="POST" class="mx-auto" id="registrationForm">
                             <div class="md:pl-10 md:pr-10 md:pt-3 ">
                                     <div class="md:flex flex-wrap">
                                         <div class="relative w-full md:w-1/2 md:pr-4 md:mb-4  p-2 ">
@@ -56,7 +56,7 @@
                                                 <div class="absolute inset-y-0 left-0 flex items-center pl-4 pt-5 ">
                                                     <box-icon color="rgba(1, 12, 39, 0.756)" type='solid' name='user-detail'></box-icon>
                                                 </div>
-                                            <input type="text" id="firstname" class="rounded-md pl-10 w-full" required>
+                                            <input type="text" id="lastname" class="rounded-md pl-10 w-full" required>
                                         </div>
                                     </div>  
 
@@ -66,14 +66,14 @@
                                                 <div class="absolute inset-y-0 left-0 flex items-center pl-4 pt-5 ">
                                                     <box-icon color="rgba(1, 12, 39, 0.756)" type='solid' name='envelope'></box-icon>
                                                 </div>
-                                            <input type="email" id="firstname" class="rounded-md pl-10 w-full" required>
+                                            <input type="email" id="email" class="rounded-md pl-10 w-full" required>
                                         </div>
                                         <div class="relative w-full md:w-1/2 md:pr-4 md:mb-4 p-2 ">
                                             <label for="firstname" class="block font-medium md:text-1xl text-[13px]">Username:</label>
                                                 <div class="absolute inset-y-0 left-0 flex items-center pl-4 pt-5 ">
                                                     <box-icon color="rgba(1, 12, 39, 0.756)" name='user-circle' type='solid' class=" "></box-icon>
                                                 </div>
-                                            <input type="text" id="firstname" class="rounded-md pl-10 w-full" required>
+                                            <input type="text" id="username" class="rounded-md pl-10 w-full" required>
                                         </div>
                                     </div>  
 
@@ -83,19 +83,19 @@
                                                 <div class="absolute inset-y-0 left-0 flex items-center pl-4 pt-5 ">
                                                     <box-icon color="rgba(1, 12, 39, 0.756)" type='solid' name='key'></box-icon>
                                                 </div>
-                                            <input type="password" id="firstname" class="rounded-md pl-10 w-full" required>
+                                            <input type="password" id="password" class="rounded-md pl-10 w-full" required>
                                         </div>
                                         <div class="relative w-full md:w-1/2 md:pr-4 md:mb-4 p-2 ">
                                             <label for="firstname" class="block font-medium md:text-1xl text-[13px]">Confirm Password:</label>
                                                 <div class="absolute inset-y-0 left-0 flex items-center pl-4 pt-5 ">
                                                     <box-icon color="rgba(1, 12, 39, 0.756)" type='solid' name='key'></box-icon>
                                                 </div>
-                                            <input type="password" id="firstname" class="rounded-md pl-10 w-full" required>
+                                            <input type="password" id="cpassword" class="rounded-md pl-10 w-full" required>
                                         </div>
                                     </div> 
 
                                     <div class="md:mt-1 p-1 ">
-                                        <label for="lastname" class="block font-medium md:text-1xl text-[13px] ">Address:</label>
+                                        <label for="Address" class="block font-medium md:text-1xl text-[13px] text-black">Address:  <span class="text-slate-400 text-[10px] ">(region | province | city | barangay | block no./house no.)</span></label>
                                         <textarea name="" placeholder="Region | Province | City | Barangay | Block no./House no." id="address" class="w-full rounded-md "  rows="2" required></textarea>
                                     </div>
                                     <div class="md:pt-1 lg:p-0 md:m-2 flex w-full justify-center md:justify-end">
@@ -104,7 +104,7 @@
                                         </label> 
                                     </div>
                                     <div class="md:mt-1 flex md:pb-1 md:p-0 p-2 w-full">
-                                        <button type="submit" class="bg-slate-700 text-white w-full md:w-[50%] 
+                                        <button id="submit" class="bg-slate-700 text-white w-full md:w-[50%] 
                                         p-3 rounded-md ml-auto hover:scale-[98%] hover:bg-slate-600 duration-200
                                         ">
                                             SUBMIT
@@ -134,7 +134,7 @@
     </section>
 
 <!--Scripts-->    
-<script src="/janeiwebsite/"></script>
+<script type="module" src="/janeiwebsite/scripts/registration.js"></script>
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </body>
 </html> 

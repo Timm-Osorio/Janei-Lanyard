@@ -7,9 +7,7 @@ async function fetchDataFromDatabase(path) {
     }
     return await response.json();
 }
-
-
-fetchDataFromDatabase("customers/")     
+/*fetchDataFromDatabase("customers/")     
     .then(data => {
         for (let e in data) {
             if (data[e] !== null){
@@ -20,7 +18,10 @@ fetchDataFromDatabase("customers/")
             } 
         }
     })
-    .catch(error => console.error("Error fetching data:", error));
+    .catch(error => console.error("Error fetching data:", error));*/
+
+    const doc_iderror = true; 
+ 
 
     document.getElementById("loginForm").addEventListener("submit", function(event) {
         event.preventDefault(); 
@@ -29,24 +30,36 @@ fetchDataFromDatabase("customers/")
     
         // Fetch data from the database
         fetchDataFromDatabase("customers/")
-            .then(data => {     
-                for (let e in data) {
-                    if (data[e] !== null && data[e].username === username && data[e].password === password) {
-                        console.log("Logged in as:", username);
-                        console.log("Role:", data[e].role);
-                        window.location.href = "/janeiwebsite/src/home.html";
-                        break;
-                    } 
-                    else if(username.trim() === "" || password.trim() === "") {
-                        console.log("Username or password cannot be empty.");
-                    }
-                    else {
-                        console.log("Invalid username or password.");         
-                    }
-                   
-                }  
-            })
-            .catch(error => console.error("Error fetching data:", error));
+        .then(data => {     
+            let isLoggedIn = false;
+            for (let e in data) {
+                if (data[e] !== null && data[e].username === username && data[e].password === password) {
+                    console.log("Logged in as:", username);
+                    console.log("Role:", data[e].role);
+                    isLoggedIn = true;
+                    break;
+                } 
+            }
+            if (!isLoggedIn) {
+                if (username.trim() === "" || password.trim() === "") {
+                    console.log("Username or password cannot be empty.");
+                    const errorMessage = "Username or password cannot be empty.";
+                    const errorContainer = document.getElementById('errorContainer');
+                    errorContainer.style.display = 'block';
+                    setTimeout(() => {
+                        errorContainer.style.display = 'none';
+                    }, 3000);
+                } else {
+                    console.log("Invalid username or password.");
+                    const errorContainer = document.getElementById('errorContainer2');
+                    errorContainer.style.display = 'block';
+                    setTimeout(() => {
+                        errorContainer.style.display = 'none';
+                    }, 3000);
+                }
+            } else {
+               window.location.href = "/janeiwebsite/src/home.html";
+            }
+        })
+        .catch(error => console.error("Error fetching data:", error));
     });
-
-    
