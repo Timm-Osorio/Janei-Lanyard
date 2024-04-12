@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  href="/janeiwebsite/styles/output.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/janeiwebsite/styles/tailwind.css">
+    <title>Janei Lanyard</title>
+    <link rel="icon" type="icon" href="/janeiwebsite/assets/logolanyard.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<style>
+.text,img {
+    filter: drop-shadow(10px 10px 25px rgb(255, 255, 255));
+}
+</style>
+<body class=" h-screen ">
+    <section class="bg-cover bg-center h-full w-full bg-no-repeat" style="background-image: url('/janeiwebsite/assets/loginbgimg.png')">
+        <div class="w-full h-screen absolute top-0  left-0 z-[1] bg-[#ffffff9e]">
+    <!--Content of the loginpage-->
+            <div class="flex flex-col md:flex-row">
+                <div class="w-full md:w-1/2">
+                    <div class="  h-32 md:h-screen md:pt-28 md:pl-20 md:pr-0 md:pb-20 
+                    flex md:block mx-auto justify-center pt-5">
+                        <div class="pt-2">
+                            <img src="/janeiwebsite/assets/logolanyard.png" alt="" srcset="" class="md:h-24    "> 
+                        </div>
+                        
+
+                        <div class="md:pt-20 md:pl-4 pl-3 ">
+                            <span class="text text-[15px]  md:text-[32px] font-medium">LANYARD DESIGN</span> <br/>
+                            <span class="text text-[32px] md:text-[64px] font-bold  ">FOR BUILDERS</span> <br/>
+                            <span class="text text-[13px]  md:text-[27px] font-bold">Janei Editing and Printing Services</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <div class="h-32 md:h-full  md:pt-28 p-5 mx-auto   ">
+                        <div class="h-auto mx-auto bg-[#fefefed7] md:p-5 mt-3 md:mt-0 rounded-md md:w-[75%] border border-black shadow-lg shadow-[#464545b4] ">
+                            <h1 class="md:text-[50px] text-[35px] pt-5 font-bold text-center">LOGIN</h1>
+                            
+                            <form action="#" id="loginForm" method="get" class="mx-auto">
+                                <div class="md:p-10 p-7">
+                                  <div>
+                                    <label class="block text-sm font-semibold leading-6 text-gray-900
+                                    text-[15px]
+                                    ">Email / Username</label>
+                                    <div class="relative pt-2">
+                                        <span class="absolute inset-y-0 left-0 pt-2 flex items-center pl-3">                          
+                                            <box-icon name='envelope'></box-icon>      
+                                        </span>
+                                        <input id="username" type="text"  class="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-900 sm:text-sm sm:leading-6 h-12 md:h-14 bg-slate-100 pl-10" >
+                                    </div>
+                                    <label class="block text-sm font-semibold leading-6 text-gray-900
+                                    text-[15px] md:pt-10 pt-5
+                                    ">Password</label>
+                                    <div class="relative pt-2">
+                                        <span class="absolute inset-y-0 left-0 pt-2 flex items-center pl-3">                          
+                                            <box-icon name='key'></box-icon>      
+                                        </span>
+                                        <input  id="password" type="password"  class="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-900 sm:text-sm sm:leading-6 h-12 md:h-14 bg-slate-100 pl-10" >
+                                    </div>
+                                    <a href="#" class=" text-[13px] float-end pt-4 hover:text-blue-800 font-medium md:text-[15px]">Forgot password?</a>
+                                    <button type="submit" class=" rounded-md mt-3 md:mt-5 font-semibold hover:scale-95 duration-200
+                                    md:h-14 h-12 bg-slate-900 text-slate-300 w-full md:text-[20px]"> ENTER</button>
+                                    <h1 class="text-center font-semibold pt-5 text-[15px]">Don't have account? <a href="/janeiwebsite/src/register.html" class="hover:text-blue-800  "> Register </a></h1>
+                                  </div>
+                                </div>
+                            </form> 
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    <!--End of the loginpage--> 
+        </div>  
+    </section>
+
+<!--Scripts-->    
+
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<script type="module" src="/janeiwebsite/scripts/login.js"></script>
+
+
+</body>
+</html> 

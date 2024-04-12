@@ -29,22 +29,25 @@
       button.addEventListener('click', function () {
         var targetId = this.getAttribute('data-accordion-target');
         var targetBody = document.querySelector(targetId);
-
+        var icon = this.querySelector('svg[data-accordion-icon]');
         targetBody.classList.toggle('hidden');
 
         var isExpanded = this.getAttribute('aria-expanded') === 'true';
         this.setAttribute('aria-expanded', !isExpanded);
         targetBody.setAttribute('aria-hidden', isExpanded);
+        icon.classList.toggle('rotate-180', !isExpanded);
       });
     });
   });
 
+//Gallery images
   function changeImages(clickedImage) {
     var images = document.querySelectorAll('.image-container img');
     for (var i = 0; i < images.length; i++) {
       if (images[i] === clickedImage) {
         images[i].style.filter = 'none';
         images[i].style.scale = '1.1';
+       
       } else {
         images[i].style.filter = 'grayscale(100%)'; 
         images[i].style.scale = 'none';
