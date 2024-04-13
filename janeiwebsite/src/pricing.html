@@ -10,7 +10,6 @@
     <link rel="icon" type="icon" href="/janeiwebsite/assets/logolanyard.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/janeiwebsite/styles/body.css">
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </head>
 <style>
  .image-container {
@@ -35,9 +34,11 @@
                 <img class="w-16 cursor-pointer p-1" src="/janeiwebsite/assets/logolanyard.png" alt="...">
                 <span class="md:pt-3 pt-4 p-2 text-2xl lg:text-3xl font-bold absolute ml-16 text-black">JANEI</span>
             </div>
+            
             <div class="nav-links p-3 md:rounded-full z-50 duration-500 md:static absolute
              bg-[#1F1F1F] shadow-slate-200 shadow-lg md:min-h-fit min-h-[60vh]
              left-0 top-[-100%]  md:w-auto  w-full flex items-center px-5">
+
                 <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
                     <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
                         <li class="pl-5 pr-5">
@@ -139,9 +140,16 @@
     </div>
 </footer>    
 <!--Scripts-->   
-<script src="/janeiwebsite/scripts/home.js"></script>
+<script type="module" src="/janeiwebsite/scripts/home.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
 <script>
-
+     const navLinks = document.querySelector('.nav-links')
+        function onToggleMenu(e){
+            e.name = e.name === 'menu' ? 'close' : 'menu'
+            navLinks.classList.toggle('top-[10%]')
+        }
+ 
 </script>
 </body>
 </html>

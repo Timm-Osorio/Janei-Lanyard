@@ -27,26 +27,12 @@ document.getElementById("submit").addEventListener('click', async function(e) {
     let cpass = document.getElementById("cpassword").value;
     let address = document.getElementById("address").value;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d).{6,}$/;
 
     if (firstName && lastName && email && username && password && address) {
-        if (!emailRegex.test(email)) {
-            console.log("Error: Invalid email format");
-            const errorContainer4 = document.getElementById('errorContainer4');
-            errorContainer4.style.display = 'block';
-            setTimeout(() => {
-                errorContainer4.style.display = 'none';
-            }, 3000);
-        } else  if (cpass !== password) {
-            console.log("Password and Confirm password don't match");
-            const errorContainer1 = document.getElementById('errorContainer1');
-            errorContainer1.style.display = 'block';
-            setTimeout(() => {
-                errorContainer1.style.display = 'none';
-            }, 3000);
-        }
-        else {
             const emailExists = await checkEmailExists(email);
             const usernameExists = await checkUsernameExists(username);
+            
             if (emailExists) {
                 console.log("Error: Email already exists");
                 const errorContainer2 = document.getElementById('errorContainer2');
@@ -61,7 +47,35 @@ document.getElementById("submit").addEventListener('click', async function(e) {
                 setTimeout(() => {
                     errorContainer3.style.display = 'none';
                 }, 3000);
-            }  
+            }  else if (password.length < 6 ) {
+                console.log("Error: Password must be at least 6 characters long.");
+                const errorContainer5 = document.getElementById('errorContainer5');
+                errorContainer5.style.display = 'block';
+                setTimeout(() => {
+                    errorContainer5.style.display = 'none';
+                }, 3000);
+            }  else if (!passwordRegex.test(password)) {
+                console.log("Error: Password must contain letters and numbers.");
+                const errorContainer6 = document.getElementById('errorContainer6');
+                errorContainer6.style.display = 'block';
+                setTimeout(() => {
+                    errorContainer6.style.display = 'none';
+                }, 3000);   
+            } else if (!emailRegex.test(email)) {
+                console.log("Error: Invalid email format");
+                const errorContainer4 = document.getElementById('errorContainer4');
+                errorContainer4.style.display = 'block';
+                setTimeout(() => {
+                    errorContainer4.style.display = 'none';
+                }, 3000);
+            } else  if (cpass !== password) {
+                console.log("Password and Confirm password don't match");
+                const errorContainer1 = document.getElementById('errorContainer1');
+                errorContainer1.style.display = 'block';
+                setTimeout(() => {
+                    errorContainer1.style.display = 'none';
+                }, 3000);
+            }
             else {
             try {
                 const lastUserId = await getLastUserId(); 
@@ -83,11 +97,12 @@ document.getElementById("submit").addEventListener('click', async function(e) {
                 username = "";
                 password = "";
                 address = "";
+                window.location.href = "/janeiwebsite/src/home.html";
             } catch (error) {
                 console.error("Error:", error);
             }
         }
-    }
+    
     } else {
         console.error("Error: All fields are required");
         const errorContainer = document.getElementById('errorContainer');
@@ -99,7 +114,7 @@ document.getElementById("submit").addEventListener('click', async function(e) {
 });
 
 
-//userid
+//checkuserid
 async function getLastUserId() {
     try {
         const response = await get(ref(db, 'customers'));

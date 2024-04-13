@@ -60,16 +60,18 @@
                 <img class="w-16 cursor-pointer p-1" src="/janeiwebsite/assets/logolanyard.png" alt="...">
                 <span class="md:pt-3 pt-4 p-2 text-2xl lg:text-3xl font-bold absolute ml-16 text-black">JANEI</span>
             </div>
+            
             <div class="nav-links p-3 md:rounded-full z-50 duration-500 md:static absolute
              bg-[#1F1F1F] shadow-slate-200 shadow-lg md:min-h-fit min-h-[60vh]
              left-0 top-[-100%]  md:w-auto  w-full flex items-center px-5">
+
                 <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
                     <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
                         <li class="pl-5 pr-5">
                             <a class="hover:text-yellow-500 font-semibold text-slate-200 duration-200" href="/janeiwebsite/src/home.html">HOME</a>
                         </li>
                         <li class="pl-5 pr-5">
-                            <a class="hover:text-yellow-500 font-semibold text-slate-200 duration-200" href="#  ">GALLERY</a>
+                            <a class="hover:text-yellow-500 font-semibold text-slate-200 duration-200" href="/janeiwebsite/src/pricing.html ">GALLERY</a>
                         </li>
                         <li class="pl-5 pr-5">
                             <a class="hover:text-yellow-500 font-semibold text-slate-200 duration-200" href="#">SHOP</a>
@@ -359,17 +361,15 @@
 </footer>
 
 <!--Scripts-->    
-<script  >
-
-    const currentUserString = sessionStorage.getItem("currentUser");
-    if (currentUserString) {
-        const currentUser = JSON.parse(currentUserString);
-        console.log("Current user:", currentUser);
-    } else {
-        console.log("No user logged in.");
-    }
+<script>
+     const navLinks = document.querySelector('.nav-links')
+        function onToggleMenu(e){
+            e.name = e.name === 'menu' ? 'close' : 'menu'
+            navLinks.classList.toggle('top-[10%]')
+        }
+ 
 </script>
-<script src="/janeiwebsite/scripts/home.js"></script>
+<script type="module" src="/janeiwebsite/scripts/home.js"></script>
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
 </body>

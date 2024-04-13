@@ -7,18 +7,6 @@ async function fetchDataFromDatabase(path) {
     }
     return await response.json();
 }
-/*fetchDataFromDatabase("customers/")     
-    .then(data => {
-        for (let e in data) {
-            if (data[e] !== null){
-                console.log(data[e].username);
-                console.log(data[e].password);
-                console.log(data[e].role);
-      
-            } 
-        }
-    })
-    .catch(error => console.error("Error fetching data:", error));*/
 
     const doc_iderror = true; 
  

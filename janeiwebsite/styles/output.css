@@ -1165,10 +1165,6 @@ select {
   margin-right: auto;
 }
 
-.mb-\[-10\%\] {
-  margin-bottom: -10%;
-}
-
 .ml-10 {
   margin-left: 2.5rem;
 }
@@ -1255,10 +1251,6 @@ select {
 
 .mt-\[-20\%\] {
   margin-top: -20%;
-}
-
-.mb-10 {
-  margin-bottom: 2.5rem;
 }
 
 .box-border {
@@ -1442,10 +1434,6 @@ select {
 
 .h-screen {
   height: 100vh;
-}
-
-.max-h-screen {
-  max-height: 100vh;
 }
 
 .min-h-\[60vh\] {
@@ -2662,9 +2650,9 @@ select {
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
-.bg-red-300 {
+.bg-red-200 {
   --tw-bg-opacity: 1;
-  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
+  background-color: rgb(254 202 202 / var(--tw-bg-opacity));
 }
 
 .bg-slate-100 {
@@ -2692,11 +2680,6 @@ select {
   background-color: rgb(15 23 42 / var(--tw-bg-opacity));
 }
 
-.bg-slate-950 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(2 6 23 / var(--tw-bg-opacity));
-}
-
 .bg-transparent {
   background-color: transparent;
 }
@@ -2704,21 +2687,6 @@ select {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-fuchsia-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(192 38 211 / var(--tw-bg-opacity));
-}
-
-.bg-red-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 202 202 / var(--tw-bg-opacity));
-}
-
-.bg-red-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
 }
 
 .decoration-slice {
@@ -2938,10 +2906,6 @@ select {
   padding-top: 0.5rem;
 }
 
-.pt-20 {
-  padding-top: 5rem;
-}
-
 .pt-3 {
   padding-top: 0.75rem;
 }
@@ -3084,12 +3048,12 @@ select {
   font-weight: 500;
 }
 
-.font-semibold {
-  font-weight: 600;
-}
-
 .font-normal {
   font-weight: 400;
+}
+
+.font-semibold {
+  font-weight: 600;
 }
 
 .uppercase {
@@ -3483,6 +3447,11 @@ select {
 
 .shadow-\[\#ffffff9e\] {
   --tw-shadow-color: #ffffff9e;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+.shadow-black {
+  --tw-shadow-color: #000;
   --tw-shadow: var(--tw-shadow-colored);
 }
 
@@ -3981,10 +3950,6 @@ select {
     margin-bottom: 1rem;
   }
 
-  .md\:mb-\[-6\%\] {
-    margin-bottom: -6%;
-  }
-
   .md\:ml-10 {
     margin-left: 2.5rem;
   }
@@ -4361,10 +4326,6 @@ select {
 
   .lg\:flex {
     display: flex;
-  }
-
-  .lg\:hidden {
-    display: none;
   }
 
   .lg\:w-1\/2 {
