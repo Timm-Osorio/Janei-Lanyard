@@ -8,7 +8,7 @@ async function fetchDataFromDatabase(path) {
     return await response.json();
 }
 
-    const doc_iderror = true; 
+    const doc_iderror = true;   
  
 
     document.getElementById("loginForm").addEventListener("submit", function(event) {
@@ -25,6 +25,7 @@ async function fetchDataFromDatabase(path) {
                     console.log("Logged in as:", username);
                     console.log("Role:", data[e].role);
                     isLoggedIn = true;
+                    localStorage.setItem('currentUsername', data[e].username);
                     break;
                 } 
             }
@@ -46,8 +47,24 @@ async function fetchDataFromDatabase(path) {
                     }, 3000);
                 }
             } else {
+              
+               console.log("success");
                window.location.href = "/janeiwebsite/src/home.html";
             }
         })
         .catch(error => console.error("Error fetching data:", error));
+    });
+
+
+    document.getElementById("togglePassword").addEventListener("click", function() {
+        const passwordInput = document.getElementById("password");
+        const eyeIcon = this.querySelector('ion-icon');
+    
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            eyeIcon.setAttribute('name', 'eye-off-outline');
+        } else {
+            passwordInput.type = "password";
+            eyeIcon.setAttribute('name', 'eye-outline');
+        }
     });
