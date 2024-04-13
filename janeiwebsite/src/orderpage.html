@@ -12,20 +12,28 @@
     <link rel="stylesheet" href="/janeiwebsite/styles/body.css">
 </head>
 <style>
- .image-container {
-    display: inline-block;
-    margin: 10px;
-    cursor: pointer;
-    transition: filter 0.3s ease-in-out;
+ .title {
+    background-color: #dad9db;
+    border-radius: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23848484' fill-opacity='0.4'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+ }
+ .text {
+    filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.686));
+ }
+ .firstdiv {
+    box-shadow: 7px 7px 12px #000 ;
+ }
+ .active {
+    border-bottom: none;
+ }
+ .button {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+ }
+ .button:hover {
+    background-image: linear-gradient(to bottom, #5c5c5c,  #ffffff);
     animation-duration: 3s;
-  }
-  img {
-    transition: filter 0.3s ease-in-out;
-  }
-  .image-container:hover {
-
-    animation-duration: 3s;
-  }
+ }
 </style>
 <body class="bg-[#D9D9D9]">
     <header class=" z-50">
@@ -45,7 +53,7 @@
                             <a class="hover:text-yellow-500 font-semibold text-slate-200 duration-200" href="/janeiwebsite/src/home.html">HOME</a>
                         </li>
                         <li class="pl-5 pr-5">
-                            <a class="hover:text-yellow-500 font-semibold text-slate-200 duration-200" href="#  ">GALLERY</a>
+                            <a class="hover:text-yellow-500 font-semibold text-slate-200 duration-200" href="/janeiwebsite/src/pricing.html ">GALLERY</a>
                         </li>
                         <li class="pl-5 pr-5">
                             <a class="hover:text-yellow-500 font-semibold text-slate-200 duration-200" href="/janeiwebsite/src/orderpage.html">SHOP</a>
@@ -65,54 +73,48 @@
             </div>
     </header>
 
-    <section class="h-auto bg-[#D9D9D9] md:p-10 p-5">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="grid gap-4">
-                <div class="image-container">
-                    <img  onclick="changeImages(this)" class="h-auto max-w-full rounded-lg" src="/janeiwebsite/assets/img1.jpg" alt="">
+    <section class="h-auto md:p-10 p-5 sticky z-0">
+        <div class="title p-10  justify-center rounded-xl">
+            <div class="text font-medium md:text-[35px] text-[20px] text-center text-black ">LANYARD DESIGN</div>
+            <div class="text font-bold md:text-[65px] text-[40px] text-center text-black">FOR BUILDERS</div>
+            <div class="text font-bold md:text-[27px] text-[13px] text-center text-black">Janei Editing and Printing Services</div>
+        </div>
+    </section>
+    <section class="md:p-10 p-2 h-auto sticky">
+        <div class=" ">
+           
+            <div class="md:flex justify-center">
+                <div class="md:w-3/10 justify-center"> 
+                    <h1 class="font-mono md:text-[20px] text-sm font-bold md:font-semibold p-2 md:text-left text-center ">CREATE YOUR OWN DESIGN</h1>
+                    <div class="firstdiv mx-auto h-[300px] w-[320px] lg:h-[500px] lg:w-[450px] border-[3px] bg-slate-100 border-black "></div>
                 </div>
-                 <div class="image-container">
-                    <img  onclick="changeImages(this)" class="h-auto max-w-full rounded-lg" src="/janeiwebsite/assets/img33.jpg" alt="">
-                </div>
-                <div class="image-container">
-                    <img  onclick="changeImages(this)" class="h-auto max-w-full rounded-lg" src="/janeiwebsite/assets/img22.jpg" alt="">
-                </div>
-            </div>
-            <div class="grid gap-4">
-                <div class="image-container">
-                    <img onclick="changeImages(this)"  class="h-auto max-w-full rounded-lg" src="/janeiwebsite/assets/img23.jpg" alt="">
-                </div>
-                <div class="image-container">
-                    <img onclick="changeImages(this)" class="h-auto max-w-full rounded-lg" src="/janeiwebsite/assets/img24.jpg" alt="">
-                </div>
-                <div class="image-container">
-                    <img onclick="changeImages(this)" class="h-auto max-w-full rounded-lg" src="/janeiwebsite/assets/img25.jpg" alt="">
-                </div>
-            </div>
-            <div class="grid gap-4">
-                <div class="image-container">
-                    <img onclick="changeImages(this)" class="h-auto max-w-full rounded-lg" src="/janeiwebsite/assets/img26.jpg" alt="">
-                </div>
-                <div class="image-container">
-                    <img onclick="changeImages(this)"  class="h-auto max-w-full rounded-lg" src="/janeiwebsite/assets/img27.jpg" alt="">
-                </div>
-                <div class="image-container">
-                    <img onclick="changeImages(this)" class="h-auto max-w-full rounded-lg" src="/janeiwebsite/assets/img29.jpg" alt="">
-                </div>
-            </div>
-            <div class="grid gap-4">
-                <div class="image-container">
-                    <img onclick="changeImages(this)" class="h-auto max-w-full rounded-lg" src="/janeiwebsite/assets/img30.jpg" alt="">
-                </div>
-                <div class="image-container">
-                    <img onclick="changeImages(this)" class="h-auto max-w-full rounded-lg" src="/janeiwebsite/assets/img31.jpg" alt="">
-                </div>
-                <div class="image-container">
-                    <img onclick="changeImages(this)" class="h-auto max-w-full rounded-lg" src="/janeiwebsite/assets/img34.jpg" alt="">
+                <div class="md:w-7/10 pt-2"> 
+                    <div class="md:w-7/10 pt-10"> 
+                        <div class="flex p-2 gap-2 justify-center z-10">
+                            <div id="backgroundBtn" class="button bg-slate-100 duration-300 font-semibold p-2 border-[3px] border-black text-center  text-sm active cursor-pointer" onclick="showDiv('firstdiv', this)">Background</div>
+                            <div id="patternBtn" class="button bg-slate-100 duration-300 font-semibold  p-2 border-[3px] border-black text-center  text-sm cursor-pointer" onclick="showDiv('seconddiv', this)">Pattern</div>
+                            <div id="textFontBtn" class="button bg-slate-100 duration-300 font-semibold  p-2 border-[3px] border-black text-center  text-sm cursor-pointer" onclick="showDiv('thirddiv', this)">Text font</div>
+                            <div id="logoShapeBtn" class="button bg-slate-100 duration-300 font-semibold  p-2 border-[3px] border-black text-center text-sm cursor-pointer" onclick="showDiv('fourthdiv', this)">Logo Shape</div>
+                        </div>
+                        
+                        <div id="content" class="-mt-[11px] pb-10 mx-auto">
+                            <div id="firstdiv" class="firstdiv  md:ml-2 lg:h-[400px] lg:w-[650px] border-[3px] bg-slate-100  border-black p-10 rounded-md" style="display:block;">BACKGROUND</div>
+                            <div id="seconddiv" class="firstdiv md:ml-2 lg:h-[400px] lg:w-[650px] border-[3px] bg-slate-100 border-black p-10 rounded-md" style="display:none;">PATTERN</div>
+                            <div id="thirddiv" class="firstdiv  md:ml-2 lg:h-[400px] lg:w-[650px] border-[3px] bg-slate-100 border-black p-10 rounded-md" style="display:none;">TEXT FONT</div>
+                            <div id="fourthdiv" class="firstdiv  md:ml-2 lg:h-[400px] lg:w-[650px] border-[3px] bg-slate-100 border-black p-10 rounded-md" style="display:none;">LOGO SHAPES</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+    <section class="h-auto">
+        <div class="w-full h-14 bg-[#1F1F1F] pb-10 shadow-md shadow-black">
+            <h1 class="text-white font-semibold font-mono p-3 text-2xl">PRESET DESIGN</h1>
+        </div>
+        <div class="w-ful h-16 pb-10"></div>
+    </section>
+
 <!--FOOTER-->
 <footer class="h-60 p-5 w-auto bg-[#1F1F1F]">
     <div class="">
@@ -122,11 +124,11 @@
             </li>
             <div class="md:h-1.5 md:w-1.5 h-1 w-1 bg-slate-50 rounded-full mt-2.5 "></div>
             <li class="text-white md:text-xl font-medium hover:text-yellow-600 duration-300">
-                <a href="#">GALLERY</a>
+                <a href="/janeiwebsite/src/pricing.html">GALLERY</a>
             </li>
             <div class="md:h-1.5 md:w-1.5 h-1 w-1 bg-slate-50 rounded-full mt-2.5 "></div>
             <li class="text-white md:text-xl font-medium hover:text-yellow-600 duration-300">
-                <a href="/janeiwebsite/src/orderpage.html">SHOP</a>
+                <a href="">SHOP</a>
             </li>
         </ul>
         <div class="md:h-1 h-0.5 md:w-[70%] bg-white mt-4 mx-auto"></div>
@@ -149,7 +151,18 @@
             e.name = e.name === 'menu' ? 'close' : 'menu'
             navLinks.classList.toggle('top-[10%]')
         }
- 
+
+    function showDiv(divId, button) {
+        document.querySelectorAll('#content > div').forEach(function(div) {
+            div.style.display = 'none';
+        });
+        document.getElementById(divId).style.display = 'block';
+        document.querySelectorAll('.button').forEach(function(btn) {
+            btn.classList.remove('active');
+        });
+        button.classList.add('active');
+    }
+
 </script>
 </body>
 </html>
