@@ -33,7 +33,55 @@
  .button:hover {
     background-image: linear-gradient(to bottom, #515151,  #ffffff);
     animation-duration: 3s;
+    color: whitesmoke
  }
+ .box {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.568);  
+ }
+ .box1 {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 5px;
+    background-color: white;
+ }
+ .box-clicked {
+    transform: scale(1.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Adjust shadow as needed */
+ }
+ .productname {
+    border-radius: 5px;
+    
+ }
+ .cart-image {
+    transition: transform 0.3s ease;
+    z-index: 0;
+ }
+    
+ .cart-image:hover {
+    transform: translateX(10px);
+ }
+    .cart-image:hover + .order-message {
+    display: block;
+    z-index: 0;
+    }
+
+    .order-message {
+    display: none;
+    position: absolute;
+    top: -60%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.898);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    }
 </style>
 <body class="bg-[#D9D9D9]">
     <header class=" z-50">
@@ -76,8 +124,8 @@
     <section class="h-auto md:p-10 p-5 sticky z-0">
         <div class="title p-10  justify-center rounded-xl">
             <div class="text font-medium md:text-[35px] text-[20px] text-center text-black ">LANYARD DESIGN</div>
-            <div class="text font-bold md:text-[65px] text-[40px] text-center text-black">FOR BUILDERS</div>
-            <div class="text font-bold md:text-[27px] text-[13px] text-center text-black">Janei Editing and Printing Services</div>
+            <div class="text font-bold md:text-[65px] text-[35px] text-center text-black">FOR BUILDERS</div>
+            <div class="text font-bold md:text-[27px] text-sm text-center text-black">Janei Editing and Printing Services</div>
         </div>
     </section>
     <section class="md:p-10 p-2 h-auto sticky">
@@ -85,14 +133,14 @@
             <div class="md:flex justify-center">
                 <div class="md:w-3/10 justify-center"> 
                     <h1 class="font-mono md:text-[20px] text-sm font-bold md:font-semibold p-2 md:text-left text-center ">CREATE YOUR OWN DESIGN</h1>
-                    <div class="firstdiv mx-auto h-[300px] w-[320px] lg:h-[500px] lg:w-[450px] border-[3px] bg-slate-100 border-black "></div>
+                    <div class="firstdiv rounded-md mx-auto h-[300px] w-[320px] lg:h-[500px] lg:w-[450px] border-[3px] bg-slate-100 border-black "></div>
                 </div>
                 <div class="md:w-7/10 pt-2"> 
                     <div class="md:w-7/10 pt-10"> 
                         <div class="flex p-2 gap-2 justify-center z-10">
-                            <div id="backgroundBtn" class="button bg-slate-100 duration-300 font-semibold p-2 border-[3px] border-black text-center  text-sm active cursor-pointer" onclick="showDiv('firstdiv', this)">Background</div>
+                            <div id="backgroundBtn" class="button  bg-slate-100 duration-300 font-semibold p-2 border-[3px] border-black text-center  text-sm active cursor-pointer" onclick="showDiv('firstdiv', this)">Background</div>
                             <div id="patternBtn" class="button bg-slate-100 duration-300 font-semibold  p-2 border-[3px] border-black text-center  text-sm cursor-pointer" onclick="showDiv('seconddiv', this)">Pattern</div>
-                            <div id="textFontBtn" class="button bg-slate-100 duration-300 font-semibold  p-2 border-[3px] border-black text-center  text-sm cursor-pointer" onclick="showDiv('thirddiv', this)">Text font</div>
+                            <div id="textFontBtn" class="button bg-slate-100 duration-300 font-semibold  p-2 border-[3px] border-black text-center  text-sm cursor-pointer" onclick="showDiv('thirddiv', this)"> Font</div>
                             <div id="logoShapeBtn" class="button bg-slate-100 duration-300 font-semibold  p-2 border-[3px] border-black text-center text-sm cursor-pointer" onclick="showDiv('fourthdiv', this)">Logo Shape</div>
                         </div>
                         
@@ -111,20 +159,129 @@
         <div class="w-full h-14 bg-[#1F1F1F] pb-10 shadow-md shadow-black">
             <h1 class="text-white font-semibold font-mono p-3 pl-10 text-2xl">PRESET DESIGN</h1>
         </div>
-        <div class="w-full border grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 p-2 gap-2">
-            <div class="bg-blue-500 md:h-[300px] h-[250px] md:w-[250px] w-[180px] ">s</div>
-            <div class="bg-blue-500 border md:h-[300px] h-[250px] md:w-[250px] w-[180px] ">s</div>
-            <div class="bg-blue-500 md:h-[300px] h-[250px] md:w-[250px] w-[180px] ">s</div>
-            <div class="bg-blue-500 border md:h-[300px] h-[250px] md:w-[250px] w-[180px] ">s</div>
-            <div class="bg-blue-500 md:h-[300px] h-[250px] md:w-[250px] w-[180px] ">s</div>
-            <div class="bg-blue-500 border md:h-[300px] h-[250px] md:w-[250px] w-[180px] ">s</div>
-            <div class="bg-blue-500 md:h-[300px] h-[250px] md:w-[250px] w-[180px] ">s</div>
-            <div class="bg-blue-500 border md:h-[300px] h-[250px] md:w-[250px] w-[180px] ">s</div>
-            <div class="bg-blue-500 md:h-[300px] h-[250px] md:w-[250px] w-[180px] ">s</div>
-            <div class="bg-blue-500 border md:h-[300px] h-[250px] md:w-[250px] w-[180px] ">s</div>
-            <div class="bg-blue-500 md:h-[300px] h-[250px] md:w-[250px] w-[180px] ">s</div>
-            <div class="bg-blue-500 border md:h-[300px] h-[250px] md:w-[250px] w-[180px] ">s</div>
-         
+        <div class="md:p-10 p-5 flex justify-evenly ">
+            <div class="flex flex-wrap md:gap-6 gap-3 justify-center">
+                <div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
+                    <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer "></div>
+                    <div class="flex md:pt-2 pt-1  z-0">
+                        <a href="#" class="relative">
+                            <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
+                            <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
+                        </a>
+                        <div class="productname text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
+                            RED PUTTIN  45
+                        </div>   
+                    </div>
+                </div>
+                <div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
+                    <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer "></div>
+                    <div class="flex md:pt-2 pt-1  z-0">
+                        <a href="#" class="relative">
+                            <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
+                            <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
+                        </a>
+                        <div class="productname text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
+                            RED PUTTIN  45
+                        </div>   
+                    </div>
+                </div>
+                <div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
+                    <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer "></div>
+                    <div class="flex md:pt-2 pt-1  z-0">
+                        <a href="#" class="relative">
+                            <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
+                            <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
+                        </a>
+                        <div class="productname text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
+                            RED PUTTIN  45
+                        </div>   
+                    </div>
+                </div>
+                <div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
+                    <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer "></div>
+                    <div class="flex md:pt-2 pt-1  z-0">
+                        <a href="#" class="relative">
+                            <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
+                            <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
+                        </a>
+                        <div class="productname text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
+                            RED PUTTIN  45
+                        </div>   
+                    </div>
+                </div>
+                <div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
+                    <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer "></div>
+                    <div class="flex md:pt-2 pt-1  z-0">
+                        <a href="#" class="relative">
+                            <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
+                            <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
+                        </a>
+                        <div class="productname text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
+                            RED PUTTIN  45
+                        </div>   
+                    </div>
+                </div>
+                <div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
+                    <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer "></div>
+                    <div class="flex md:pt-2 pt-1  z-0">
+                        <a href="#" class="relative">
+                            <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
+                            <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
+                        </a>
+                        <div class="productname text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
+                            RED PUTTIN  45
+                        </div>   
+                    </div>
+                </div>
+                <div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
+                    <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer "></div>
+                    <div class="flex md:pt-2 pt-1  z-0">
+                        <a href="#" class="relative">
+                            <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
+                            <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
+                        </a>
+                        <div class="productname text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
+                            RED PUTTIN  45
+                        </div>   
+                    </div>
+                </div>
+                <div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
+                    <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer "></div>
+                    <div class="flex md:pt-2 pt-1  z-0">
+                        <a href="#" class="relative">
+                            <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
+                            <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
+                        </a>
+                        <div class="productname text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
+                            RED PUTTIN  45
+                        </div>   
+                    </div>
+                </div>
+                <div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
+                    <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer "></div>
+                    <div class="flex md:pt-2 pt-1  z-0">
+                        <a href="#" class="relative">
+                            <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
+                            <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
+                        </a>
+                        <div class="productname text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
+                            RED PUTTIN  45
+                        </div>   
+                    </div>
+                </div>
+                <div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
+                    <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer "></div>
+                    <div class="flex md:pt-2 pt-1  z-0">
+                        <a href="#" class="relative">
+                            <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
+                            <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
+                        </a>
+                        <div class="productname text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
+                            RED PUTTIN  45
+                        </div>   
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -156,8 +313,8 @@
 </footer>    
 <!--Scripts-->   
 <script type="module" src="/janeiwebsite/scripts/home.js"></script>
-<script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script>
      const navLinks = document.querySelector('.nav-links')
         function onToggleMenu(e){
@@ -176,6 +333,18 @@
         button.classList.add('active');
     }
 
+  document.body.addEventListener('click', function(event) {
+        var boxes = document.querySelectorAll(".box1");
+        boxes.forEach(function(box) {
+            if (!box.contains(event.target)) {
+                box.classList.remove("box-clicked");
+            }
+        });
+    });
+
+    function toggleHover(box) {
+        box.classList.toggle("box-clicked");
+    }
 </script>
 </body>
 </html>

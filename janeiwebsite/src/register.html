@@ -130,27 +130,48 @@
     <!--End of the Registrationpage--> 
         </div>  
     <!--Errors-->
-            <div class="pt-10 relative">
-                <div id="errorContainer" class="error w-64 rounded-full  bg-red-300 font-bold text-red-500 text-center sticky bottom-0 bg-transparent shadow-md  shadow-red-600 z-20 text-sm p-3 mx-auto"  style="display: none;">
-                    All fields are required!
+            <div class="pt-1 relative">
+                <div id="errorContainer" class="error w-full  font-bold bg-red-200  text-red-500 text-center sticky bottom-0 shadow-md  shadow-red-600 z-20 text-sm p-3 mx-auto"  style="display: none;">
+                    <div class="flex justify-center ">
+                        <ion-icon name="warning-outline" style="height: 25px; width: 25px; " class=""></ion-icon>  
+                        <span class=" mt-1 pl-3 ">All fields are required!</span> 
+                    </div> 
                 </div>
-                <div id="errorContainer1" class="error w-80 md:w-96  rounded-full  bg-red-300 font-bold text-red-500 text-center sticky bottom-0 bg-transparent shadow-md  shadow-red-600 z-20 text-sm p-3 mx-auto"  style="display: none;">
-                    Password and Confirm password don't match!
+                <div id="errorContainer1" class="error w-full  font-bold bg-red-200  text-red-500 text-center sticky bottom-0 shadow-md  shadow-red-600 z-20 text-sm p-3 mx-auto"  style="display: none;">
+                    <div class="flex justify-center ">
+                        <ion-icon name="warning-outline" style="height: 25px; width: 25px; " class=""></ion-icon>
+                        <span class=" mt-1 pl-3 ">Password and Confirm password don't match!</span> 
+                    </div>   
                 </div>
-                <div id="errorContainer2" class="error md:w-96 w-full  md:rounded-full  bg-red-300 font-bold text-red-500 text-center sticky bottom-0 bg-transparent shadow-md  shadow-red-600 z-20 text-sm p-3 mx-auto"  style="display: none;">
-                    Email account already used!
+                <div id="errorContainer2" class="error w-full  font-bold bg-red-200  text-red-500 text-center sticky bottom-0 shadow-md  shadow-red-600 z-20 text-sm p-3 mx-auto"  style="display: none;">
+                    <div class="flex justify-center ">
+                        <ion-icon name="warning-outline" style="height: 25px; width: 25px; " class=""></ion-icon>
+                        <span class=" mt-1 pl-3 ">Email account already used!</span> 
+                    </div>   
                 </div>
-                <div id="errorContainer3" class="error w-80 md:w-96  rounded-full  bg-red-300 font-bold text-red-500 text-center sticky bottom-0 bg-transparent shadow-md  shadow-red-600 z-20 text-sm p-3 mx-auto"  style="display: none;">
-                    Username already used!
+                <div id="errorContainer3" class="error w-full  font-bold bg-red-200  text-red-500 text-center sticky bottom-0 shadow-md  shadow-red-600 z-20 text-sm p-3 mx-auto"  style="display: none;">
+                    <div class="flex justify-center ">
+                        <ion-icon name="warning-outline" style="height: 25px; width: 25px; " class=""></ion-icon>
+                        <span class=" mt-1 pl-3 ">Username already used!</span> 
+                    </div>          
                 </div>
-                <div id="errorContainer4" class="error w-80 md:w-96  rounded-full  bg-red-300 font-bold text-red-500 text-center sticky bottom-0 bg-transparent shadow-md  shadow-red-600 z-20 text-sm p-3 mx-auto"  style="display: none;">
-                    Please follow the Email format!
+                <div id="errorContainer4" class="error w-full  font-bold bg-red-200  text-red-500 text-center sticky bottom-0 shadow-md  shadow-red-600 z-20 text-sm p-3 mx-auto"  style="display: none;">
+                    <div class="flex justify-center ">
+                        <ion-icon name="warning-outline" style="height: 25px; width: 25px; " class=""></ion-icon>
+                        <span class=" mt-1 pl-3 ">Please follow the Email format!</span> 
+                    </div>               
                 </div>
-                <div id="errorContainer5" class="error w-80 md:w-96  rounded-full  bg-red-300 font-bold text-red-500 text-center sticky bottom-0 bg-transparent shadow-md  shadow-red-600 z-20 text-sm p-3 mx-auto"  style="display: none;">
-                    Password must be at least 6 characters long.
+                <div id="errorContainer5" class="error w-full  font-bold bg-red-200  text-red-500 text-center sticky bottom-0 shadow-md  shadow-red-600 z-20 text-sm p-3 mx-auto"  style="display: none;">
+                    <div class="flex justify-center ">
+                        <ion-icon name="warning-outline" style="height: 25px; width: 25px; " class=""></ion-icon>
+                        <span class=" mt-1 pl-3 ">Password must be at least 6 characters long.</span> 
+                    </div>                
                 </div>
-                <div id="errorContainer6" class="error w-80 md:w-96  rounded-full  bg-red-300 font-bold text-red-500 text-center sticky bottom-0 bg-transparent shadow-md  shadow-red-600 z-20 text-sm p-3 mx-auto"  style="display: none;">
-                    Password must contain letters and numbers.
+                <div id="errorContainer6" class="error w-full  font-bold bg-red-200  text-red-500 text-center sticky bottom-0 shadow-md  shadow-red-600 z-20 text-sm p-3 mx-auto"  style="display: none;">
+                    <div class="flex justify-center ">
+                        <ion-icon name="warning-outline" style="height: 25px; width: 25px; " class=""></ion-icon>
+                        <span class=" mt-1 pl-3 ">Password must contain letters and numbers.</span> 
+                    </div>                
                 </div>
             </div>
     <!--Errors end-->
@@ -160,5 +181,7 @@
 <!--Scripts-->    
 <script type="module" src="/janeiwebsite/scripts/registration.js"></script>
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html> 
