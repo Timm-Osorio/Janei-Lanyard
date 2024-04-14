@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  href="/janeiwebsite/styles/output.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/janeiwebsite/styles/tailwind.css">
+    <title>Janei Lanyard</title>
+    <link rel="icon" type="icon" href="/janeiwebsite/assets/logolanyard.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/janeiwebsite/styles/body.css">
+</head>
+<style>
+
+</style>
+<body class="bg-[#D9D9D9]">
+    <header class=" z-50">
+        <nav class="flex justify-between items-center w-[92%] pt-2 md:pt-5 mx-auto">
+            <div class="flex">
+                <img class="w-16 cursor-pointer p-1" src="/janeiwebsite/assets/logolanyard.png" alt="...">
+                <span class="md:pt-3 pt-4 p-2 text-2xl lg:text-3xl font-bold absolute ml-16 text-black">JANEI</span>
+            </div>
+            
+            <div class="nav-links p-3 md:rounded-full z-50 duration-500 md:static absolute
+             bg-[#1F1F1F] shadow-slate-200 shadow-lg md:min-h-fit min-h-[60vh]
+             left-0 top-[-100%]  md:w-auto  w-full flex items-center px-5">
+
+                <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+                    <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+                        <li class="pl-5 pr-5">
+                            <a class="hover:text-yellow-500 font-semibold text-slate-200 duration-200" href="/janeiwebsite/src/home.html">HOME</a>
+                        </li>
+                        <li class="pl-5 pr-5">
+                            <a class="hover:text-yellow-500 font-semibold text-slate-200 duration-200" href="#  ">GALLERY</a>
+                        </li>
+                        <li class="pl-5 pr-5">
+                            <a class="hover:text-yellow-500 font-semibold text-slate-200 duration-200" href="/janeiwebsite/src/orderpage.html">SHOP</a>
+                        </li>  
+                    </ul>
+            </div>
+            <div class="flex items-center gap-6">
+                <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
+                <div class="relative inline-block">
+                    <img src="/janeiwebsite/assets/usser.png" class="h-12  rounded-full cursor-pointer shadow-md" alt="User Image">
+                    <ul class="absolute drop hidden bg-white h-auto rounded-md shadow-lg mt-2 py-1 w-44  right-[5%]  border-black border duration-300 z-10">
+                        <a href="#"><li class="p-3 m-1 font-medium text-black hover:text-yellow-500 hover:bg-[#000000bc] rounded-md duration-200 ">Profile</li></a>
+                        <a href="#"><li class="p-3 m-1 font-medium text-black hover:text-yellow-500 hover:bg-[#000000bc] rounded-md duration-200 ">Orders</li></a>
+                        <a href="/janeiwebsite/index.html"><li class="p-3 m-1 font-medium text-black hover:text-yellow-500 hover:bg-[#000000bc] rounded-md duration-200 ">Logout</li></a>
+                    </ul>
+                </div>
+            </div>
+    </header>
+
+    <section class="h-screen border  md:p-10 p-5">
+        <div class="border h-full p-2 md:p-10 ">
+            <div class="md:flex ">
+                <div class="md:w-1/2 w-full bg-red-500 mx-auto">First Div</div>
+                <div class="md:w-2/3 w-full bg-blue-500 mx-auto">Second Div</div>
+            </div>
+        </div>
+    </section>
+<!--FOOTER-->
+<footer class="h-60 p-5 w-auto bg-[#1F1F1F]">
+    <div class="">
+        <ul class="flex md:gap-6  gap-4  justify-center">
+            <li class="text-white md:text-xl font-medium hover:text-yellow-600 duration-300">
+                <a href="/janeiwebsite/src/home.html">HOME</a>
+            </li>
+            <div class="md:h-1.5 md:w-1.5 h-1 w-1 bg-slate-50 rounded-full mt-2.5 "></div>
+            <li class="text-white md:text-xl font-medium hover:text-yellow-600 duration-300">
+                <a href="#">GALLERY</a>
+            </li>
+            <div class="md:h-1.5 md:w-1.5 h-1 w-1 bg-slate-50 rounded-full mt-2.5 "></div>
+            <li class="text-white md:text-xl font-medium hover:text-yellow-600 duration-300">
+                <a href="/janeiwebsite/src/orderpage.html">SHOP</a>
+            </li>
+        </ul>
+        <div class="md:h-1 h-0.5 md:w-[70%] bg-white mt-4 mx-auto"></div>
+        <div class="mt-4 text-center font-medium  text-white">You can also visit our social media accounts </div>
+        <div class="flex justify-center gap-8 mt-4 md:gap-16">
+            <img src="/janeiwebsite/assets/facebook.png" alt="fbpage" srcset="" class="md:h-14 h-12 cursor-pointer hover:scale-[95%] duration-200 ">
+            <img src="/janeiwebsite/assets/X.png" alt="xpage" srcset="" class="md:h-16 h-14 cursor-pointer hover:scale-[95%] duration-200 ">
+            <img src="/janeiwebsite/assets/Insta.png" alt="instapage" srcset="" class="md:h-14 h-12 cursor-pointer hover:scale-[95%] duration-200 ">
+        </div>
+        <div class="text-white md:font-medium mt-2 md:ml-5">@ Janei editing and printing services</div>
+    </div>
+</footer>    
+<!--Scripts-->   
+<script type="module" src="/janeiwebsite/scripts/home.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+<script>
+     const navLinks = document.querySelector('.nav-links')
+        function onToggleMenu(e){
+            e.name = e.name === 'menu' ? 'close' : 'menu'
+            navLinks.classList.toggle('top-[10%]')
+        }
+ 
+</script>
+</body>
+</html>
