@@ -12,7 +12,13 @@
     <link rel="stylesheet" href="/janeiwebsite/styles/body.css">
 </head>
 <style>
-
+.input-container {
+    margin-top: 10px;
+}
+.cancel-button {
+    margin-left: 5px;
+    cursor: pointer;
+}
 </style>
 <body class="bg-[#D9D9D9]">
     <header class=" z-50">
@@ -53,10 +59,41 @@
     </header>
 
     <section class="h-screen border  md:p-10 p-5">
-        <div class="border h-full p-2 md:p-10 ">
-            <div class="md:flex ">
-                <div class="md:w-1/2 w-full bg-red-500 mx-auto">First Div</div>
-                <div class="md:w-2/3 w-full bg-blue-500 mx-auto">Second Div</div>
+        <div class="">
+            <div class="md:text-3xl text-xl font-bold text-center"> ORDER INFORMATION</div>
+        </div>
+    
+        <div class="border h-full p-2 md:p-5 ">
+            <div class="md:flex md:h-full h-72   ">
+                <div class="md:w-1/2 w-auto h-full mx-auto p-5">
+                    <div class="h-full border bg-slate-100 rounded-lg shadow-md border-black shadow-black">
+                        <img src="/janeiwebsite/assets/a1.png" class="h-full mx-auto" alt="" srcset="">
+                    </div>
+                </div>
+                <div class="md:w-2/3 w-fullmx-auto p-5">
+                    <div class="h-full border bg-slate-200  rounded-lg shadow-md  shadow-black w-full">
+                        <div class="md:text-2xl text-xl text-center font-semibold rounded-tl-lg rounded-tr-lg w-full p-5 bg-[#161616f0] text-yellow-50">ADD TO YOUR ORDER</div>
+                            <div class=" p-2 rounded-md">
+                            <div class="p-5 h-64 bg-white shadow-black shadow-inner rounded-md  overflow-y-auto">
+                                
+                                    <button id="addInput" class="float-right p-3 hover:bg-green-700 duration-300 rounded-md shadow-md text-white hover:scale-95 shadow-slate-600 bg-slate-900">ADD</button>
+                                    <div id="inputContainer" class="mt-16 space-y-2">
+                                        <div class="flex items-center">
+                                            <input type="file" src="" alt="" class="w-full shadow-sm shadow-slate-900 bg-slate-400 p-2 rounded-md">
+                                            <button class="ml-2 px-2 py-2    text-red-500 border border-red-500 rounded hover:bg-red-500 hover:text-white">Cancel</button>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="">
+                                <div class="text-sm font-medium p-2 md:text-xl">DESCRIPTION</div>
+                                    <div class="py- px-3">
+                                        <textarea name="" id="" cols="100" rows="5" class="rounded-md shadow-inner shadow-gray-900"></textarea>
+                                    </div>
+                            </div>
+                    </div>
+                        
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -91,12 +128,43 @@
 <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
 <script>
+    //navbar
      const navLinks = document.querySelector('.nav-links')
         function onToggleMenu(e){
             e.name = e.name === 'menu' ? 'close' : 'menu'
             navLinks.classList.toggle('top-[10%]')
-        }
- 
+    }
+
+    //add input field
+    document.getElementById('addInput').addEventListener('click', function() {
+            var inputContainer = document.getElementById('inputContainer');
+
+            var inputField = document.createElement('div');
+            inputField.className = 'flex items-center';
+
+            var newInput = document.createElement('input');
+            newInput.type = 'file';
+            newInput.className = 'w-full bg-slate-300 shadow-sm shadow-slate-900 p-2 rounded-md';
+            inputField.appendChild(newInput);
+            //cancel the inputted field
+            var cancelButton = document.createElement('button');
+            cancelButton.className = 'ml-2 px-2 py-2  text-red-500 border border-red-500 rounded hover:bg-red-500 hover:text-white';
+            cancelButton.textContent = 'Cancel';
+            cancelButton.addEventListener('click', function() {
+                inputContainer.removeChild(inputField);
+            });
+            inputField.appendChild(cancelButton);
+
+            inputContainer.appendChild(inputField);
+        });
+
+        // default input cliked cancel laman
+        document.getElementById('inputContainer').addEventListener('click', function(event) {
+            if (event.target.classList.contains('border-red-500')) {
+                var fileInput = event.target.parentNode.querySelector('input[type=file]');
+                fileInput.value = ''; 
+            }
+        });
 </script>
 </body>
 </html>
