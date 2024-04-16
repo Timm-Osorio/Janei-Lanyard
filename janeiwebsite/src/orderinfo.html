@@ -57,39 +57,72 @@
                 </div>
             </div>
     </header>
-
-    <section class="h-screen border  md:p-10 p-5">
+    <div id="errorContainer5" class="error w-full fixed font-bold bg-yellow-300 text-slate-900 text-center bottom-0 shadow-md shadow-red-600 z-20 text-sm p-3 mx-auto" style="display: none;">
+        <div class="flex justify-center relative">
+            <img src="/janeiwebsite/assets/pablita-warning-sign.png" class="h-6 " alt="" srcset="">
+            <span class="mt-1 pl-3">Only 5 images are accepted!</span> 
+        </div>                
+    </div>
+    <section class="h-full border  md:py-15 md:px-10 p-5">
         <div class="">
             <div class="md:text-3xl text-xl font-bold text-center"> ORDER INFORMATION</div>
         </div>
-    
-        <div class="border h-full p-2 md:p-5 ">
-            <div class="md:flex md:h-full h-72   ">
-                <div class="md:w-1/2 w-auto h-full mx-auto p-5">
+
+       
+        
+        <div class="border h-auto p-2 md:p-5 ">
+            <div class="md:flex md:h-full   ">
+                <div class="md:w-1/2 md:h-auto w-auto mx-auto md:p-5">
                     <div class="h-full border bg-slate-100 rounded-lg shadow-md border-black shadow-black">
                         <img src="/janeiwebsite/assets/a1.png" class="h-full mx-auto" alt="" srcset="">
                     </div>
                 </div>
-                <div class="md:w-2/3 w-fullmx-auto p-5">
-                    <div class="h-full border bg-slate-200  rounded-lg shadow-md  shadow-black w-full">
-                        <div class="md:text-2xl text-xl text-center font-semibold rounded-tl-lg rounded-tr-lg w-full p-5 bg-[#161616f0] text-yellow-50">ADD TO YOUR ORDER</div>
-                            <div class=" p-2 rounded-md">
-                            <div class="p-5 h-64 bg-white shadow-black shadow-inner rounded-md  overflow-y-auto">
-                                
-                                    <button id="addInput" class="float-right p-3 hover:bg-green-700 duration-300 rounded-md shadow-md text-white hover:scale-95 shadow-slate-600 bg-slate-900">ADD</button>
-                                    <div id="inputContainer" class="mt-16 space-y-2">
-                                        <div class="flex items-center">
-                                            <input type="file" src="" alt="" class="w-full shadow-sm shadow-slate-900 bg-slate-400 p-2 rounded-md">
-                                            <button class="ml-2 px-2 py-2    text-red-500 border border-red-500 rounded hover:bg-red-500 hover:text-white">Cancel</button>
+                <div class="md:w-2/3 w-full mx-auto pt-3 md:p-5">
+                    <div class=" border bg-slate-200  rounded-lg shadow-md  shadow-black w-full">
+                        <div class="md:text-2xl text-[15px] text-center font-semibold rounded-tl-lg rounded-tr-lg w-full p-2 md:p-5 bg-[#161616f0] text-yellow-50">ADD TO YOUR ORDER</div>
+                        
+                            <div class=" p-2 ">
+                                <form action="" method="">
+                                <div class="md:p-5 p-2 md:h-64 h-44 bg-white shadow-black shadow-inner rounded-md  overflow-y-auto">
+                                    
+                                        <button id="addInput" type="button" class="float-right py-2 px-4  md:px-4 md:text-xl text-[13px] hover:bg-green-700 duration-300 rounded-md shadow-md text-white hover:scale-95 shadow-slate-600 bg-slate-900">ADD</button>
+                                        <div id="inputContainer" class="md:mt-14 mt-10 space-y-2">
+                                            <div class="flex items-center">
+                                                <input type="file" src="" alt="" class="w-full shadow-sm shadow-slate-900 bg-slate-400 p-1 md:p-2 rounded-md">
+                                                <button type="button"  class="ml-2 md:px-2 md:py-2 p-1   text-red-500 border border-red-500 rounded hover:bg-red-500 hover:text-white">Cancel</button>
+                                            </div>
                                         </div>
+                                </div>
+                                <div class="">
+                                    <div class="text-sm font-medium p-2 md:text-xl">DESCRIPTION</div>
+                                        <div class=" ">
+                                            <textarea name="" placeholder="type here..." id="" cols="" rows="" class="w-full h-20  md:h-32 rounded-md shadow-inner shadow-gray-900"></textarea>
+                                        </div>
+                                </div>
+                                <div class="flex items-center right-0 p-2 justify-end">
+                                    <div class="p-2 text-center font-semibold md:text-xl ">
+                                        TOTAL :
                                     </div>
+                                    <div class="gap-1">
+                                        <button id="incrementBtn" type="button" class=" px-3 py-1 font-bold text-xl hover:scale-95 text-white duration-300 hover:bg-green-600 rounded-md bg-slate-900">+</button>
+                                        <input type="number" name="" id="count" placeholder="0" class="w-16 font-semibold appearance-none rounded-md mx-2">
+                                        <button id="decrementBtn" type="button" class="px-3 py-1 font-bold text-xl hover:scale-95 text-white duration-300 hover:bg-red-500 rounded-md bg-slate-900">−</button>
+                                        
+                                    </div>  
+                                </div>
+                                <div class="flex justify-between pt-2">
+                                    <a href="/janeiwebsite/src/orderpage.html"><button type="button" class="p-2  hover:bg-red-500 bg-slate-500 hover:scale-95 font-semibold text-white rounded-md">CANCEL ORDER</button></a>
+                                    <button id="orderButton" type="button" class="p-2 bg-slate-900 hover:bg-green-500 hover:scale-95 font-semibold text-white rounded-md">ORDER NOW</button>
+                                </div>
+                            </form>
+                            <div id="myModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+                                <div class="bg-white p-6 rounded-lg">
+                                  <!-- Modal content -->
+                                  <p>ORDER INFORMATION</p>
+                                </div>
+                              </div>
                             </div>
-                            <div class="">
-                                <div class="text-sm font-medium p-2 md:text-xl">DESCRIPTION</div>
-                                    <div class="py- px-3">
-                                        <textarea name="" id="" cols="100" rows="5" class="rounded-md shadow-inner shadow-gray-900"></textarea>
-                                    </div>
-                            </div>
+                        
                     </div>
                         
                     </div>
@@ -97,8 +130,8 @@
             </div>
         </div>
     </section>
-<!--FOOTER-->
-<footer class="h-60 p-5 w-auto bg-[#1F1F1F]">
+
+<footer class=" h-60 p-5 w-auto bg-[#1F1F1F]">
     <div class="">
         <ul class="flex md:gap-6  gap-4  justify-center">
             <li class="text-white md:text-xl font-medium hover:text-yellow-600 duration-300">
@@ -125,6 +158,7 @@
 </footer>    
 <!--Scripts-->   
 <script type="module" src="/janeiwebsite/scripts/home.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
 <script>
@@ -136,27 +170,42 @@
     }
 
     //add input field
-    document.getElementById('addInput').addEventListener('click', function() {
-            var inputContainer = document.getElementById('inputContainer');
+    var inputCount = 0; 
 
-            var inputField = document.createElement('div');
-            inputField.className = 'flex items-center';
+document.getElementById('addInput').addEventListener('click', function() {
+    if (inputCount < 4) {
+        var inputContainer = document.getElementById('inputContainer');
 
-            var newInput = document.createElement('input');
-            newInput.type = 'file';
-            newInput.className = 'w-full bg-slate-300 shadow-sm shadow-slate-900 p-2 rounded-md';
-            inputField.appendChild(newInput);
-            //cancel the inputted field
-            var cancelButton = document.createElement('button');
-            cancelButton.className = 'ml-2 px-2 py-2  text-red-500 border border-red-500 rounded hover:bg-red-500 hover:text-white';
-            cancelButton.textContent = 'Cancel';
-            cancelButton.addEventListener('click', function() {
-                inputContainer.removeChild(inputField);
-            });
-            inputField.appendChild(cancelButton);
+        var inputField = document.createElement('div');
+        inputField.className = 'flex items-center';
 
-            inputContainer.appendChild(inputField);
+        var newInput = document.createElement('input');
+        newInput.type = 'file';
+        newInput.className = 'w-full bg-slate-300 shadow-sm shadow-slate-900 md:p-2 p-1 rounded-md';
+        inputField.appendChild(newInput);
+
+        //cancel the inputted field
+        var cancelButton = document.createElement('button');
+        cancelButton.className = 'ml-2 md:px-2 md:py-2 p-1  text-red-500 border border-red-500 rounded hover:bg-red-500 hover:text-white';
+        cancelButton.textContent = 'Cancel';
+        cancelButton.addEventListener('click', function(event) {
+            var inputField = this.parentNode; 
+            inputField.parentNode.removeChild(inputField);  
+            inputCount--;   
         });
+        inputField.appendChild(cancelButton);
+
+        inputContainer.appendChild(inputField);
+        inputCount++; 
+    } else {
+        const errorContainer5 = document.getElementById('errorContainer5');
+            errorContainer5.style.display = 'block';
+            setTimeout(() => {
+                errorContainer5.style.display = 'none';
+        }, 3000);
+       
+    }
+});
 
         // default input cliked cancel laman
         document.getElementById('inputContainer').addEventListener('click', function(event) {
@@ -164,6 +213,42 @@
                 var fileInput = event.target.parentNode.querySelector('input[type=file]');
                 fileInput.value = ''; 
             }
+        });
+
+        //counter
+        document.addEventListener("DOMContentLoaded", function() {
+            const countElement = document.getElementById("count");
+            const incrementBtn = document.getElementById("incrementBtn");
+            const decrementBtn = document.getElementById("decrementBtn");
+            let count = 0;
+
+            function updateCount() {
+                countElement.value = count;
+            }
+            updateCount(); 
+            incrementBtn.addEventListener("click", function() {
+                count++;
+                updateCount();
+            });
+
+            decrementBtn.addEventListener("click", function() {
+                count--;
+                updateCount();
+            });
+        });
+
+        //modal order
+        const orderButton = document.getElementById('orderButton');
+        const modal = document.getElementById('myModal');
+
+        orderButton.addEventListener('click', function() {
+        modal.classList.remove('hidden');
+        });
+
+        modal.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.classList.add('hidden');
+        }
         });
 </script>
 </body>
