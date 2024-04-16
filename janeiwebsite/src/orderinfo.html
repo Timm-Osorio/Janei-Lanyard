@@ -19,6 +19,10 @@
     margin-left: 5px;
     cursor: pointer;
 }
+.btnorder:hover {
+    color: black;
+    font-weight: 600;
+}
 </style>
 <body class="bg-[#D9D9D9]">
     <header class=" z-50">
@@ -115,10 +119,33 @@
                                     <button id="orderButton" type="button" class="p-2 bg-slate-900 hover:bg-green-500 hover:scale-95 font-semibold text-white rounded-md">ORDER NOW</button>
                                 </div>
                             </form>
+                        <!-- Modal content -->
                             <div id="myModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-                                <div class="bg-white p-6 rounded-lg">
-                                  <!-- Modal content -->
-                                  <p>ORDER INFORMATION</p>
+                                <div class="bg-white p-1 md:p-5 rounded-lg h-auto">
+                                  <div class="md:text-2xl text-xl font-bold text-center p-5">
+                                    SCAN TO PAY
+                                  </div>
+                                 
+                                  <div class="md:flex w-auto">
+                                    <div class=" flex justify-center">
+                                        <img src="/janeiwebsite/assets/qrcode.png" class="sm:h-48 h-72" alt="" srcset="">
+                                    </div>
+                                    <div class="m-5 md:p-5">
+                                        <div class="text-center">
+                                            <div class="font-bold text-black text-[40px] md:text-[50px]">1500 <span class="text-yellow-600 ">php</span></div>
+                                            <div class="font-semibold text-black text-xl md:text-2xl ">Total cost</div> 
+                                            <div class="text-sm">Downpayment is accepted </div>
+                                        </div>
+                                        <div class="font-semibold p-1 pt-2 md:pt-5 ">Input payment reciept</div>
+                                        <div class="">
+                                            <input type="file" class="p-2 text-white bg-slate-700 rounded-md mt-2"><br>
+                                            <button type="button" class="btnorder p-2 hover:scale-95 duration-300  hover:bg-yellow-500  bg-slate-900 text-xl text-white rounded-md bottom-0 float-right mt-2 md:mt-5">SUBMIT</button>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                  </div>
+                                  
                                 </div>
                               </div>
                             </div>
