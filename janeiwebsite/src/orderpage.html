@@ -90,6 +90,9 @@
     border-top-right-radius: 20px;
     border-bottom-right-radius: 5px;
  }
+ .btnord {
+    box-shadow: 2px 10px 12px rgba(0, 0, 0, 0.713);  
+ }
 </style>
 <body class="bg-[#D9D9D9]">
     <header class=" z-50">
@@ -109,7 +112,7 @@
                             <a class="hover:text-yellow-500 font-semibold text-slate-200 duration-200" href="/janeiwebsite/src/home.html">HOME</a>
                         </li>
                         <li class="pl-5 pr-5">
-                            <a class="hover:text-yellow-500 font-semibold text-slate-200 duration-200" href="/janeiwebsite/src/pricing.html ">GALLERY</a>
+                            <a class="hover:text-yellow-500 font-semibold text-slate-200 duration-200" href="/janeiwebsite/src/pricing.html ">PRICING</a>
                         </li>
                         <li class="pl-5 pr-5">
                             <a class="hover:text-yellow-500 font-semibold text-slate-200 duration-200" href="/janeiwebsite/src/orderpage.html">SHOP</a>
@@ -121,8 +124,8 @@
                 <div class="relative inline-block">
                     <img src="/janeiwebsite/assets/usser.png" class="h-12  rounded-full cursor-pointer shadow-md" alt="User Image">
                     <ul class="absolute drop hidden bg-white h-auto rounded-md shadow-lg mt-2 py-1 w-44  right-[5%]  border-black border duration-300 z-10">
-                        <a href="#"><li class="p-3 m-1 font-medium text-black hover:text-yellow-500 hover:bg-[#000000bc] rounded-md duration-200 ">Profile</li></a>
-                        <a href="#"><li class="p-3 m-1 font-medium text-black hover:text-yellow-500 hover:bg-[#000000bc] rounded-md duration-200 ">Orders</li></a>
+                        <a href="/janeiwebsite/src/profile.html"><li class="p-3 m-1 font-medium text-black hover:text-yellow-500 hover:bg-[#000000bc] rounded-md duration-200 ">Profile</li></a>
+                        
                         <a href="/janeiwebsite/index.html"><li class="p-3 m-1 font-medium text-black hover:text-yellow-500 hover:bg-[#000000bc] rounded-md duration-200 ">Logout</li></a>
                     </ul>
                 </div>
@@ -144,7 +147,7 @@
                     <div class="firstdiv rounded-md mx-auto h-[300px] w-[320px] lg:h-[500px] lg:w-[450px] border-[3px] bg-slate-100 border-black "></div>
                 </div>
                 <div class="md:w-7/10 pt-2"> 
-                    <div class="md:w-7/10 pt-10"> 
+                    <div class="md:w-7/10 pt-10 "> 
                         <div class="flex p-2 gap-2 justify-center z-10">
                             <div id="backgroundBtn" class="button  bg-slate-100 duration-300 font-semibold p-2 border-[3px] border-black text-center  text-sm active cursor-pointer" onclick="showDiv('firstdiv', this)">Background</div>
                             <div id="patternBtn" class="button bg-slate-100 duration-300 font-semibold  p-2 border-[3px] border-black text-center  text-sm cursor-pointer" onclick="showDiv('seconddiv', this)">Pattern</div>
@@ -152,12 +155,14 @@
                             <div id="logoShapeBtn" class="button bg-slate-100 duration-300 font-semibold  p-2 border-[3px] border-black text-center text-sm cursor-pointer" onclick="showDiv('fourthdiv', this)">Logo Shape</div>
                         </div>
                         
-                        <div id="content" class="-mt-[11px] pb-10 mx-auto">
-                            <div id="firstdiv" class="firstdiv  md:ml-2 lg:h-[400px] lg:w-[650px] border-[3px] bg-slate-100  border-black p-10 rounded-md" style="display:block;">BACKGROUND</div>
-                            <div id="seconddiv" class="firstdiv md:ml-2 lg:h-[400px] lg:w-[650px] border-[3px] bg-slate-100 border-black p-10 rounded-md" style="display:none;">PATTERN</div>
-                            <div id="thirddiv" class="firstdiv  md:ml-2 lg:h-[400px] lg:w-[650px] border-[3px] bg-slate-100 border-black p-10 rounded-md" style="display:none;">TEXT FONT</div>
-                            <div id="fourthdiv" class="firstdiv  md:ml-2 lg:h-[400px] lg:w-[650px] border-[3px] bg-slate-100 border-black p-10 rounded-md" style="display:none;">LOGO SHAPES</div>
+                        <div id="content" class="-mt-[11px] pb-10 mx-auto ">
+                            <div id="firstdiv" class="firstdiv  md:ml-2 md:w-[400px] lg:h-[400px] lg:w-[550px] border-[3px] bg-slate-100  border-black p-10 rounded-md" style="display:block;">BACKGROUND</div>
+                            <div id="seconddiv" class="firstdiv md:ml-2 md:w-[400px] lg:h-[400px] lg:w-[550px] border-[3px] bg-slate-100 border-black p-10 rounded-md" style="display:none;">PATTERN</div>
+                            <div id="thirddiv" class="firstdiv  md:ml-2 md:w-[400px] lg:h-[400px] lg:w-[550px] border-[3px] bg-slate-100 border-black p-10 rounded-md" style="display:none;">TEXT FONT</div>
+                            <div id="fourthdiv" class="firstdiv md:ml-2 md:w-[400px] lg:h-[400px] lg:w-[550px] border-[3px] bg-slate-100 border-black p-10 rounded-md" style="display:none;">LOGO SHAPES</div>
+                            <button class="btnord p-2 hover:scale-95 duration-300 hover:bg-white bg-yellow-500 font-medium float-right mt-1 rounded-md border-2 border-black">ORDER NOW</div>
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -309,7 +314,7 @@
             </li>
             <div class="md:h-1.5 md:w-1.5 h-1 w-1 bg-slate-50 rounded-full mt-2.5 "></div>
             <li class="text-white md:text-xl font-medium hover:text-yellow-600 duration-300">
-                <a href="/janeiwebsite/src/pricing.html">GALLERY</a>
+                <a href="/janeiwebsite/src/pricing.html">PRICING</a>
             </li>
             <div class="md:h-1.5 md:w-1.5 h-1 w-1 bg-slate-50 rounded-full mt-2.5 "></div>
             <li class="text-white md:text-xl font-medium hover:text-yellow-600 duration-300">
