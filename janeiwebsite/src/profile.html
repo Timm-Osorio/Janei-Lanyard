@@ -10,6 +10,7 @@
     <link rel="icon" type="icon" href="/janeiwebsite/assets/logolanyard.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/janeiwebsite/styles/body.css">
+    
 </head>
 <style>
  .image-container {
@@ -82,19 +83,19 @@
                 <div class="w-auto md:flex bg-white rounded-xl shadow-lg ">
                     <div class="userpic md:w-1/3 w-full p-10 ">
                         <img src="/janeiwebsite/assets/usser.png" alt="" srcset="" class="h-32 mx-auto ">
-                        <div class="text-center font-semibold text-xl pt-2">Paolo Corporal</div>
+                        <div id="username" class="text-center font-semibold text-xl pt-2"></div>
                     </div>
                     <div class="info md:w-full  w-auto  md:p-2">
                         <div class="p-2 shadow-sm shadow-[#00000020] ">
                             <div class="font-bold text-xl text-slate-700 md:text-left text-center ">USER PROFILE</div>
-                            <div class="font-medium text-sm pt-5 text-slate-400">Name: <span class="text-black">Paolo Corporal</span> </div>
+                            <div class="font-medium text-sm pt-5 text-slate-400">Name: <span id="name" class="text-black"></span> </div>
                         </div>
                         <div class="p-2 shadow-sm shadow-[#00000020]">
                             
-                            <div class="font-medium text-sm pt-5 text-slate-400">Email Account: <span class="text-black">corporal.paolo.11162002@gmail.com</span> </div>
+                            <div class="font-medium text-sm pt-5 text-slate-400">Email Account: <span id="email" class="text-black"> </span> </div>
                         </div>
                         <div class="p-2 shadow-sm shadow-[#00000020]">
-                            <div class="font-medium text-sm pt-5 text-slate-400">Address: <span class="text-black">Mutya interior, Payatas Area B. Quezon City, 1119</span> </div>
+                            <div class="font-medium text-sm pt-5 text-slate-400">Address: <span id="address" class="text-black"> </span> </div>
                         </div>
                         <div class="p-2 justify-end flex ">
                             <button type="button" id="orderButton" class=" p-2 bg-slate-800 text-white font-bold hover:bg-green-600 hover:scale-95 rounded-md">EDIT ACCOUNT</button>
@@ -131,26 +132,31 @@
                 </div>
                 
             </div>
-        <div id="myModal" class="hidden fixed inset-0 z-40 flex items-center justify-center bg-black bg-opacity-50">
+        <div id="myModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
             <div class="bg-slate-100 p-1 md:p-5 p-3 rounded-lg h-auto">
                 <div class="md:text-2xl text-xl font-bold text-center p-2">
                     EDIT ACCOUNT INFORMATION    
                 </div>
-                <div class="p-2 w-auto">
-                    <div class="align-middle text-black font-semibold">Username: </div> 
-                    <input type="text" class="w-full rounded-md">
-                    <div class="align-middle pt-2 text-black font-semibold">Firstname: </div> 
-                    <input type="text" class="w-full rounded-md">
-                    <div class="align-middle pt-2 text-black font-semibold">Lastname: </div> 
-                    <input type="text" class="w-full rounded-md">
-                    <div class="align-middle pt-2 text-black font-semibold">Email: </div> 
-                    <input type="text" class="w-full rounded-md">
-                    <div class="align-middle pt-2 text-black font-semibold">Old password: </div> 
-                    <input type="text" class="w-full rounded-md">
-                    <div class="align-middle pt-2 text-black font-semibold">New password: </div> 
-                    <input type="text" class="w-full rounded-md">
-                </div>
-                <button type="button" class="float-end mt-2  bg-slate-700 p-2 rounded-md text-white hover:bg-green-600 ">UPDATE</button>
+                <form id="updateForm" action="">
+                    <div class="p-2 w-auto">
+                        <div class="align-middle text-black font-semibold">Username: </div> 
+                        <input id="usernameup" type="text" class="form-control w-full rounded-md">
+                        <div class="align-middle pt-2 text-black font-semibold">Firstname: </div> 
+                        <input id="firstname" type="text" class="form-control w-full rounded-md">
+                        <div class="align-middle pt-2 text-black font-semibold">Lastname: </div> 
+                        <input id="lastname" type="text" class="form-control w-full rounded-md">
+                        <div class="align-middle pt-2 text-black font-semibold">Email: </div> 
+                        <input id="emailup" type="text" class="form-control w-full rounded-md">
+                        <div class="align-middle pt-2 text-black font-semibold">Old password: </div> 
+                        <input id="oldpass" type="text" class="form-control w-full rounded-md">
+                        <div class="align-middle pt-2 text-black font-semibold">New password: </div> 
+                        <input id="newpass" type="text" class="form-control w-full rounded-md">
+                    </div>
+                    <div class="flex p-2 justify-between">
+                        <button id="cancel" type="button" class=" hover:scale-95 duration-200 bg-slate-700 p-2 rounded-md text-white hover:bg-red-500 ">CANCEL</button>
+                        <button id="updatebtn" type="button" class=" hover:scale-95 duration-200 bg-slate-700 p-2 rounded-md text-white hover:bg-green-600 ">UPDATE</button>
+                    </div>
+                </form>
             </div>
         </div>
 
@@ -212,8 +218,10 @@
   
 <!--Scripts-->   
 <script type="module" src="/janeiwebsite/scripts/home.js"></script>
+<script type="module" src="/janeiwebsite/scripts/updateaccount.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 <script>
      const navLinks = document.querySelector('.nav-links')
         function onToggleMenu(e){

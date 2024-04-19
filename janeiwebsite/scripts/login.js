@@ -25,7 +25,7 @@ async function fetchDataFromDatabase(path) {
                     console.log("Logged in as:", username);
                     console.log("Role:", data[e].role);
                     isLoggedIn = true;
-                    localStorage.setItem('currentUsername', data[e].username);
+                    localStorage.setItem('currentid', data[e].id);
                     break;
                 } 
             }

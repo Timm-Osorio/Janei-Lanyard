@@ -1,15 +1,4 @@
 
-function displayCurrentSignedInUser() {
-  const currentUsername = localStorage.getItem('currentUsername');
-  if (currentUsername) {
-      console.log("Currently signed-in user:", currentUsername);
-  } else {
-      console.log("No user is currently signed in.");
-  }
-}
-
-// Call the function to display the currently signed-in user
-displayCurrentSignedInUser();
   
  //USERIMAGE DROPDOWN
  document.addEventListener("DOMContentLoaded", function() {
