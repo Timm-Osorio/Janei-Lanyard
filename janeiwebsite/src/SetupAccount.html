@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  href="/janeiwebsite/styles/output.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/janeiwebsite/styles/tailwind.css">
+    <title>Janei Lanyard</title>
+    <link rel="icon" type="icon" href="/janeiwebsite/assets/logolanyard.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/janeiwebsite/styles/body.css">
+
+</head>
+<body>
+ 
+    <h1>Inside the Capital Choose City and Barangay</h1>
+    <form id="cityBarangayForm">
+        <label for="city">Select City:</label><br>
+        <select id="city" name="city" aria-required="true">
+            <option value="" disabled selected>Select a city</option>
+            <option value="Manila">Manila</option>
+            <option value="Quezon City">Quezon City</option>
+            <option value="Caloocan City">Caloocan City</option>
+            <option value="Las Piñas City">Las Piñas City</option>
+            <option value="Makati City">Makati City</option>
+            <option value="Malabon City">Malabon City</option>
+            <option value="Mandaluyong City">Mandaluyong City</option>
+            <option value="Marikina City">Marikina City</option>
+            <option value="Muntinlupa City">Muntinlupa City</option>
+            <option value="Navotas City">Navotas City</option>
+            <option value="Parañaque City">Parañaque City</option>
+            <option value="Pasay City">Pasay City</option>
+            <option value="Pasig City">Pasig City</option>
+            <option value="Pateros">Pateros</option>
+            <option value="San Juan City">San Juan City</option>
+            <option value="Taguig City">Taguig City</option>
+            <option value="Valenzuela City">Valenzuela City</option>
+        </select><br><br>
+    
+        <div id="barangaySelection" style="display: none;">
+            <label for="barangay">Select Barangay:</label><br>
+            <select id="barangay" name="barangay">
+                <option value="" disabled selected>Select a barangay</option>
+                <!-- Options will be dynamically added here -->
+            </select><br><br>
+        </div>
+    
+        
+        <button type="submit">Submit</button>
+    </form>
+
+
+
+    <script>
+        const cityDropdown = document.getElementById("city");
+        const barangaySelection = document.getElementById("barangaySelection");
+        const barangayDropdown = document.getElementById("barangay");
+    
+        cityDropdown.addEventListener("change", function() {
+            const selectedCity = this.value;
+            if (selectedCity === "Manila") {
+                barangaySelection.style.display = "block";
+                populateBarangays(selectedCity);
+            } 
+            else if (selectedCity === "Quezon City") {
+                barangaySelection.style.display = "block";
+                populateBarangays(selectedCity);
+            }
+            else if (selectedCity === "Caloocan City") {
+                barangaySelection.style.display = "block";
+                populateBarangays(selectedCity);
+            }
+            else if (selectedCity === "Las Piñas City") {
+                barangaySelection.style.display = "block";
+                populateBarangays(selectedCity);
+            }
+            else if (selectedCity === "Makati City") {
+                barangaySelection.style.display = "block";
+                populateBarangays(selectedCity);
+            }
+            else if (selectedCity === "Malabon City") {
+                barangaySelection.style.display = "block";
+                populateBarangays(selectedCity);
+            }
+            else if (selectedCity === "Mandaluyong City") {
+                barangaySelection.style.display = "block";
+                populateBarangays(selectedCity);
+            }
+            else if (selectedCity === "Marikina City") {
+                barangaySelection.style.display = "block";
+                populateBarangays(selectedCity);
+            }
+            else if (selectedCity === "Muntinlupa City") {
+                barangaySelection.style.display = "block";
+                populateBarangays(selectedCity);
+            }
+            else if (selectedCity === "Navotas City") {
+                barangaySelection.style.display = "block";
+                populateBarangays(selectedCity);
+            }
+            else if (selectedCity === "Parañaque City") {
+                barangaySelection.style.display = "block";
+                populateBarangays(selectedCity);
+            }
+            else if (selectedCity === "Pasay City") {
+                barangaySelection.style.display = "block";
+                populateBarangays(selectedCity);
+            }
+            else if (selectedCity === "Pasig City") {
+                barangaySelection.style.display = "block";
+                populateBarangays(selectedCity);
+            }
+            else if (selectedCity === "Pateros") {
+                barangaySelection.style.display = "block";
+                populateBarangays(selectedCity);
+            }
+            else if (selectedCity === "San Juan City") {
+                barangaySelection.style.display = "block";
+                populateBarangays(selectedCity);
+            }
+            else if (selectedCity === "Taguig City") {
+                barangaySelection.style.display = "block";
+                populateBarangays(selectedCity);
+            }
+            else if (selectedCity === "Valenzuela City") {
+                barangaySelection.style.display = "block";
+                populateBarangays(selectedCity);
+            }
+            else {
+                barangaySelection.style.display = "none";
+            }
+        });
+    
+        function populateBarangays(city) {
+            // Clear existing options
+            barangayDropdown.innerHTML = "";
+
+            // Define barangays for each city
+            const barangaysByCity = {
+                "Manila": ["Barangay 1", "Barangay 2", "Barangay 3"],
+                "Quezon City": ["Barangay A", "Barangay B", "Barangay C"],
+                "Caloocan City": ["Barangay X", "Barangay Y", "Barangay Z"],
+                // Add more cities and their barangays here
+            };
+
+            // Get barangays for the selected city
+            const barangays = barangaysByCity[city];
+
+            // Populate barangays dropdown
+            if (barangays) {
+                barangays.forEach(barangay => {
+                    const option = document.createElement("option");
+                    option.text = barangay;
+                    option.value = barangay;
+                    barangayDropdown.add(option);
+                });
+            }
+        }
+    
+        // Form submission handling
+        const cityBarangayForm = document.getElementById("cityBarangayForm");
+        cityBarangayForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            const selectedCity = document.getElementById("city").value;
+            const selectedBarangay = document.getElementById("barangay").value;
+            console.log("Selected City:", selectedCity);
+            console.log("Selected Barangay:", selectedBarangay);
+            // Here you can do whatever you want with the selected city and barangay
+        });
+   
+
+    </script>
+
+
+
+
+<!--Scripts-->
+<script type="module" src="/janeiwebsite/scripts/home.js"></script>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</body>
+</html> 

@@ -36,6 +36,12 @@
     color: black;
     box-shadow: 1px 1px 5px black;
   }
+  .btn:hover {
+    background-color: rgba(0, 0, 0, 0.296);
+  }
+  .btn2:hover {
+    text-decoration: underline;
+  }
 
 </style>
 <body class="bg-[#D9D9D9]">
@@ -46,7 +52,7 @@
                 <span class="md:pt-3 pt-4 p-2 text-2xl lg:text-3xl font-bold absolute ml-16 text-black">JANEI</span>
             </div>
             
-            <div class="nav-links p-3 md:rounded-full z-50 duration-500 md:static absolute
+            <div class="nav-links p-3 md:rounded-full z-20 duration-500 md:static absolute
              bg-[#1F1F1F] shadow-slate-200 shadow-lg md:min-h-fit min-h-[60vh]
              left-0 top-[-100%]  md:w-auto  w-full flex items-center px-5">
 
@@ -132,34 +138,163 @@
                 </div>
                 
             </div>
-        <div id="myModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-            <div class="bg-slate-100 p-1 md:p-5 p-3 rounded-lg h-auto">
+        <!--Modals-->
+        <div id="myModal" class="hidden fixed inset-0 z-40 flex items-center justify-center bg-black bg-opacity-50">
+            <div class="bg-slate-100 md:p-5 p-3 rounded-lg h-auto">
                 <div class="md:text-2xl text-xl font-bold text-center p-2">
                     EDIT ACCOUNT INFORMATION    
                 </div>
                 <form id="updateForm" action="">
                     <div class="p-2 w-auto">
-                        <div class="align-middle text-black font-semibold">Username: </div> 
-                        <input id="usernameup" type="text" class="form-control w-full rounded-md">
-                        <div class="align-middle pt-2 text-black font-semibold">Firstname: </div> 
-                        <input id="firstname" type="text" class="form-control w-full rounded-md">
-                        <div class="align-middle pt-2 text-black font-semibold">Lastname: </div> 
-                        <input id="lastname" type="text" class="form-control w-full rounded-md">
-                        <div class="align-middle pt-2 text-black font-semibold">Email: </div> 
-                        <input id="emailup" type="text" class="form-control w-full rounded-md">
-                        <div class="align-middle pt-2 text-black font-semibold">Old password: </div> 
-                        <input id="oldpass" type="text" class="form-control w-full rounded-md">
-                        <div class="align-middle pt-2 text-black font-semibold">New password: </div> 
-                        <input id="newpass" type="text" class="form-control w-full rounded-md">
+                        <div class="btn border rounded-md p-2 flex justify-between">
+                            <button id="btninfo" type="button" class="btn2 btnnames text-sm ">Edit User Information </button><box-icon type='solid' color="#00000090" name='user-detail'></box-icon>
+                        </div>
+                        <div class="btn border rounded-md p-2 mt-1 flex justify-between">
+                            <button id="btninfo2" type="button" class="btn2 btnemail text-sm">Change Username</button><box-icon type='solid' color="#00000090" name='user-detail'></box-icon>
+                        </div>
+                        <div class="btn border rounded-md p-2 mt-1 flex justify-between">
+                            <button id="btninfo3" type="button" class="btn2 btnemail text-sm">Change Email</button><box-icon color="#00000090" name='envelope'></box-icon>
+                        </div>
+                        <div class="btn border rounded-md p-2 mt-1 flex justify-between">
+                            <button id="btninfo4" type="button" class="btn2 btnpass text-sm">Change Password</button><box-icon type='solid' color="#00000090" name='key'></box-icon>
+                        </div>
                     </div>
                     <div class="flex p-2 justify-between">
-                        <button id="cancel" type="button" class=" hover:scale-95 duration-200 bg-slate-700 p-2 rounded-md text-white hover:bg-red-500 ">CANCEL</button>
-                        <button id="updatebtn" type="button" class=" hover:scale-95 duration-200 bg-slate-700 p-2 rounded-md text-white hover:bg-green-600 ">UPDATE</button>
+                        <button id="cancelbtn" type="button" class=" hover:scale-95 duration-200 bg-slate-700 p-2 rounded-md text-white hover:bg-red-500 ">CANCEL</button>
+                     
                     </div>
                 </form>
             </div>
         </div>
-
+        <div id="myModalinfo" class="hidden fixed inset-0 md:p-10 p-5 z-40 flex items-center justify-center bg-black bg-opacity-80">
+            <div class="bg-slate-100 p-5 md:p-5 rounded-lg h-auto w-96">
+                <div class="flex justify-between">
+                    <div class="text-xl  font-semibold  ">CHANGE INFORMATION</div>
+                    <box-icon type='solid' color="#000000" name='user-detail' class="mt-1"></box-icon>
+                </div>
+                <form>
+                    <div class="">
+                        <div id="errorinfo123" style="display: none;" class="mt-2">
+                            <div class="text-sm text-red-600 text-center font-normal "> Please Fill in Fields!</div>             
+                        </div>
+                        <div id="errorinfo124" style="display: none;" class="mt-2">
+                            <div class="text-sm text-red-600 text-center font-normal "> Nothing to Change!</div>             
+                        </div>
+                        <div class="mt-3">
+                            <div class="text-sm font-semibold" >First name:</div>
+                            <input id="firstnameup" type="text" class="rounded-md w-full">
+                        </div>
+                        <div class="mt-3">
+                            <div class="text-sm font-semibold">Last name:</div>
+                            <input id="lastnameup" type="text" class="rounded-md w-full">
+                        </div>
+                        <div class="mt-3 mb-3">
+                            <div class="text-sm font-semibold">Address: <span class="text-[10px] text-slate-600">(region | province | city | barangay | block no./house no.)</span></div>
+                            <textarea id="addressup" name="" id="" cols="" rows="" class="w-full rounded-md "></textarea>
+                        </div>
+                    </div>
+                    <div class="flex justify-between">
+                        <button id="cancelbtn2" type="button" class=" hover:scale-95 duration-200 bg-slate-700 p-2 rounded-md text-white hover:bg-red-500 ">CANCEL</button>
+                        <button id="updatebtn1" type="button" class=" hover:scale-95 duration-200 bg-slate-700 p-2 rounded-md text-white hover:bg-green-600 ">UPDATE</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="myModalinfo2" class="hidden fixed inset-0 md:p-10 p-5 z-40 flex items-center justify-center bg-black bg-opacity-80">
+            <div class="bg-slate-100 p-5 md:p-5 rounded-lg h-auto  w-96   ">
+                <div class="flex justify-between">
+                    <div class="text-xl  font-semibold  ">CHANGE USERNAME</div>
+                    <box-icon type='solid' color="#000000" name='user-detail' class="mt-1"></box-icon>
+                </div>
+                <div class="mt-4 mb-4">
+                    <div id="errorinfo" style="display: none;">
+                        <div class="text-sm text-red-600 text-center font-normal "> Please Fill in Fields!</div>             
+                    </div>
+                    <div id="errorinfo4" style="display: none;">
+                        <div class="text-sm text-red-600 text-center font-normal "> Nothing to Change!</div>             
+                    </div>
+                    <div id="errorinfo3" style="display: none;">
+                        <div class="text-sm text-red-600 text-center font-normal "> Username should be 6 letters/numbers or more.</div>             
+                    </div>
+                    <div id="errorinfo2" style="display: none;">
+                        <div class="text-sm text-red-600 text-center font-normal"> Username is Already Used!</div>         
+                    </div>
+                   
+                    <div class="text-sm font-semibold mt-2">New Username:</div>
+                    <input id="usernameup" type="text" class="rounded-md w-full">
+                </div>
+                <div class="flex justify-between">
+                    <button id="cancelbtn3" type="button" class=" hover:scale-95 duration-200 bg-slate-700 p-2 rounded-md text-white hover:bg-red-500 ">CANCEL</button>
+                    <button id="updatebtn2" type="button" class=" hover:scale-95 duration-200 bg-slate-700 p-2 rounded-md text-white hover:bg-green-600 ">UPDATE</button>
+                </div>
+            </div>
+        </div>
+        <div id="myModalinfo3" class="hidden fixed inset-0 md:p-10 p-5 z-40 flex items-center justify-center bg-black bg-opacity-80">
+            <div class="bg-slate-100 p-5 md:p-5 rounded-lg h-auto w-96  ">
+                <div class="flex justify-between">
+                    <div class="text-xl  font-semibold  ">CHANGE EMAIL ADDRESS</div>
+                    <box-icon type='solid' color="#000000" name='envelope' class="mt-1"></box-icon>
+                </div>
+                <div class="mt-4 mb-4">
+                    <div id="errorinfo222" style="display: none;">
+                        <div class="text-sm text-red-600 text-center font-normal "> Please Fill in Fields!</div>             
+                    </div>
+                    <div id="errorinfo2222" style="display: none;">
+                        <div class="text-sm text-red-600 text-center font-normal "> Invalid Email Address Format!</div>             
+                    </div>
+                    <div id="errorinfo21" style="display: none;">
+                        <div class="text-sm text-red-600 text-center font-normal "> Nothing to Change!</div>             
+                    </div>
+                    <div id="errorinfo22" style="display: none;">
+                        <div class="text-sm text-red-600 text-center font-normal"> Email Address is Already Used!</div>         
+                    </div>
+                   
+                    <div class="text-sm font-semibold mt-2">New Email Address:</div>
+                    <input id="emailup" type="text" class="rounded-md w-full">
+                </div>
+                <div class="flex justify-between">
+                    <button id="cancelbtn4" type="button" class=" hover:scale-95 duration-200 bg-slate-700 p-2 rounded-md text-white hover:bg-red-500 ">CANCEL</button>
+                    <button id="updatebtn3" type="button" class=" hover:scale-95 duration-200 bg-slate-700 p-2 rounded-md text-white hover:bg-green-600 ">UPDATE</button>
+                </div>
+            </div>
+        </div>
+        <div id="myModalinfo4" class="hidden fixed inset-0 md:p-10 p-5 z-40 flex items-center justify-center bg-black bg-opacity-80">
+            <div class="bg-slate-100 p-5 md:p-5 rounded-lg  h-auto w-96  ">
+                <div class="flex justify-between">
+                    <div class="text-xl  font-semibold  ">CHANGE PASSWORD</div>
+                    <box-icon type='solid' color="#000000" name='key' class="mt-1"></box-icon>
+                </div>
+                <div class="mt-4 mb-4">
+                    <div id="errorinfo13" style="display: none;">
+                        <div class="text-sm text-red-600 text-center font-normal"> Old Password is Incorrect! </div>         
+                    </div>
+                    <div id="errorinfo12" style="display: none;">
+                        <div class="text-sm text-red-600 text-center font-normal"> Password must contain letters and numbers. </div>         
+                    </div>
+                    <div id="errorinfo11" style="display: none;">
+                        <div class="text-sm text-red-600 text-center font-normal"> Please Fill in Fields! </div>         
+                    </div>
+                    <div class="relative items-center">
+                        <div class="text-sm font-semibold mt-2">Old Password:</div>
+                        <span id="togglePassword" class="absolute inset-y-0 right-0 flex items-center pt-5 pr-3 cursor-pointer">                          
+                            <ion-icon name="eye-outline" ></ion-icon>
+                        </span>
+                        <input id="oldPass" type="password" class="rounded-md w-full">
+                    </div>
+                    <div class="relative items-center pt-2"> 
+                        <div class="text-sm font-semibold mt-2">New Password:</div>
+                        <span id="togglePassword2" class="absolute inset-y-0 right-0 flex items-center  pt-10  pr-3 cursor-pointer">                          
+                            <ion-icon name="eye-outline" ></ion-icon>
+                        </span>
+                        <input id="newPass" type="password" class="rounded-md w-full">
+                    </div>
+                </div>
+                <div class="flex justify-between">
+                    <button id="cancelbtn5" type="button" class=" hover:scale-95 duration-200 bg-slate-700 p-2 rounded-md text-white hover:bg-red-500 ">CANCEL</button>
+                    <button id="updatebtn4" type="button" class=" hover:scale-95 duration-200 bg-slate-700 p-2 rounded-md text-white hover:bg-green-600 ">UPDATE</button>
+                </div>
+            </div>
+        </div>
         <div id="myModal2" class="hidden fixed inset-0 md:p-10 p-5 z-40 flex items-center justify-center bg-black bg-opacity-50">
             <div class="bg-slate-100 p-5 md:p-5 rounded-lg h-full md:h-auto w-full overflow-y-auto ">
                 <div class="flex justify-between">
@@ -213,16 +348,19 @@
                 </div>
             </div>
         </div>
+        <!--End of modals-->
     </section>
 <!--FOOTER-->
   
 <!--Scripts-->   
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 <script type="module" src="/janeiwebsite/scripts/home.js"></script>
 <script type="module" src="/janeiwebsite/scripts/updateaccount.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 <script>
+    //Navbar
      const navLinks = document.querySelector('.nav-links')
         function onToggleMenu(e){
             e.name = e.name === 'menu' ? 'close' : 'menu'
@@ -232,35 +370,55 @@
         //Variable for modals
         const orderButton = document.getElementById('orderButton');
         const modal = document.getElementById('myModal');
+        const modalinfo = document.getElementById('myModalinfo');
+        const modalinfo2 = document.getElementById('myModalinfo2');
+        const modalinfo3 = document.getElementById('myModalinfo3');
+        const modalinfo4 = document.getElementById('myModalinfo4');
         const orderButton2 = document.getElementById('orderButton2');
         const orderButton3 = document.getElementById('orderButton3');
         const modal2 = document.getElementById('myModal2');
 
-        //modal for edit account
-        orderButton.addEventListener('click', function() {
-        modal.classList.remove('hidden');
-        });
-        modal.addEventListener('click', function(event) {
-        if (event.target === modal) {
-            modal.classList.add('hidden');
-        }
-        });
         //modal for details
         orderButton2.addEventListener('click', function() {
         modal2.classList.remove('hidden');
         });
-   
+        btninfo.addEventListener('click', function() {
+        modalinfo.classList.remove('hidden');
+        });
+        btninfo2.addEventListener('click', function() {
+        modalinfo2.classList.remove('hidden');
+        });
+        btninfo3.addEventListener('click', function() {
+        modalinfo3.classList.remove('hidden');
+        });
+        btninfo4.addEventListener('click', function() {
+        modalinfo4.classList.remove('hidden');
+        });
         function closeModal() {
         var modal = document.getElementById("myModal2");
         modal.classList.add("hidden");
-     }
-
-        // Adding event listener to the close button
+        }
         var closeButton = document.getElementById("orderButton3");
         closeButton.addEventListener('click', function(event) {
-            closeModal(); // Call the closeModal function when the button is clicked
+            closeModal(); 
         });
-    
+        //Info modals
+        document.getElementById("cancelbtn2").addEventListener("click", function() {
+        var modal = document.getElementById("myModalinfo");
+        modal.classList.add("hidden");
+        });
+        document.getElementById("cancelbtn3").addEventListener("click", function() {
+        var modal2 = document.getElementById("myModalinfo2");
+        modal2.classList.add("hidden");
+        });
+        document.getElementById("cancelbtn4").addEventListener("click", function() {  
+        var modal3 = document.getElementById("myModalinfo3"); 
+        modal3.classList.add("hidden");
+        });
+        document.getElementById("cancelbtn5").addEventListener("click", function() {
+        var modal4 = document.getElementById("myModalinfo4");
+        modal4.classList.add("hidden");
+        });
 </script>
 </body>
 </html>

@@ -46,14 +46,21 @@ document.getElementById("submit").addEventListener('click', async function(e) {
                 setTimeout(() => {
                     errorContainer3.style.display = 'none';
                 }, 3000);
-            }  else if (password.length < 6 ) {
+            } else if (username.length < 6) {
+                console.log("Error: Username should be 6 letters or more");
+                const errorContainer9 = document.getElementById('errorContainer9');
+                errorContainer9.style.display = 'block';
+                setTimeout(() => {
+                    errorContainer9.style.display = 'none';
+                }, 3000);
+            } else if (password.length < 6 ) {
                 console.log("Error: Password must be at least 6 characters long.");
                 const errorContainer5 = document.getElementById('errorContainer5');
                 errorContainer5.style.display = 'block';
                 setTimeout(() => {
                     errorContainer5.style.display = 'none';
                 }, 3000);
-            }  else if (!passwordRegex.test(password)) {
+            } else if (!passwordRegex.test(password)) {
                 console.log("Error: Password must contain letters and numbers.");
                 const errorContainer6 = document.getElementById('errorContainer6');
                 errorContainer6.style.display = 'block';
@@ -88,6 +95,7 @@ document.getElementById("submit").addEventListener('click', async function(e) {
                     username: username,
                     password: password,
                     address: address
+                    
                 });
                 console.log("Success");
                 firstName = "";
@@ -96,6 +104,7 @@ document.getElementById("submit").addEventListener('click', async function(e) {
                 username = "";
                 password = "";
                 address = "";
+                localStorage.setItem('currentid', newUserId.toString());
                 window.location.href = "/janeiwebsite/src/home.html";
             } catch (error) {
                 console.error("Error:", error);
