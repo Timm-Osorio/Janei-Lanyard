@@ -61,17 +61,31 @@ function updateUserData(userId, newData) {
     } 
     var userRef = ref(db, "customers/" + userId);
     update(userRef, newData)
-
         .then(() => {
             console.log("User data updated successfully!");
             closeModal();
-            location.reload();
+            sessionStorage.setItem('success', 'true');
+            location.reload();   
+            return;       
         })
         .catch((error) => {
             console.error("Error updating user data:", error.message);
         });
 }
+//Reload when update and show the modal I mean div
+window.onload = function() {
+    const successParam = sessionStorage.getItem('success');
+    if (successParam === 'true') {
+        const success = document.getElementById('success');
+        success.style.display = 'block';
+        setTimeout(() => {
+            success.style.display = 'none';
+            sessionStorage.removeItem('success');
+        }, 3000);
+    }
+};
 
+//User information update
 document.getElementById('updatebtn1').addEventListener('click', updateUser);
 function updateUser() {
     const userId = localStorage.getItem('currentid');
@@ -111,7 +125,7 @@ function updateUser() {
         }
     });
 }
-
+//Username update
 document.getElementById('updatebtn2').addEventListener('click', updateUser2);
 async function updateUser2() {
     const userId = localStorage.getItem('currentid');
@@ -165,6 +179,7 @@ async function updateUser2() {
         }
     });
 }
+//User email update
 document.getElementById('updatebtn3').addEventListener('click', updateUser3);
 async function updateUser3() {
     const userId = localStorage.getItem('currentid');
@@ -219,6 +234,7 @@ async function updateUser3() {
         }
     });
 }
+//User password update
 document.getElementById('updatebtn4').addEventListener('click', updateUser4);
 async function updateUser4() {
     const userId = localStorage.getItem('currentid');
@@ -268,6 +284,7 @@ document.getElementById('orderButton').addEventListener('click', openModal);
 function closeModal() {
     var modal = document.getElementById('myModal');
     modal.style.display = "none";
+   
 }
 //open modal after update
 function openModal() {

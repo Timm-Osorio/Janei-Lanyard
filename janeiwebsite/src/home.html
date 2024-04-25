@@ -51,19 +51,29 @@
     .hidden {
         display: none;
     }
+    .sticky-message {
+       
+        position: sticky;
+        bottom: 20px;
+        right: 20px;
+        z-index: 40;
+    }
+    .msg::placeholder {
+        font-size: 15px;
+    }
     
 </style>    
 <body class=" bg-[#D9D9D9] ">
-    <header class=" z-50">
+    <header class="w-full  z-50">
         <nav class="flex justify-between items-center w-[92%] pt-2 md:pt-5 mx-auto">
             <div class="flex">
                 <img class="w-16 cursor-pointer p-1" src="/janeiwebsite/assets/logolanyard.png" alt="...">
                 <span class="md:pt-3 pt-4 p-2 text-2xl lg:text-3xl font-bold absolute ml-16 text-black">JANEI</span>
             </div>
             
-            <div class="nav-links p-3 md:rounded-full z-50 duration-500 md:static absolute
+            <div class="nav-links flex p-3 md:rounded-full z-50 duration-500 md:static absolute
              bg-[#1F1F1F] shadow-slate-200 shadow-lg md:min-h-fit min-h-[60vh]
-             left-0 top-[-100%]  md:w-auto  w-full flex items-center px-5">
+             left-0 top-[-100%]  md:w-auto  w-full  items-center px-5">
 
                 <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
                     <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
@@ -99,14 +109,12 @@
             <div class="font-bold md:text-[65px] text-[40px] lg:text-left text-center text-black">FOR BUILDERS</div>
             <div class="font-bold md:text-[27px] text-[13px] lg:text-left text-center text-black">Janei Editing and Printing Services</div>
             <div class="w-[215px] mt-3 md:h-1.5 h-1 bg-black mx-auto lg:m-0 lg:mt-5 "></div>
-            <a href="/janeiwebsite/src/orderpage.html"> <button class="btn1 bg-slate-100 mt-5 text-black lg:font-bold font-medium flex md:p-3 md:pl-10 md:pr-10 mx-auto lg:m-0 lg:mt-5 border-black border rounded-[30px] lg:rounded-tl-[20px] lg:rounded-tr-[50px] lg:rounded-bl-[50px] lg:rounded-br-[20px] p-2 hover:bg-yellow-500 duration-200 hover:scale-[95%] shadow-[#ffffff9e] shadow-xl">ORDER NOW 
+            <a href="/janeiwebsite/src/orderpage.html" class="btn1 md:w-56 w-44 text-center flex justify-center bg-slate-100 mt-5 text-black lg:font-bold font-medium flex md:p-3 md:pl-10 md:pr-10 mx-auto lg:m-0 lg:mt-5 border-black border rounded-[30px] lg:rounded-tl-[20px] lg:rounded-tr-[50px] lg:rounded-bl-[50px] lg:rounded-br-[20px] p-2 hover:bg-yellow-500 duration-200 hover:scale-[95%] shadow-[#ffffff9e] shadow-xl">ORDER NOW 
                 <svg xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ml-2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                 </svg>
-            </button></a>
-            
-
-           
+            </a>
+        
             <div class="flex lg:mt-36 md:mt-10 mt-5 h-16 users w-[70%] md:w-[50%] mx-auto lg:w-full  lg:m-0">
                 
                <div class="p-2 md:p-0">
@@ -125,16 +133,18 @@
                 </div>
             </div>
         </div>   
-       <div class="md:w-full lg:w-1/2">
+       <div class="md:w-full lg:w-1/2 relative">
             <div class=" h-full w-full ">
-                <div class="flex justify-center lg:pl-10 lg:pr-10">
+                <div class="flex justify-center lg:pl-5 lg:pr-5">
                     <div class="md:text-[90px] text-[60px] text-slate-950 font-extrabold mt-16 md:mt-20 absolute animate-pulse delay-100">CUSTOMIZE</div>
                     <div class="md:text-[90px] text-[60px] text-yellow-600 font-extrabold mt-28 md:mt-40 absolute animate-pulse delay-300 ">CUSTOMIZE</div>
                     <div class="md:text-[90px] text-[60px] text-yellow-500 font-extrabold mt-40  md:mt-60 absolute animate-pulse delay-500">CUSTOMIZE</div>
                 </div>
                 
                 <div class="z-10 flex justify-center">
-                    <img src="/janeiwebsite/assets/img1.png" alt="" srcset="" class="z-20 h-96 md:h-full  ">
+                    <img src="/janeiwebsite/assets/lovers.png" alt="" srcset="" class="imghome z-20 h-96 w-96 md:h-[65vh] -mt-10 md:w-[100%]">
+                    <img src="/janeiwebsite/assets/jen.png" alt="" srcset="" class="imghome z-20 h-96 w-60  md:h-[70vh] -mt-10 md:w-[50%]" style="display: none;" >
+                    <img src="/janeiwebsite/assets/mullet.png" alt="" srcset="" class="imghome z-20 h-96 w-60 md:h-[70vh]  md:w-[60%] -mt-10" style="display: none;" >
                 </div>
                <!-- <div class="absolute flex z-50 ">
                     <img src="/janeiwebsite/assets/marginalia-blue-cloud.png" alt="" srcset="" class="h-10 mt-[-18%] md:h-28 ml-10 ">
@@ -189,7 +199,7 @@
                         <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 xl:w-1/3 p-4">
                             <span class="text-[13px] font-bold">Order Guide:</span><br/>
                             <span class="text-sm">To start your order journey, 
-                              simply head over to our <button class="font-medium hover:text-yellow-500  ">Shop page.</button>  From there, you'll
+                              simply head over to our <a href="/janeiwebsite/src/orderpage.html" class="font-bold hover:text-yellow-500 duration-200 ">Shop page.</a>  From there, you'll
                               have the delightful choice between bringing your dream 
                               design to life or selecting from our fabulous preset
                               templates.
@@ -248,7 +258,7 @@
                                 this means it's not possible to cancel at this stage, as we've already begun using
                                 the necessary materials. <br/>
                                 However, if you've accidentally placed an order and need assistance, 
-                                simply reach out to us via this message box. Your satisfaction is our 
+                                simply reach out to us via the message box in your <a href="/janeiwebsite/src/profile.html" class="font-bold duration-200 hover:text-yellow-500">order purchased. </a> Your satisfaction is our 
                                 priority, so please don't hesitate to share your concerns.
                             </div>
                         </span>
@@ -256,7 +266,7 @@
                     <div class="w-full sm:w-1/2 p-4">
                         <span class="text-[13px] font-medium ">Process:</span><br/>
                         <div class="text-sm text-black">
-                            - Go to <button class="font-medium hover:text-yellow-500"> Order page </button> <br/>
+                            - Go to <a href="/janeiwebsite/src/profile.html" class="font-bold duration-200 hover:text-yellow-500"> Order purchase page </a> <br/>
                             - See if the status is to confirm.<br/>
                             - Click the cancel button.<br/>
                             - And that's it. <br/>
@@ -285,7 +295,7 @@
                             <span class="text-[13px]"> 
                               
                               <span class="text-[13px] font-medium text-black">Delivery Process:</span> <br/>
-                              <span class="text-[13px] font-medium text-black"> How to know if my orders is to deliver? </span><br/> - If you check the <button class="font-medium hover:text-yellow-500">Order page</button> and see that the status is <span class="font-medium">"To Deliver,"</span> it means our team is already busy processing your order to ship it out.
+                              <span class="text-[13px] font-medium text-black"> How to know if my orders is to deliver? </span><br/> - If you check the <a href="/janeiwebsite/src/profile.html" class="font-bold duration-200 hover:text-yellow-500">Order purchased page</a> and see that the status is <span class="font-medium">"To Deliver,"</span> it means our team is already busy processing your order to ship it out.
                               <br/> 
                               <span class="text-[13px] font-medium text-black"> How long will it take? </span><br/> - Well, if you're in Quezon City, you can expect your orders to arrive within 1-3 days. If you're outside Quezon City, it might take a bit longer, typically around 3-5 days for delivery.
                         </div>
@@ -308,6 +318,43 @@
     </div>
 </section>
 
+<div class="sticky-message flex justify-end mr-5 md:mr-10 mb-5 z-50">
+    <div class="relative">
+        <!-- Dropdown toggle button -->
+        <div onclick="toggleDropdown()" tabindex="0" role="button" class="bg-yellow-500 hover:bg-yellow-600 cursor-pointer hover:scale-95 duration-150 p-2 rounded-full shadow-md shadow-yellow-100">
+            <ion-icon  name="chatbubbles-outline" class="md:h-9 md:w-10 h-7 w-8 text-white"></ion-icon>
+        </div>
+        <!-- Dropdown content -->
+        <ul id="dropdownContent" class="dropdown-content  absolute top-0 right-0 p-1 -mt-72 border h-auto  bg-white w-72  rounded-md shadow-md shadow-yellow-50 hidden">
+            <div class="p-2 bg-slate-900 text-white message rounded-sm text-center font-medium">MESSAGE US</div>
+            <div class="msgbox p-2 h-[35vh] bg-slate-200 border border-slate-900">
+                <div class="max-w-xs mx-auto my-1 flex flex-col items-end">
+                    <div class="relative rounded-lg bg-slate-900 z-20 text-white py-2 px-4 mb-2">
+                      <p class="text-sm">Hello</p>
+                      <div class="absolute w-0 h-0 " style="bottom: 15px; right: 10px;">
+                        <div class="w-3 h-3 bg-slate-900 z-10 transform rotate-45  "></div>
+                      </div>
+                    </div>
+                </div>
+                <div class="max-w-xs mx-auto my-4 flex flex-col items-start">
+                    <div class="relative rounded-lg bg-slate-400  py-2 px-4 mb-2">
+                      <p class="text-sm text-black">Hello</p>
+                      <div class="absolute w-0 h-0" style="bottom: 15px;">
+                        <div class="w-3 h-3 bg-slate-400 -ml-[20px]   transform rotate-45"></div>
+                      </div>
+                    </div>
+                  </div>
+          
+            </div>
+
+            <div class="flex bg-slate-800 rounded-sm p-1">
+                <input id="message" type="text" class="msg rounded-sm w-full border border-slate-400 " placeholder="Type here...">
+                <button type="button" class=""><ion-icon name="arrow-redo" class="h-7 w-7 px-3 hover:scale-95 text-white hover:text-yellow-500 " ></ion-icon></button>
+            </div>
+            
+        </ul>
+    </div>
+</div>
 <!--FOOTER-->
 <footer class="h-60 p-5 w-auto bg-[#1F1F1F]">
     <div class="">
@@ -342,8 +389,38 @@
             e.name = e.name === 'menu' ? 'close' : 'menu'
             navLinks.classList.toggle('top-[10%]')
         }
- 
+        function toggleDropdown() {
+        var dropdown = document.getElementById("dropdownContent");
+        dropdown.classList.toggle("hidden");
+        }
+
+        document.addEventListener("click", function(event) {
+            var dropdown = document.getElementById("dropdownContent");
+            if (!event.target.closest(".sticky-message") && !event.target.closest(".dropdown-content")) {
+                dropdown.classList.add("hidden");
+            }
+        });
+
+        const images = document.querySelectorAll('.imghome');
+        let currentImageIndex = 0;
+
+        function showNextImage() {
+            images[currentImageIndex].style.display = 'none';
+
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+
+            images[currentImageIndex].style.display = 'block';
+        }
+
+        function startAnimation() {
+            setInterval(showNextImage, 3000);
+        }
+
+
+        window.onload = startAnimation;
 </script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script type="module" src="/janeiwebsite/scripts/home.js"></script>
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
