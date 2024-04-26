@@ -29,6 +29,7 @@ function getCurrentUserData() {
             .then((snapshot) => {
                 var userData = snapshot.val();
                 if (userData) {
+                    console.log("User ID: " + userData.id)
                     console.log("Email: " + userData.email);
                     console.log("Username: " + userData.username);
                     uname.textContent = userData.username;
