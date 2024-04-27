@@ -339,30 +339,20 @@
                 <div class="bg-slate-950 w-full p-1.5 rounded-tl-md rounded-tr-md "></div>
                 <div class="flex justify-between pt-2 py-1 px-2 bg-slate-500 shadow-sm shadow-black">
                     <div class="font-bold  text-sm text-bold">MESSAGE US</div> 
+                    
                     <button id="cancelbtn7" class="hover:text-slate-100 duration-300 "><ion-icon name="arrow-undo" style="" class=" h-5 w-7"></ion-icon></button>
                 </div>
+                <div class="text-center font-medium text-sm p-1">Order Id: <span id="orderid" class="text-slate-600"></span> </div>
                 <div class="h-72 chatbox overflow-y-auto overflow-x-hidden">
-                    <div class=" mx-2 my-4 pl-10 flex flex-col  items-end">
-                        <div class="relative rounded-lg bg-slate-900 z-20 text-white py-2 px-4 mb-2">
-                          <p class="text-sm w-auto h-auto ">Hellow </p>
-                          <div class="absolute w-0 h-0 " style="bottom: 15px; right: 10px;">
-                            <div class="w-3 h-3 bg-slate-900 z-10 transform rotate-45  "></div>
-                          </div>
-                        </div>
+                    <!--The Messages appear here-->
+                    <div id="chatroom-messages">
+                        <!--message will appear inside this div hihi-->
                     </div>
-                    <div class="mx-2 my-4 pr-10 flex flex-col items-start">
-                        <div class="relative rounded-lg bg-slate-400  py-2 px-4 mb-2">
-                          <p class="text-sm text-black">Hello</p>
-                          <div class="absolute w-0 h-0" style="bottom: 15px;">
-                            <div class="w-3 h-3 bg-slate-400 -ml-[20px]   transform rotate-45"></div>
-                          </div>
-                        </div>
-                      </div>
                      
                 </div>
                 <div class="w-full flex bg-slate-950 p-2 rounded-bl-md gap-1 rounded-br-md">
-                    <textarea style="resize: none;" placeholder="Type here..." name="" id="" cols="" rows="" class="chat w-full h-14 rounded-bl-md rounded-tl-md"></textarea>
-                    <button type="button" class="bg-slate-800 p-2 px-5 rounded-tr-md gap-1 rounded-br-md hover:bg-slate-500 hover:scale-95 duration-200">
+                    <textarea style="resize: none;" placeholder="Type here..." name="" id="content" cols="" rows="" class="chat w-full h-14 rounded-bl-md rounded-tl-md"></textarea>
+                    <button id="sendamessage" type="button" class="bg-slate-800 p-2 px-5 rounded-tr-md gap-1 rounded-br-md hover:bg-slate-500 hover:scale-95 duration-200">
                         <ion-icon name="send" style="color: rgb(242, 242, 242);" class="w-5 pt-1 "></ion-icon>
                     </button>
                 </div>
@@ -387,10 +377,10 @@
                             <div class="p-1 text-center md:text-left md:px-5 font-bold text-xl ">ORDER INFORMATION</div>
                             <div class="md:px-5 px-3 py-1 h-auto w-auto">
                                 <div class="bg-white py-4 px-6 rounded-md">
-                                    <div class="text-black font-bold text-sm py-2">Name : <span  id="ordername" class="text-sm text-slate-600 font-medium">Aster</span> </div>
-                                    <div class="text-black font-bold text-sm py-2">Quantity : <span id="orderquantity"  class="text-sm text-slate-600 font-medium">54 pieces</span> </div>
-                                    <div class="text-black font-bold text-sm py-2">Amount : <span id="orderamount" class="text-sm text-slate-600 font-medium">1154 pesos</span> </div>
-                                    <div class="text-black font-bold text-sm py-2">Status :  <span id="orderstatus"  class="text-sm text-slate-600 font-medium">To process</span> </div>
+                                    <div class="text-black font-bold text-sm py-2">Name : <span  id="ordername" class="text-sm text-slate-600 font-medium"></span> </div>
+                                    <div class="text-black font-bold text-sm py-2">Quantity : <span id="orderquantity"  class="text-sm text-slate-600 font-medium"> </span> </div>
+                                    <div class="text-black font-bold text-sm py-2">Amount : <span id="orderamount" class="text-sm text-slate-600 font-medium"> </span> </div>
+                                    <div class="text-black font-bold text-sm py-2">Status :  <span id="orderstatus"  class="text-sm text-slate-600 font-medium"> </span> </div>
                                 </div>
                             </div>
                             <div class="md:mt-5 mt-2 py-2 px-3 md:px-5 flex justify-between ">
@@ -424,6 +414,10 @@
 <script type="module" src="/janeiwebsite/scripts/updateaccount.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<!-- Import the Firebase SDK -->
+<script type="module" src="https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js"></script>
+
 
 <script>
     //Navbar
