@@ -57,13 +57,18 @@
   }
   .chatbox::-webkit-scrollbar {
     width: 3px;
+    
   }
   .chat::placeholder {
     font-size: 14px;
+    
   }
   .btncancel {
     background-color: rgb(232, 4, 4);
     color: white;
+  }
+  .orderkey {
+    box-shadow: 0px 5px 15px rgba(56, 56, 56, 0.633);
   }
 </style>
 <body class="bg-[#D9D9D9]">
@@ -125,7 +130,7 @@
                             </div>
                             <div class="p-2 shadow-sm shadow-[#00000020]">
                                 
-                                <div class="font-medium text-sm pt-5 text-slate-400">Email Account: <span id="email" class="text-black"> </span> </div>
+                                <div class="font-medium max-w text-sm pt-5 text-slate-400">Email Account: <span id="email" class="text-black"> </span> </div>
                             </div>
                             <div class="p-2 shadow-sm shadow-[#00000020]">
                                 <div class="font-medium text-sm pt-5 text-slate-400">Address: <span id="address" class="text-black"> </span> </div>
@@ -154,7 +159,7 @@
                                 <div class="text-sm text-white font-medium">STATUS</div>
                                 <div class="text-sm text-white font-medium">ACTION</div>
                             </div>
-                            <div class="ords py-5 px-5 md:h-[60vh] h-auto overflow-y-scroll">
+                            <div class="ords py-5 px-5 md:h-[60vh] h-40 overflow-y-scroll">
                                 <!--<div class="p-4 mb-1 flex justify-between rounded-md shadow-md bg-slate-700 ">
                                     <div id="orderid" class="text-sm text-white">ORDERID</div>
                                     <div id="status" class="text-sm text-white">STATUS</div>
@@ -166,6 +171,7 @@
                                 </div>
                                 <div id="orders-container">
                                     <!--orders goes here-->
+                                    
                                 </div>
                             </div>
                         </div>
@@ -342,7 +348,7 @@
                     
                     <button id="cancelbtn7" class="hover:text-slate-100 duration-300 "><ion-icon name="arrow-undo" style="" class=" h-5 w-7"></ion-icon></button>
                 </div>
-                <div class="text-center font-medium text-sm p-1">Order Id: <span id="orderid" class="text-slate-600"></span> </div>
+                <div class="orderkey text-center font-medium text-sm p-1 ">Order Id: <span id="orderid" class="text-slate-600"></span> </div>
                 <div class="h-72 chatbox overflow-y-auto overflow-x-hidden">
                     <!--The Messages appear here-->
                     <div id="chatroom-messages">
@@ -350,6 +356,11 @@
                     </div>
                      
                 </div>
+              
+                    <div id="inputmsg" class="refresh relative -mt-5 h-auto rounded-md  z-50" style="display: none;">
+                        <div class="text-sm  text-red-700 bg-red-200 font-medium text-center ">Input a message</div>
+                    </div>
+            
                 <div class="w-full flex bg-slate-950 p-2 rounded-bl-md gap-1 rounded-br-md">
                     <textarea style="resize: none;" placeholder="Type here..." name="" id="content" cols="" rows="" class="chat w-full h-14 rounded-bl-md rounded-tl-md"></textarea>
                     <button id="sendamessage" type="button" class="bg-slate-800 p-2 px-5 rounded-tr-md gap-1 rounded-br-md hover:bg-slate-500 hover:scale-95 duration-200">
@@ -479,6 +490,7 @@
         document.getElementById("cancelbtn6").addEventListener("click", function() {
         var modal5 = document.getElementById("myModalinfo5");
         modal5.classList.add("hidden");
+        location.reload();
         });
         document.getElementById("cancelbtn7").addEventListener("click", function() {
         var modal6 = document.getElementById("myModalinfo6");

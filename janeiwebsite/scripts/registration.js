@@ -104,7 +104,7 @@ document.getElementById("submit").addEventListener('click', async function(e) {
                 username = "";
                 password = "";
                 address = "";
-                localStorage.setItem('currentid', newUserId.toString());
+                sessionStorage.setItem('currentid', newUserId.toString());
                 window.location.href = "/janeiwebsite/src/home.html";
             } catch (error) {
                 console.error("Error:", error);

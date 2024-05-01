@@ -26,6 +26,24 @@
 
     animation-duration: 3s;
   }
+  .icontxt {
+    filter: drop-shadow(0 0 10px rgb(255, 175, 2));
+  }
+  .box {
+    background-color: rgba(255, 255, 255, 0.482);
+    border: 1px solid rgba(255, 255, 255, 0.998);
+    box-shadow: 10px 12px 8px rgba(6, 6, 6, 0.423);
+  }
+  .box1 {
+    background-color: rgba(255, 255, 255, 0.482);
+    border: 1px solid rgba(255, 255, 255, 0.998);
+    box-shadow: 0px  15px 7px rgba(6, 6, 6, 0.423);
+  }
+  .box2 {
+    background-color: rgba(255, 255, 255, 0.482);
+    border: 1px solid rgba(255, 255, 255, 0.998);
+    box-shadow: -10px 12px 8px rgba(6, 6, 6, 0.423);
+  }
 </style>
 <body class="bg-[#D9D9D9]">
     <header class=" z-50">
@@ -65,29 +83,23 @@
             </div>
     </header>
 
-    <section class="h-auto bg-[#D9D9D9] md:p-10 p-5">
-        <div class="md:flex gap-2">
-            <div class="">
-                <div class="p-5 bg-slate-200 rounded-md">
-                    <img src="/janeiwebsite/assets/img22.jpg" alt="" srcset="" class="">
-                </div>
+    <section class="h-auto bg-[#D9D9D9] md:p-10 p-5 relative">
+        <div class="flex align-middle justify-center m-2">
+            <ion-icon name="layers" class="icontxt h-10 w-10 text-yellow-500"></ion-icon>
+            <div class="text-sm md:text-2xl ml-2 font-medium">LANYARD PRICING</div>
+        </div>
+        <div class="md:flex justify-center gap-10 p-2 align-middle relative">
+            <div class="box h-[65vh]  w-72 my-auto rounded-md relative z-10"></div>
+            <div class="box1 h-[70vh]  w-72 rounded-md relative z-10"></div>
+            <div class="box2 h-[65vh]  w-72 rounded-md my-auto relative z-10"></div>
+            <div class="absolute inset-0 backpaint">
+                <img src="/janeiwebsite/assets/3d-casual-life-color-palette-and-brush.png" class="flex inset-0 pt-20" alt="" srcset="">
+                <img src="/janeiwebsite/assets/3d-fluency-paint-brush.png" class="inset-0 float-right -mt-10 w-80 h-80 flex" alt="" srcset="">
             </div>
-            <div class="">
-                <div class="p-5 bg-slate-200 rounded-md">
-                    <img src="/janeiwebsite/assets/img22.jpg" alt="" srcset="" class="">
-                </div>
-            </div>
-            <div class="">
-                <div class="p-5 bg-slate-200 rounded-md">
-                    <img src="/janeiwebsite/assets/img22.jpg" alt="" srcset="" class="">
-                </div>
-            </div>
-               
-            
         </div>
     </section>
 <!--FOOTER-->
-<footer class="h-60 p-5 w-auto bg-[#1F1F1F]">
+<footer class="h-60 p-5 z-20 w-auto bg-[#1F1F1F]">
     <div class="">
         <ul class="flex md:gap-6  gap-4  justify-center">
             <li class="text-white md:text-xl font-medium hover:text-yellow-600 duration-300">
@@ -114,8 +126,8 @@
 </footer>    
 <!--Scripts-->   
 <script type="module" src="/janeiwebsite/scripts/home.js"></script>
-<script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script>
      const navLinks = document.querySelector('.nav-links')
         function onToggleMenu(e){

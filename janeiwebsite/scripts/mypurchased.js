@@ -18,14 +18,14 @@ const db = getDatabase(app);
 document.addEventListener('DOMContentLoaded', function() {
     //display orders of the current user
     function getOrdersInfo() {
-        const userId = localStorage.getItem('currentid');
+        const userId = sessionStorage.getItem('currentid');
         if (userId) {
             var ordersRef = ref(db, "orders");
             get(ordersRef)
                 .then((snapshot) => {
                     var ordersData = snapshot.val();
                     if (ordersData) {         
-                        var userOrders = Object.values(ordersData).filter(order => order.FK_cusId === userId);
+                        var userOrders = Object.values(ordersData).filter(order => order.FK_cusID === userId);
                         if (userOrders.length > 0) {
                             document.getElementById('orders-container').innerHTML = '';
 
@@ -78,18 +78,20 @@ document.addEventListener('DOMContentLoaded', function() {
                                     else {
                                         document.getElementById('orderstatus').textContent = 'Order Cancelled';
                                     }
-                                
-                                    var selectedOrderId = order.id; // Get the ID of the selected order
+
+
                                     
+                                    function loadChatMessages(selectedOrderId) {
+                                    var selectedOrderId = order.id; 
                                     var chatRef = ref(db, "orderChats");
                                     get(chatRef)
                                         .then((snapshot) => {
                                             var chatData = snapshot.val();
                                             if (chatData) {
                                                 // Find chat data associated with the selected order
-                                                var orderChat = Object.values(chatData).find(chat => chat.OrderNo === selectedOrderId);
+                                                var orderChat = chatData[selectedOrderId];
                                                 if (orderChat) {
-                                                    console.log('Chat data for order:', selectedOrderId, orderChat.Messages);
+                                                   
                                 
                                                     var chatMessages = orderChat.Messages;
                                                     if (chatMessages) {
@@ -101,13 +103,13 @@ document.addEventListener('DOMContentLoaded', function() {
                                                             var sender = message.Sender.toLowerCase(); 
                                                         
                                                             // Determine the class for the message container based on the sender
-                                                            var messageClass = (sender === 'customer') ? 'mx-2 my-4 pl-10 flex flex-col items-end' : 'mx-2 my-4 pr-10 flex flex-col items-start';
+                                                            var messageClass = (sender === 'customer') ? 'mx-2 my-2 pl-10 flex  flex-col items-end' : 'mx-2 my-2 pr-10 flex flex-col items-start';
                                                             
                                                             // Determine the ID for the message div based on the sender
                                                             var messageId = (sender === 'customer') ? 'customerchat' : 'adminchat';
                                                         
                                                             // Determine the background color class based on the sender
-                                                            var bgClass = (sender === 'customer') ? 'bg-slate-900' : 'bg-slate-600';
+                                                            var bgClass = (sender === 'customer') ? 'bg-slate-900 rounded-br-lg rounded-bl-lg rounded-tl-lg ' : 'bg-slate-600 rounded-br-lg rounded-bl-lg rounded-tr-lg  ';
                                                         
                                                             // Create the message div
                                                             var messageDiv = document.createElement('div');
@@ -120,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                                         
                                                             // Create the message content div
                                                             var contentDiv = document.createElement('div');
-                                                            contentDiv.className = 'relative rounded-lg z-20 text-white py-2 px-4 mb-2 ' + bgClass; // Add bgClass here
+                                                            contentDiv.className = 'relative z-20 text-white py-2 px-4 mb-2  ' + bgClass; // Add bgClass here
                                                             contentDiv.innerHTML = '<p id="' + messageId + '" class="text-sm w-auto h-auto">' + messageContent + '</p>';
                                                         
                                                             // Append contentDiv to messageDiv
@@ -129,6 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                                             // Append messageDiv to chatroom container
                                                             chatroomDiv.appendChild(messageDiv);
                                                         });
+                                                       
                                                         
                                                     } else {
                                                         console.log('No chat messages found for order:', selectedOrderId);
@@ -143,8 +146,21 @@ document.addEventListener('DOMContentLoaded', function() {
                                         .catch((error) => {
                                             console.log('Error getting chat data:', error.message);
                                         });    
-                                
+                                    }
+                              
+                                    document.getElementById('chatroom').addEventListener('click', function() {
+                                        var selectedOrderId = document.getElementById('orderid').textContent; 
+                                        document.getElementById('orderid').textContent = selectedOrderId;
+                                        document.getElementById('myModalinfo6').classList.remove('hidden');
+                                        console.log("Chatroom button clicked for order:", selectedOrderId);
+                                        loadChatMessages(selectedOrderId);
+                                        setInterval(function() {
+                                            loadChatMessages(selectedOrderId);
+                                        }, 1000);
+                                    });
+                                    
                                     document.getElementById('myModalinfo5').classList.remove('hidden');
+                                    
                                 });
                                 
                                 orderDiv.appendChild(orderIdDiv);
@@ -168,15 +184,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    document.getElementById('chatroom').addEventListener('click', function() {
-        // Get the order ID associated with the selected order
-        var selectedOrderId = document.getElementById('orderid').textContent; 
-        // Display the order ID in the chatroom modal
-        document.getElementById('orderid').textContent = selectedOrderId;
-        // Show the chatroom modal
-        document.getElementById('myModalinfo6').classList.remove('hidden');
-        console.log("Chatroom button clicked for order:", selectedOrderId);
-    });
 
     getOrdersInfo();
 });
@@ -190,6 +197,8 @@ document.addEventListener('DOMContentLoaded', function() {
         var newMessageId = lastMessageId + 1;
         var currentTime = new Date();
         var formattedDateTime = currentTime.toLocaleString();
+        const firstName = document.getElementById('firstnameup').value;
+        const lastName = document.getElementById('lastnameup').value;
 
         // Get the content of the message from the textarea
         var content = document.getElementById('content').value.trim(); 
@@ -197,20 +206,23 @@ document.addEventListener('DOMContentLoaded', function() {
             var orderChatsRef = ref(db, "orderChats/" + orderId + "/Messages/" + newMessageId );
             set(orderChatsRef, {
                 Sender: "Customer", 
+                SenderName: firstName + " " + lastName,
                 Content: content,
                 TimeSent: formattedDateTime
             }, newMessageId)
             .then(() => {
                 console.log('Message sent successfully:', content, 'for order:', orderId );
-               // location.reload();
-                // Clear the textarea after sending the message
                 document.getElementById('content').value = '';
             })
             .catch((error) => {
                 console.error('Error sending message:', error);
             });
         } else {
-            alert('Please enter a message.');
+            const errorContainer2 = document.getElementById('inputmsg');
+            errorContainer2.style.display = 'block';
+            setTimeout(() => {
+                errorContainer2.style.display = 'none';
+            }, 3000);
         }
     }
     document.getElementById('sendamessage').addEventListener('click', sendMessage);
@@ -233,5 +245,5 @@ async function getLastMessageId(orderId) {
     } catch (error) {
         console.error('Error fetching last message ID:', error);
         throw error;
-    }
+    }   
 }
