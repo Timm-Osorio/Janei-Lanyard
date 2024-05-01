@@ -18,7 +18,7 @@ const db = getDatabase(app);
 document.addEventListener('DOMContentLoaded', function() {
     //display orders of the current user
     function getOrdersInfo() {
-        const userId = sessionStorage.getItem('currentid');
+        const userId = localStorage.getItem('currentid');
         if (userId) {
             var ordersRef = ref(db, "orders");
             get(ordersRef)

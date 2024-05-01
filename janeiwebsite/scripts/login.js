@@ -25,7 +25,7 @@ async function fetchDataFromDatabase(path) {
                     console.log("Logged in as:", username);
                     console.log("Role:", data[e].role);
                     isLoggedIn = true;
-                    sessionStorage.setItem('currentid', data[e].id);
+                    localStorage.setItem('currentid', data[e].id);
                     break;
                 } 
             }
@@ -54,7 +54,17 @@ async function fetchDataFromDatabase(path) {
         })
         .catch(error => console.error("Error fetching data:", error));
     });
-
+    
+    const setTokens = (data) => {
+        if (data) {
+            // user login
+            localStorage.setItem("tokens", JSON.stringify(data));
+        } else {
+            // user logout
+            localStorage.removeItem("tokens");
+        }
+        setAuthTokens(data);
+    };
 
     document.getElementById("togglePassword").addEventListener("click", function() {
         const passwordInput = document.getElementById("password");

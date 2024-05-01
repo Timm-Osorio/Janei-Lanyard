@@ -65,7 +65,7 @@ function updateUserData(userId, newData) {
         .then(() => {
             console.log("User data updated successfully!");
             closeModal();
-            sessionStorage.setItem('success', 'true');
+            localStorage.setItem('success', 'true');
             location.reload();   
             return;       
         })
@@ -75,13 +75,13 @@ function updateUserData(userId, newData) {
 }
 //Reload when update and show the modal I mean div
 window.onload = function() {
-    const successParam = sessionStorage.getItem('success');
+    const successParam = localStorage.getItem('success');
     if (successParam === 'true') {
         const success = document.getElementById('success');
         success.style.display = 'block';
         setTimeout(() => {
             success.style.display = 'none';
-            sessionStorage.removeItem('success');
+            localStorage.removeItem('success');
         }, 3000);
     }
 };

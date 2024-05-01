@@ -31,18 +31,18 @@
   }
   .box {
     background-color: rgba(255, 255, 255, 0.482);
-    border: 1px solid rgba(255, 255, 255, 0.998);
+    border: 1px solid rgb(255, 255, 255);
     box-shadow: 10px 12px 8px rgba(6, 6, 6, 0.423);
   }
   .box1 {
     background-color: rgba(255, 255, 255, 0.482);
-    border: 1px solid rgba(255, 255, 255, 0.998);
+    border: 1px solid rgb(255, 255, 255);
     box-shadow: 0px  15px 7px rgba(6, 6, 6, 0.423);
   }
   .box2 {
     background-color: rgba(255, 255, 255, 0.482);
-    border: 1px solid rgba(255, 255, 255, 0.998);
-    box-shadow: -10px 12px 8px rgba(6, 6, 6, 0.423);
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: -10px 12px 8px rgba(6, 6, 6, 0.423);    
   }
 </style>
 <body class="bg-[#D9D9D9]">
@@ -77,25 +77,85 @@
                     <ul class="absolute drop hidden bg-white h-auto rounded-md shadow-lg mt-2 py-1 w-44  right-[5%]  border-black border duration-300 z-10">
                         <a href="/janeiwebsite/src/profile.html"><li class="p-3 m-1 font-medium text-black hover:text-yellow-500 hover:bg-[#000000bc] rounded-md duration-200 ">Profile</li></a>
                        
-                        <a href="/janeiwebsite/index.html"><li class="p-3 m-1 font-medium text-black hover:text-yellow-500 hover:bg-[#000000bc] rounded-md duration-200 ">Logout</li></a>
+                        <a><li id="logoutLink" class="p-3 m-1 font-medium text-black hover:text-yellow-500 hover:bg-[#000000bc] rounded-md duration-200 ">Logout</li></a>
                     </ul>
                 </div>
             </div>
     </header>
 
-    <section class="h-auto bg-[#D9D9D9] md:p-10 p-5 relative">
+    <section class="bg-cover bg-center h-auto w-full bg-no-repeat md:p-10 p-5 relative" style="background-image: url(/janeiwebsite/assets/layered-waves-haikei.png);">
         <div class="flex align-middle justify-center m-2">
             <ion-icon name="layers" class="icontxt h-10 w-10 text-yellow-500"></ion-icon>
-            <div class="text-sm md:text-2xl ml-2 font-medium">LANYARD PRICING</div>
+            <div class="text-xl md:text-2xl ml-2 md:mt-0.5 mt-2 font-bold">LANYARD PRICING</div>
         </div>
-        <div class="md:flex justify-center gap-10 p-2 align-middle relative">
-            <div class="box h-[65vh]  w-72 my-auto rounded-md relative z-10"></div>
-            <div class="box1 h-[70vh]  w-72 rounded-md relative z-10"></div>
-            <div class="box2 h-[65vh]  w-72 rounded-md my-auto relative z-10"></div>
-            <div class="absolute inset-0 backpaint">
-                <img src="/janeiwebsite/assets/3d-casual-life-color-palette-and-brush.png" class="flex inset-0 pt-20" alt="" srcset="">
-                <img src="/janeiwebsite/assets/3d-fluency-paint-brush.png" class="inset-0 float-right -mt-10 w-80 h-80 flex" alt="" srcset="">
+        <div class="md:flex grid justify-center md:gap-10 gap-5 p-2 align-middle relative">
+            <div class="box h-auto  md:w-80 my-auto rounded-md relative z-10">
+                <div class="p-5 w-full ">
+                    <img src="/janeiwebsite/assets/lessdesign-removebg-preview.png" alt="" class="h-72 w-72 mx-auto">
+                    <div class="mt-10">
+                        <div class="font-bold text-xl text-center">LESS <span class="text-yellow-500 ">DESIGN</span></div>
+                        <div class="text-sm mt-2">
+                           <span class="font-semibold">Basic Package:</span> 
+
+                           <div class="mb-2">
+                            Ideal for individuals or startups seeking minimalist yet impactful design solutions.
+                           </div> 
+                            <span class="font-medium">Features:</span> <br>
+                            <ion-icon name="color-wand" class="mr-2 text-yellow-500 "></ion-icon>Clean and elegant design concepts<br>
+                            <ion-icon name="color-wand" class="mr-2 text-yellow-500 "></ion-icon>Limited revisions to ensure efficiency<br>
+                            <ion-icon name="color-wand" class="mr-2 text-yellow-500 "></ion-icon>Basic file formats for web and print<br>
+                            <div class="mt-2">
+                               <span class="font-medium">Price: </span> Starting at <span class="text-xl text-yellow-600 font-bold " >₱45</span> 
+                            </div> 
+                        </div>
+                    </div>
+                </div>
             </div>
+            <div class="box1 h-auto md:mt-0 md:w-80 rounded-md relative z-10">
+                <div class="p-5 w-full">
+                    <img src="/janeiwebsite/assets/a1.png" alt="" class="mx-auto">
+                    <div class="mt-10">
+                        <div class="font-bold text-2xl text-center">MORE <span class="text-yellow-500 ">DESIGN</span></div>
+                    </div>
+                    <div class="text-sm mt-2">
+                        <span class="font-semibold">Basic Package:</span> 
+
+                        <div class="mb-2">
+                         Ideal for individuals or startups seeking minimalist yet impactful design solutions.
+                        </div> 
+                         <span class="font-medium">Features:</span> <br>
+                         <ion-icon name="color-wand" class="mr-2 text-yellow-500 "></ion-icon>Clean and elegant design concepts<br>
+                         <ion-icon name="color-wand" class="mr-2 text-yellow-500 "></ion-icon>Limited revisions to ensure efficiency<br>
+                         <ion-icon name="color-wand" class="mr-2 text-yellow-500 "></ion-icon>Basic file formats for web and print<br>
+                         <div class="mt-2">
+                            <span class="font-medium">Price: </span> Starting at <span class="text-xl text-yellow-600 font-bold " >₱45</span> 
+                         </div> 
+                     </div>
+                </div>
+            </div>
+            <div class="box2 h-auto md:w-80 rounded-md my-auto relative z-10 ">
+                <div class="p-5 w-full">
+                    <img src="/janeiwebsite/assets/a2.png" alt="" class="mx-auto">
+                    <div class="mt-10">
+                        <div class="font-bold text-xl text-center">MEDIUM <span class="text-yellow-500 ">DESIGN</span> </div>
+                        <div class="text-sm mt-2">
+                            <span class="font-semibold">Basic Package:</span> 
+ 
+                            <div class="mb-2">
+                             Ideal for individuals or startups seeking minimalist yet impactful design solutions.
+                            </div> 
+                             <span class="font-medium">Features:</span> <br>
+                             <ion-icon name="color-wand" class="mr-2 text-yellow-500 "></ion-icon>Clean and elegant design concepts<br>
+                             <ion-icon name="color-wand" class="mr-2 text-yellow-500 "></ion-icon>Limited revisions to ensure efficiency<br>
+                             <ion-icon name="color-wand" class="mr-2 text-yellow-500 "></ion-icon>Basic file formats for web and print<br>
+                             <div class="mt-2">
+                                <span class="font-medium">Price: </span> Starting at <span class="text-xl text-yellow-600 font-bold " >₱45</span> 
+                             </div> 
+                         </div>
+                    </div>
+                </div>
+            </div>
+           
         </div>
     </section>
 <!--FOOTER-->
@@ -124,7 +184,8 @@
         <div class="text-white md:font-medium mt-2 md:ml-5">@ Janei editing and printing services</div>
     </div>
 </footer>    
-<!--Scripts-->   
+<!--Scripts-->  
+<script type="module" src="/janeiwebsite/scripts/logout.js"></script> 
 <script type="module" src="/janeiwebsite/scripts/home.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
