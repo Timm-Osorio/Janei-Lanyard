@@ -25,12 +25,15 @@ document.getElementById("submit").addEventListener('click', async function(e) {
     let password = document.getElementById("password").value;
     let cpass = document.getElementById("cpassword").value;
     let address = document.getElementById("address").value;
+    let phonenum = document.getElementById("phonenum").value;
+    let checkbox = document.getElementById("checkbox");
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d).{6,}$/;
 
     if (firstName && lastName && email && username && password && address) {
             const emailExists = await checkEmailExists(email);
             const usernameExists = await checkUsernameExists(username);
+            const phoneExist = await checkNumberExists(phonenum);
             
             if (emailExists) {
                 console.log("Error: Email already exists");
@@ -67,12 +70,33 @@ document.getElementById("submit").addEventListener('click', async function(e) {
                 setTimeout(() => {
                     errorContainer6.style.display = 'none';
                 }, 3000);   
+            } else if (phonenum.length != 11 ) {
+                console.log("Error: Phone number should be 11 digits.");
+                const errorContainer10 = document.getElementById('errorContainer10');
+                errorContainer10.style.display = 'block';
+                setTimeout(() => {
+                    errorContainer10.style.display = 'none';
+                }, 3000);   
+            } else if (phoneExist) {
+                console.log("Error: Mobile phone exist");
+                const errorContainer11 = document.getElementById('errorContainer11');
+                errorContainer11.style.display = 'block';
+                setTimeout(() => {
+                    errorContainer11.style.display = 'none';
+                }, 3000);
             } else if (!emailRegex.test(email)) {
                 console.log("Error: Invalid email format");
                 const errorContainer4 = document.getElementById('errorContainer4');
                 errorContainer4.style.display = 'block';
                 setTimeout(() => {
                     errorContainer4.style.display = 'none';
+                }, 3000);
+            } else if (!checkbox.checked) {
+                console.log("Checkbox should be check to allow the system store your personal details and do have a consent.");
+                const errorContainer12 = document.getElementById('errorContainer12');
+                errorContainer12.style.display = 'block';
+                setTimeout(() => {
+                    errorContainer12.style.display = 'none';
                 }, 3000);
             } else  if (cpass !== password) {
                 console.log("Password and Confirm password don't match");
@@ -94,7 +118,8 @@ document.getElementById("submit").addEventListener('click', async function(e) {
                     email: email,
                     username: username,
                     password: password,
-                    address: address
+                    address: address,
+                    phonenum: phonenum
                     
                 });
                 console.log("Success");
@@ -159,6 +184,17 @@ async function checkUsernameExists(username) {
         const customers = snapshot.val();
         const usernames = Object.values(customers).map(customer => customer.username);
         return usernames.includes(username);
+    } else {
+        return false;
+    }
+}
+//checkexistnumber
+async function checkNumberExists(phonenum) {
+    const snapshot = await get(ref(db, 'customers'));
+    if (snapshot.exists()) {
+        const customers = snapshot.val();
+        const phones = Object.values(customers).map(customer => customer.phonenum);
+        return phones.includes(phonenum);
     } else {
         return false;
     }
