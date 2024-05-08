@@ -186,6 +186,10 @@
         <!--Modals-->
         <div id="myModal" class="hidden fixed inset-0 z-40 flex items-center justify-center bg-black bg-opacity-50">
             <div class="bg-slate-100 md:p-5 p-3 rounded-lg h-auto">
+                <div class="flex text-sm font-medium justify-center bg-slate-950 rounded-md pt-1">
+                    <box-icon type='solid' name='paint'></box-icon>
+                    <div class="text-white">Hello! <span id="name2" class="text-yellow-500  " > </span></div> 
+                </div>
                 <div class="md:text-2xl text-xl font-bold text-center p-2">
                     EDIT ACCOUNT INFORMATION    
                 </div>
@@ -196,6 +200,9 @@
                         </div>
                         <div class="btn border rounded-md p-2 mt-1 flex justify-between">
                             <button id="btninfo2" type="button" class="btn2 btnemail text-sm">Change Username</button><box-icon type='solid' color="#00000090" name='user-detail'></box-icon>
+                        </div>
+                        <div class="btn border rounded-md p-2 mt-1 flex justify-between">
+                            <button id="btninfo9" type="button" class="btn2 btnemail text-sm">Change Phone Number</button><box-icon type='solid' color="#00000090" name='phone'></box-icon>
                         </div>
                         <div class="btn border rounded-md p-2 mt-1 flex justify-between">
                             <button id="btninfo3" type="button" class="btn2 btnemail text-sm">Change Email</button><box-icon color="#00000090" name='envelope'></box-icon>
@@ -370,6 +377,35 @@
                
             </div>
         </div>
+        <div id="myModalinfo7" class="hidden fixed inset-0 md:p-10 p-5 z-40 flex items-center justify-center bg-black bg-opacity-80">
+            <div class="bg-slate-100 p-5 md:p-5 rounded-lg h-auto w-96  ">
+                <div class="flex justify-between">
+                    <div class="text-xl  font-semibold  ">CHANGE PHONE NUMBER</div>
+                    <box-icon type='solid' color="#000000" name='phone' class="mt-1"></box-icon>
+                </div>
+                <div class="mt-4 mb-4">
+                    <div id="errorinfophn" style="display: none;">
+                        <div class="text-sm text-red-600 text-center font-normal "> Please Fill in Fields!</div>             
+                    </div>
+                    <div id="errorinfophn2" style="display: none;">
+                        <div class="text-sm text-red-600 text-center font-normal "> Phone number should be 11 digits!</div>             
+                    </div>
+                    <div id="errorinfophn3" style="display: none;">
+                        <div class="text-sm text-red-600 text-center font-normal "> Nothing to Change!</div>             
+                    </div>
+                    <div id="errorinfophn4" style="display: none;">
+                        <div class="text-sm text-red-600 text-center font-normal"> Phone Number is Already Used!</div>         
+                    </div>
+                   
+                    <div class="text-sm font-semibold mt-2">New Phone Number:</div>
+                    <input id="phnum" type="number"  class="rounded-md w-full">
+                </div>
+                <div class="flex justify-between">
+                    <button id="cancelbtn9" type="button" class=" hover:scale-95 duration-200 bg-slate-700 p-2 rounded-md text-white hover:bg-red-500 ">CANCEL</button>
+                    <button id="updatebtn9" type="button" class=" hover:scale-95 duration-200 bg-slate-700 p-2 rounded-md text-white hover:bg-green-600 ">UPDATE</button>
+                </div>
+            </div>
+        </div>
         <div id="myModalinfo5" class="hidden fixed w-auto inset-0 md:p-10 p-5 z-30 flex items-center justify-center bg-black bg-opacity-50">
            <div class="bg-white md:w-auto w-full  h-auto rounded-md">
                 <div class="bg-[#202020] p-1.5 w-auto rounded-tl-md rounded-tr-md  "></div>
@@ -448,7 +484,7 @@
         const modalinfo4 = document.getElementById('myModalinfo4');
         const modalinfo5 = document.getElementById('myModalinfo5');
         const modalinfo6 = document.getElementById('myModalinfo6');
-       
+        const modalinfo7 = document.getElementById('myModalinfo7');
 
         //modal for details
    
@@ -466,6 +502,9 @@
         });
         btninfo4.addEventListener('click', function() {
         modalinfo4.classList.remove('hidden');
+        });
+        btninfo9.addEventListener('click', function() {
+        modalinfo7.classList.remove('hidden');
         });
         chatroom.addEventListener('click', function() {
         modalinfo6.classList.remove('hidden');
@@ -496,6 +535,10 @@
         document.getElementById("cancelbtn7").addEventListener("click", function() {
         var modal6 = document.getElementById("myModalinfo6");
         modal6.classList.add("hidden");
+        });
+        document.getElementById("cancelbtn9").addEventListener("click", function() {
+        var modal7 = document.getElementById("myModalinfo7");
+        modal7.classList.add("hidden");
         });
 </script>
 </body>

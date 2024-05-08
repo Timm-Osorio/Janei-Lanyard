@@ -20,12 +20,13 @@ document.addEventListener('DOMContentLoaded', function() {
     function getOrdersInfo() {
         const userId = localStorage.getItem('currentid');
         if (userId) {
-            var ordersRef = ref(db, "orders");
-            get(ordersRef)
+            var ordersRef = ref(db, "newOrders");
+            var ordersRef2 = ref(db, "completeOrders");
+            get(ordersRef && ordersRef2)
                 .then((snapshot) => {
                     var ordersData = snapshot.val();
                     if (ordersData) {         
-                        var userOrders = Object.values(ordersData).filter(order => order.FK_cusID === userId);
+                        var userOrders = Object.values(ordersData).filter(order => order.Fk_cusID === userId);
                         if (userOrders.length > 0) {
                             document.getElementById('orders-container').innerHTML = '';
 
@@ -40,17 +41,25 @@ document.addEventListener('DOMContentLoaded', function() {
                                 var statusDiv = document.createElement('div');
                                 statusDiv.className = 'text-sm text-white';
                                 switch (order.status) {
-                                    case 1:
+                                    case 'CONFIRMING':
                                         statusDiv.textContent = 'To confirm';
                                         break;
-                                    case 2:
+                                    case 'DESIGNING':
                                         statusDiv.textContent = 'Order Processing';
                                         break;
-                                    case 3:
+                                    case 'PRINTING':
+                                        statusDiv.textContent = 'Order Printing';
+                                        break;
+                                    case 'DELIVERING':
                                         statusDiv.textContent = 'To deliver';
+                                        break;
+                                    case 'COMPLETE':
+                                        statusDiv.textContent = 'Order Completed';
+                                        statusDiv.className = 'text-green-400';
                                         break;
                                     default:
                                         statusDiv.textContent = 'Order Cancelled';
+                                        statusDiv.className = 'text-red-400';
                                         break;
                                 }
                                 //for the detail button
@@ -66,14 +75,20 @@ document.addEventListener('DOMContentLoaded', function() {
                                     document.getElementById('orderquantity').textContent = order.quantity;
                                     document.getElementById('orderamount').textContent = order.price;
                                 
-                                    if (order.status === 1) {
+                                    if (order.status === 'CONFIRMING') {
                                         document.getElementById('orderstatus').textContent = 'To confirm';
                                     } 
-                                    else if (order.status === 2){
+                                    else if (order.status === 'DESIGNING'){
                                         document.getElementById('orderstatus').textContent = 'Order Processing';
                                     }
-                                    else if (order.status === 3){
+                                    else if (order.status === 'PRINTING'){
+                                        document.getElementById('orderstatus').textContent = 'Order Printing';
+                                    }
+                                    else if (order.status === 'DELIVERING'){
                                         document.getElementById('orderstatus').textContent = 'To deliver';
+                                    }
+                                    else if (order.status === 'COMPLETE'){
+                                        document.getElementById('orderstatus').textContent = 'Order Completed';
                                     }
                                     else {
                                         document.getElementById('orderstatus').textContent = 'Order Cancelled';

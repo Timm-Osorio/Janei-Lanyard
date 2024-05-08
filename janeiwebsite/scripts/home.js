@@ -48,4 +48,20 @@
       }
     }
   }
-  
+   const images = document.querySelectorAll('.imghome');
+        let currentImageIndex = 0;
+
+        function showNextImage() {
+            images[currentImageIndex].style.display = 'none';
+
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+
+            images[currentImageIndex].style.display = 'block';
+        }
+
+        function startAnimation() {
+            setInterval(showNextImage, 3000);
+        }
+
+
+        window.onload = startAnimation;

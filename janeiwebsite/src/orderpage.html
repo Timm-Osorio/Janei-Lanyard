@@ -15,7 +15,7 @@
 </head>
 <style>
  .title {
-    background-color: #dad9db;
+    background-color: #dad9db00;
     border-radius: 20px;
     background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23848484' fill-opacity='0.4'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
  }
@@ -42,14 +42,13 @@
     border-bottom-left-radius: 5px;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 5px;
-    box-shadow: 0px 10px 12px rgba(88, 88, 88, 0.945);  
+    box-shadow: 0px 10px 12px rgba(88, 88, 88, 0.945); 
  }
  .box1 {
     border-top-left-radius: 20px;
     border-bottom-left-radius: 5px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 5px;
-    background-color: white;
  }
  .box-clicked {
     position: relative;
@@ -136,11 +135,10 @@
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.694);
  }
  .trapezoid {
-    border-bottom: 50px solid rgb(47, 47, 47);
+    border-bottom: 35px solid rgb(47, 47, 47);
 	border-left: 25px solid transparent;
 	border-right: 25px solid transparent;
-	height: 0;
-	width: 100%;
+	
  }
  .left {
   border-bottom-right-radius: 50px ;
@@ -152,22 +150,23 @@
  }
 .parallelogram-left {
     margin-top: 10px;
-    transform: skew(20deg);
+    transform: skew(15deg);
     background: rgb(173, 173, 173);
     clip-path: polygon(5% 100%, 100% 100%, 100% 0%, 0% 10%);
     background-image: url("/janeiwebsite/assets/3d-casual-life-color-palette-and-brush.png");
     background-position: center;
     background-size: contain;
+    z-index: 10;
 }
 .parallelogram-right {
-    margin-top: 10px;
-    transform: skew(-20deg);
+    margin-top: -106%;
+    transform: skew(-15deg);
     background: rgb(47, 47, 47);
     clip-path: polygon(-5% 100%, 100% 100%, 100% 10%, 0% 0%);
-    margin-top: -110%;
     background-image: url("/janeiwebsite/assets/3d-fluency-paint-brush.png");
     background-position: center;
     background-size: contain;
+    z-index: 0;
 }
 .contorder {
     background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.745), rgba(255, 255, 255, 0.153));
@@ -211,14 +210,17 @@
             </div>
     </header>
 
-    <section class="h-auto md:p-10 p-5 sticky z-0">
+    <section class="sec2 h-auto md:p-10 p-5 sticky z-0">
+            <div id="stars"></div>
+            <div id="stars2"></div>
+            <div id="stars3"></div>
         <div class="title p-10  justify-center rounded-xl">
             <div class="text font-medium md:text-[35px] text-[20px] text-center text-black ">LANYARD DESIGN</div>
             <div class="text font-bold md:text-[65px] text-[35px] text-center text-black">FOR BUILDERS</div>
             <div class="text font-bold md:text-[27px] text-sm text-center text-black">Janei Editing and Printing Services</div>
         </div>
     </section>
-    <section class="sec2 p-2 h-auto sticky ">
+   <!--<section class="sec2 p-2 h-auto sticky ">
             <div id="stars"></div>
             <div id="stars2"></div>
             <div id="stars3"></div>
@@ -259,26 +261,26 @@
                             <div id="backgroundBtn" class="button  bg-slate-100 duration-300 font-semibold p-2 border-[3px] border-black text-center  text-sm active cursor-pointer" onclick="showDiv('firstdiv', this)">Texture</div>
                             <div id="patternBtn" class="button bg-slate-100 duration-300 font-semibold  p-2 border-[3px] border-black text-center  text-sm cursor-pointer" onclick="showDiv('seconddiv', this)">Pattern</div>
                             <div id="textFontBtn" class="button bg-slate-100 duration-300 font-semibold  p-2 border-[3px] border-black text-center  text-sm cursor-pointer" onclick="showDiv('thirddiv', this)"> Logo</div>
-                           <!-- <div id="logoShapeBtn" class="button bg-slate-100 duration-300 font-semibold  p-2 border-[3px] border-black text-center text-sm cursor-pointer" onclick="showDiv('fourthdiv', this)">Logo Shape</div>-->
+                           <div id="logoShapeBtn" class="button bg-slate-100 duration-300 font-semibold  p-2 border-[3px] border-black text-center text-sm cursor-pointer" onclick="showDiv('fourthdiv', this)">Logo Shape</div>
                         </div>
                         
                         <div id="content" class="-mt-[11px] md:pb-10 mx-auto justify-center">
                             <div id="firstdiv" class="firstdiv w-full lg:w-[500px] border-[3px] md:h-[75vh] h-[50vh] overflow-y-scroll bg-slate-100  border-black py-5 rounded-md" style="display:block;">
-                                <!--Textures-->
+                                <!--Textures
                                 <div class="flex flex-wrap gap-2 justify-center p-4" id="textureContainer">
-                                    <!-- Texture boxes will be dynamically added here -->
+                                    <!-- Texture boxes will be dynamically added here 
                                 </div>
                             </div>
                             <div id="seconddiv" class="firstdiv w-full lg:w-[500px] border-[3px] md:h-[75vh] h-[50vh]  overflow-y-scroll bg-slate-100 border-black py-5 rounded-md" style="display:none;">
-                                <!--Patterns-->
+                                <!--Patterns
                                 <div class="flex flex-wrap gap-2 justify-center p-4" id="patternContainer">
-                                    <!-- Patterns boxes will be dynamically added here -->
+                                    <!-- Patterns boxes will be dynamically added here 
                                 </div>
                             </div>
                             <div id="thirddiv" class="firstdiv w-full lg:w-[500px] border-[3px] md:h-[75vh] h-[50vh]  overflow-y-scroll bg-slate-100 border-black py-5 rounded-md" style="display:none;">
-                                <!--Logos-->
+                                <!--Logos
                                 <div class="flex flex-wrap gap-2 justify-center p-4" id="logoContainer">
-                                    <!-- Logos boxes will be dynamically added here -->
+                                    <!-- Logos boxes will be dynamically added here
                                 </div>
                             </div>
                             <div id="fourthdiv" class="firstdiv md:w-[550px] border-[3px] bg-slate-100 border-black p-10 rounded-md" style="display:none;">LOGO SHAPES</div>
@@ -289,8 +291,8 @@
                 </div>
             </div>
         </div>
-    </section>
-    <section class="orderpage h-auto w-full overflow-hidden">    
+    </section>-->
+    <section class="orderpage h-auto  w-full overflow-hidden">    
         <div class="w-full h-14 bg-[#1F1F1F] pb-10 shadow-lg  shadow-white">
             <h1 class="text-white font-semibold font-mono p-3 md:pl-10 md:text-left text-center text-[20px] md:text-2xl">PRESET DESIGN</h1>
         </div>
@@ -301,229 +303,93 @@
             <div id="stars3"></div>
           
 
-            <div class="md:p-10 p-2 pt-5 flex justify-evenly ">
+            <div class="md:p-10 p-2 py-5 flex justify-evenly">
                 <div class="contorder w-full md:py-7 py-3 bg-opacity-75 rounded-xl border-2  border-white shadow-lg shadow-white  ">
-                    <div class="flex flex-wrap md:gap-6 gap-3 justify-center">
-                        
-                        <div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
-                            <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer ">
-                                <img src="/janeiwebsite/assets/a1.png" class="pic " alt="" srcset="">
-                            </div>
-                            <div class="flex md:pt-2 pt-1  z-0">
-                                <a href="/janeiwebsite/src/orderinfo.html" class="relative">
-                                    <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
-                                    <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
-                                </a>
-                                <div class="productname text-center text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
-                                    RED PUTTIN  45
-                                </div>   
-                            </div>
-                        </div>
-                        <div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
-                            <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer ">
-                                <img src="/janeiwebsite/assets/a1.png" class="pic " alt="" srcset="">
-                            </div>
-                            <div class="flex md:pt-2 pt-1  z-0">
-                                <a href="/janeiwebsite/src/orderinfo.html" class="relative">
-                                    <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
-                                    <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
-                                </a>
-                                <div class="productname text-center text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
-                                    RED PUTTIN  45
-                                </div>   
-                            </div>
-                        </div>
-                        <div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
-                            <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer ">
-                                <img src="/janeiwebsite/assets/a1.png" class="pic " alt="" srcset="">
-                            </div>
-                            <div class="flex md:pt-2 pt-1  z-0">
-                                <a href="/janeiwebsite/src/orderinfo.html" class="relative">
-                                    <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
-                                    <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
-                                </a>
-                                <div class="productname text-center text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
-                                    RED PUTTIN  45
-                                </div>   
-                            </div>
-                        </div>
-                        <div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
-                            <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer ">
-                                <img src="/janeiwebsite/assets/a1.png" class="pic " alt="" srcset="">
-                            </div>
-                            <div class="flex md:pt-2 pt-1  z-0">
-                                <a href="/janeiwebsite/src/orderinfo.html" class="relative">
-                                    <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
-                                    <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
-                                </a>
-                                <div class="productname text-center text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
-                                    RED PUTTIN  45
-                                </div>   
-                            </div>
-                        </div><div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
-                            <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer ">
-                                <img src="/janeiwebsite/assets/a1.png" class="pic " alt="" srcset="">
-                            </div>
-                            <div class="flex md:pt-2 pt-1  z-0">
-                                <a href="/janeiwebsite/src/orderinfo.html" class="relative">
-                                    <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
-                                    <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
-                                </a>
-                                <div class="productname text-center text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
-                                    RED PUTTIN  45
-                                </div>   
-                            </div>
-                        </div>
-                        <div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
-                            <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer ">
-                                <img src="/janeiwebsite/assets/a1.png" class="pic " alt="" srcset="">
-                            </div>
-                            <div class="flex md:pt-2 pt-1  z-0">
-                                <a href="/janeiwebsite/src/orderinfo.html" class="relative">
-                                    <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
-                                    <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
-                                </a>
-                                <div class="productname text-center text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
-                                    RED PUTTIN  45
-                                </div>   
-                            </div>
-                        </div>
-                        <div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
-                            <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer ">
-                                <img src="/janeiwebsite/assets/a1.png" class="pic " alt="" srcset="">
-                            </div>
-                            <div class="flex md:pt-2 pt-1  z-0">
-                                <a href="/janeiwebsite/src/orderinfo.html" class="relative">
-                                    <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
-                                    <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
-                                </a>
-                                <div class="productname text-center text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
-                                    RED PUTTIN  45
-                                </div>   
-                            </div>
-                        </div>
-                        <div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
-                            <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer ">
-                                <img src="/janeiwebsite/assets/a1.png" class="pic " alt="" srcset="">
-                            </div>
-                            <div class="flex md:pt-2 pt-1  z-0">
-                                <a href="/janeiwebsite/src/orderinfo.html" class="relative">
-                                    <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
-                                    <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
-                                </a>
-                                <div class="productname text-center text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
-                                    RED PUTTIN  45
-                                </div>   
-                            </div>
-                        </div>
-                        <div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
-                            <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer ">
-                                <img src="/janeiwebsite/assets/a1.png" class="pic " alt="" srcset="">
-                            </div>
-                            <div class="flex md:pt-2 pt-1  z-0">
-                                <a href="/janeiwebsite/src/orderinfo.html" class="relative">
-                                    <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
-                                    <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
-                                </a>
-                                <div class="productname text-center text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
-                                    RED PUTTIN  45
-                                </div>   
-                            </div>
-                        </div>
-                        <div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
-                            <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer ">
-                                <img src="/janeiwebsite/assets/a1.png" class="pic " alt="" srcset="">
-                            </div>
-                            <div class="flex md:pt-2 pt-1  z-0">
-                                <a href="/janeiwebsite/src/orderinfo.html" class="relative">
-                                    <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
-                                    <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
-                                </a>
-                                <div class="productname text-center text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
-                                    RED PUTTIN  45
-                                </div>   
-                            </div>
-                        </div>
-                        <div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
-                            <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer ">
-                                <img src="/janeiwebsite/assets/a1.png" class="pic " alt="" srcset="">
-                            </div>
-                            <div class="flex md:pt-2 pt-1  z-0">
-                                <a href="/janeiwebsite/src/orderinfo.html" class="relative">
-                                    <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
-                                    <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
-                                </a>
-                                <div class="productname text-center text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
-                                    RED PUTTIN  45
-                                </div>   
-                            </div>
-                        </div>
-                        <div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
-                            <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer ">
-                                <img src="/janeiwebsite/assets/a1.png" class="pic " alt="" srcset="">
-                            </div>
-                            <div class="flex md:pt-2 pt-1  z-0">
-                                <a href="/janeiwebsite/src/orderinfo.html" class="relative">
-                                    <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
-                                    <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
-                                </a>
-                                <div class="productname text-center text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
-                                    RED PUTTIN  45
-                                </div>   
-                            </div>
-                        </div>
-                        <div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
-                            <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer ">
-                                <img src="/janeiwebsite/assets/a1.png" class="pic " alt="" srcset="">
-                            </div>
-                            <div class="flex md:pt-2 pt-1  z-0">
-                                <a href="/janeiwebsite/src/orderinfo.html" class="relative">
-                                    <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
-                                    <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
-                                </a>
-                                <div class="productname text-center text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
-                                    RED PUTTIN  45
-                                </div>   
-                            </div>
-                        </div>
-                        <div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
-                            <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer ">
-                                <img src="/janeiwebsite/assets/a1.png" class="pic " alt="" srcset="">
-                            </div>
-                            <div class="flex md:pt-2 pt-1  z-0">
-                                <a href="/janeiwebsite/src/orderinfo.html" class="relative">
-                                    <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
-                                    <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
-                                </a>
-                                <div class="productname text-center text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
-                                    RED PUTTIN  45
-                                </div>   
-                            </div>
-                        </div>
-                        <div class="box bg-[#1f1f1fe6] p-2 md:w-56 md:h-80 h-56 w-40 md:mb-4 mb-2  ">
-                            <div onclick="toggleHover(this)" class="box1 md:w-52 md:h-64 mx-auto h-44  w-36  z-50  duration-500 cursor-pointer ">
-                                <img src="/janeiwebsite/assets/a1.png" class="pic " alt="" srcset="">
-                            </div>
-                            <div class="flex md:pt-2 pt-1  z-0">
-                                <a href="/janeiwebsite/src/orderinfo.html" class="relative">
-                                    <img src="/janeiwebsite/assets/business-3d-red-shopping-cart.png" class="md:h-16 h-11   cursor-pointer cart-image hover:" alt="">
-                                    <span class="w-28 order-message absolute top-0 left-1/2 hidden">Order Now</span>
-                                </a>
-                                <div class="productname text-center text-sm bg-slate-200 duration-300 border w-36 md:h-10 h-8 ">
-                                    RED PUTTIN  45
-                                </div>   
-                            </div>
-                        </div>
-                        
-    
+                    <div id="noorders" class="w-full" style="display: none;">
+                        <img src="/janeiwebsite/assets/purr.gif" alt="dudesnothing" srcset="" class="mx-auto md:h-72 h-20 " >
+                        <div class="text-center md:text-xl text-sm font-bold text-yellow-600 ">NO ORDERS YET.</div>
+                    </div>
+                    <div class="flex flex-wrap md:gap-6 gap-3 justify-center" id="templateContainer">
+                        <!--the preset templates goes here...-->
                     </div>
                 </div>
             </div>
           </div>
     </section>
+    <!--The ano goes here-->
+    <div id="myModalorder" class="fixed inset-0 z-50 p-0 md:p-2 flex items-center justify-center bg-[#D9D9D9] bg-opacity-10 overflow-y-scroll hidden ">
+        <div class="modal-content bg-[#D9D9D9] rounded-lg ">
+            <span class="close absolute top-0 right-0 p-2 md:m-2 cursor-pointer text-slate-300 text-2xl hover:text-yellow-500  "><ion-icon name="arrow-back-outline"></ion-icon></span>
+            <div class="template-name bg-slate-800 p-2 text-white rounded-tl-md rounded-tr-md "></div>
+         
+            <div class="md:mt-0 mt-3 p-2 rounded-lg">
+                <div class="lg:flex justify-center lg:gap-10 gap-5 grid mb-10">
+                    
+                    <div class="md:w-3/10 justify-center mt-1 md:mt-2 ">
+                        <h1 class="font-mono md:text-[20px] text-xl  md:bg-white rounded-md md:text-black  mb-2 bg-slate-900 text-white font-bold md:font-semibold md:text-left text-center " >CREATE YOUR OWN DESIGN</h1>
+                        <div class="firstdiv rounded-md mx-auto w-[350px] lg:h-[650px] md:w-[500px] border-[3px] bg-slate-100 border-black md:p-5 p-2">
+                            <div class="relative w-auto">
+                                <div class="text-sm text-center font-medium text-slate-500">NAPE PART</div>
+                                <div class="flex relative justify-evenly">
+                                    <div class="h-10 absolute z-30 left-0 ml-10 mt-3 text-white">TEXT GOES HERE</div>
+                                    <div class="w-10 h-10 absolute z-30 rounded-full mt-1 bg-black"></div>
+                                    <div class="h-10 absolute z-30 right-0 mr-10 mt-3 text-white">TEXT GOES HERE</div>
+                                </div>
+                                <div class="trapezoid w-[228px] h-[35px] ml-[29%]  "></div>
+                            </div>
+                            <div class="relative w-auto">
+                                <div class="justify-between flex">
+                                    <div class="text-sm font-medium text-slate-500">RIGHT SIDE</div>
+                                    <div class="text-sm font-medium text-slate-500">LEFT SIDE</div>
+                                </div>
+                                <div class="leftbox absolute"></div>
+                                <div class="parallelogram-left ml-[36.5%] z-20 h-[481px] w-[35px] md:mt-0"></div>
+                                <div class="parallelogram-right z-10 ml-[65%] h-[481px] w-[35px]  "></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:w-7/10 ">
+                        <div class="md:w-7/10 lg:w-auto w-[90vw] pt-10">
+                            <div class="flex p-2 gap-2 justify-center z-10">
+                                <div id="backgroundBtn" class="button bg-slate-100 duration-300 font-semibold p-2 border-[3px] border-black text-center text-sm active cursor-pointer" onclick="showDiv('firstdiv', this)">Texture</div>
+                                <div id="patternBtn" class="button bg-slate-100 duration-300 font-semibold p-2 border-[3px] border-black text-center text-sm cursor-pointer" onclick="showDiv('seconddiv', this)">Pattern</div>
+                                <div id="textFontBtn" class="button bg-slate-100 duration-300 font-semibold p-2 border-[3px] border-black text-center text-sm cursor-pointer" onclick="showDiv('thirddiv', this)">Logo</div>
+                            </div>
+                            <div id="content" class="-mt-[11px] md:pb-10 mx-auto justify-center">
+                                <div id="firstdiv" class="firstdiv w-full lg:w-[500px] border-[3px] md:h-[75vh] h-[45vh] overflow-y-scroll bg-slate-100 border-black py-5 rounded-md" style="display:block;">
+                                    <!--Textures-->
+                                    <div class="flex flex-wrap gap-2 justify-center p-4" id="textureContainer">
+                                        <!-- Texture boxes will be dynamically added here -->
+                                    </div>
+                                </div>
+                                <div id="seconddiv" class="firstdiv w-full lg:w-[500px] border-[3px] md:h-[75vh] h-[45vh] overflow-y-scroll bg-slate-100 border-black py-5 rounded-md" style="display:none;">
+                                    <!--Patterns-->
+                                    <div class="flex flex-wrap gap-2 justify-center p-4" id="patternContainer">
+                                        <!-- Patterns boxes will be dynamically added here -->
+                                    </div>
+                                </div>
+                                <div id="thirddiv" class="firstdiv w-full lg:w-[500px] border-[3px] md:h-[75vh] h-[45vh] overflow-y-scroll bg-slate-100 border-black py-5 rounded-md" style="display:none;">
+                                    <!--Logos-->
+                                    <div class="flex flex-wrap gap-2 justify-center p-4" id="logoContainer">
+                                        <!-- Logos boxes will be dynamically added here-->
+                                    </div>
+                                </div>
+                                <button class="btnord p-2 hover:scale-95 duration-300 hover:bg-white bg-yellow-500 font-medium float-right mt-1 rounded-md border-2 border-black ">ORDER NOW</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay"></div>
+      </div>
 
 <!--FOOTER-->
-<footer class="h-60 p-5 w-auto bg-[#1F1F1F]">
+<footer class="h-60 bottom-0 p-5 w-auto bg-[#1F1F1F]">
     <div class="">
         <ul class="flex md:gap-6  gap-4  justify-center">
             <li class="text-white md:text-xl font-medium hover:text-yellow-600 duration-300">
@@ -541,7 +407,7 @@
         <div class="md:h-1 h-0.5 md:w-[70%] bg-white mt-4 mx-auto"></div>
         <div class="mt-4 text-center font-medium  text-white">You can also visit our social media accounts </div>
         <div class="flex justify-center gap-8 mt-4 md:gap-16">
-            <img src="/janeiwebsite/assets/facebook.png" alt="fbpage" srcset="" class="md:h-14 h-12 cursor-pointer hover:scale-[95%] duration-200 ">
+            <a href="https://www.facebook.com/JaneiRallee"><img src="/janeiwebsite/assets/facebook.png" alt="fbpage" srcset="" class="md:h-14 h-12 cursor-pointer hover:scale-[95%] duration-200 "></a>
             <img src="/janeiwebsite/assets/X.png" alt="xpage" srcset="" class="md:h-16 h-14 cursor-pointer hover:scale-[95%] duration-200 ">
             <img src="/janeiwebsite/assets/Insta.png" alt="instapage" srcset="" class="md:h-14 h-12 cursor-pointer hover:scale-[95%] duration-200 ">
         </div>
@@ -589,6 +455,8 @@
     function toggleHover(box) {
         box.classList.toggle("box-clicked");
     }
+
+
 </script>
 </body>
 </html>

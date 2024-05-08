@@ -17,6 +17,7 @@ const db = getDatabase(app);
 
 const uname = document.getElementById('username');
 const fullname = document.getElementById('name');
+const fullname2 = document.getElementById('name2');
 const address = document.getElementById('address');
 const email = document.getElementById('email');
 
@@ -34,6 +35,7 @@ function getCurrentUserData() {
                     console.log("Username: " + userData.username);
                     uname.textContent = userData.username;
                     fullname.textContent = `${userData.firstName} ${userData.lastName}`;
+                    fullname2.textContent = `${userData.firstName} ${userData.lastName}`;
                     email.textContent = userData.email;
                     address.textContent = userData.address;
                     document.getElementById('firstnameup').value = userData.firstName || '';
@@ -41,6 +43,7 @@ function getCurrentUserData() {
                     document.getElementById('addressup').value = userData.address || '';
                     document.getElementById('usernameup').value = userData.username || '';
                     document.getElementById('emailup').value = userData.email || '';
+                    document.getElementById('phnum').value = userData.contact_no || '';
                 } else {
                     console.log("No data found for the current user");
                 }
@@ -278,7 +281,61 @@ async function updateUser4() {
     };
     updateUserData(userId, newData);   
 }
+//User phone number update
+document.getElementById('updatebtn9').addEventListener('click', updateUser5);
+async function updateUser5() {
+    const userId = localStorage.getItem('currentid');
+    const phone = document.getElementById('phnum').value;
 
+    if (!phone) {
+        console.log("Please provide a new phone number.");
+        const errorinfophn = document.getElementById('errorinfophn');
+        errorinfophn.style.display = 'block';
+        setTimeout(() => {
+            errorinfophn.style.display = 'none';
+        }, 3000);
+        return;
+    } 
+
+    if (phone.length != 11) {
+        console.log("Phone number shoud be 11 digits");
+        const errorinfophn2 = document.getElementById('errorinfophn2');
+        errorinfophn2.style.display = 'block';
+        setTimeout(() => {
+            errorinfophn2.style.display = 'none';
+        }, 3000);   
+        return;
+    } 
+
+    checkuserdata().then(userData => {
+        if (userData) {
+            if (phone === userData.contact_no) {
+                console.log("Nothing to change.");
+                const errorinfophn3 = document.getElementById('errorinfophn3');
+                errorinfophn3.style.display = 'block';
+                setTimeout(() => {
+                    errorinfophn3.style.display = 'none';
+                }, 3000);
+                return;
+            } 
+            checkNumberExists(phone).then(phoneExists => {
+                if (phoneExists) {
+                    console.log("Error: Phone number is already exists");
+                    const errorinfophn4 = document.getElementById('errorinfophn4');
+                    errorinfophn4.style.display = 'block';
+                    setTimeout(() => {
+                        errorinfophn4.style.display = 'none';
+                    }, 3000);
+                    return;
+                }
+                const newData = {
+                    contact_no: phone
+                };
+                updateUserData(userId, newData);   
+            });
+        }
+    });
+}
 document.getElementById('cancelbtn').addEventListener('click', closeModal);
 document.getElementById('orderButton').addEventListener('click', openModal);
 //close modal after update
@@ -346,6 +403,17 @@ async function checkOldPassword(oldPassword) {
         return userData && userData.password === oldPassword;
     } catch (error) {
         console.error("Error checking old password:", error.message);
+        return false;
+    }
+}
+//checkexistnumber
+async function checkNumberExists(phonenum) {
+    const snapshot = await get(ref(db, 'customers'));
+    if (snapshot.exists()) {
+        const customers = snapshot.val();
+        const phones = Object.values(customers).map(customer => customer.contact_no);
+        return phones.includes(phonenum);
+    } else {
         return false;
     }
 }

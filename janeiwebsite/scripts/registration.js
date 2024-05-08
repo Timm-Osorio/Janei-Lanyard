@@ -119,7 +119,7 @@ document.getElementById("submit").addEventListener('click', async function(e) {
                     username: username,
                     password: password,
                     address: address,
-                    phonenum: phonenum
+                    contact_no: phonenum
                     
                 });
                 console.log("Success");
@@ -129,6 +129,7 @@ document.getElementById("submit").addEventListener('click', async function(e) {
                 username = "";
                 password = "";
                 address = "";
+                phonenum = "";
                 localStorage.setItem('currentid', newUserId.toString());
                 window.location.href = "/janeiwebsite/src/home.html";
             } catch (error) {
@@ -193,7 +194,7 @@ async function checkNumberExists(phonenum) {
     const snapshot = await get(ref(db, 'customers'));
     if (snapshot.exists()) {
         const customers = snapshot.val();
-        const phones = Object.values(customers).map(customer => customer.phonenum);
+        const phones = Object.values(customers).map(customer => customer.contact_no);
         return phones.includes(phonenum);
     } else {
         return false;
