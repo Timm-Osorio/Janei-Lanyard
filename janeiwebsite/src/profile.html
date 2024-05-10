@@ -159,7 +159,7 @@
                                 <div class="text-sm text-white font-medium">STATUS</div>
                                 <div class="text-sm text-white font-medium">ACTION</div>
                             </div>
-                            <div class="ords py-5 px-5 md:h-[60vh] h-40 overflow-y-scroll">
+                            <div class="ords py-5 px-5 md:h-[60vh] h-72  overflow-y-scroll">
                                 <!--<div class="p-4 mb-1 flex justify-between rounded-md shadow-md bg-slate-700 ">
                                     <div id="orderid" class="text-sm text-white">ORDERID</div>
                                     <div id="status" class="text-sm text-white">STATUS</div>
@@ -171,7 +171,12 @@
                                 </div>
                                 <div id="orders-container">
                                     <!--orders goes here-->
-                                    
+                                </div>
+                                <div id="orders-container2">
+                                    <!--complete orders goes here-->    
+                                </div>
+                                <div id="orders-container3">
+                                    <!--cancelled orders goes here-->    
                                 </div>
                             </div>
                         </div>
@@ -431,9 +436,9 @@
                                 </div>
                             </div>
                             <div class="md:mt-5 mt-2 py-2 px-3 md:px-5 flex justify-between ">
-                                <button type="button" class="py-1 px-4 hover:bg-red-600 text-white shadow-md shadow-[#00000075] hover:scale-95 duration-300 bg-slate-800 font-semibold text-sm rounded-md  ">Cancel Order</button>
+                                <button id="cancelorder" type="button" class="py-1 px-4  hover:bg-red-600 text-white shadow-md shadow-[#00000075] hover:scale-95 duration-300 bg-slate-800 font-semibold text-sm rounded-md  ">Cancel Order</button>
                                 <button id="chatroom" type="button" class=" bg-yellow-500 py-1 px-4 rounded-md shadow-md shadow-[#00000075] hover:scale-95 duration-300 hover:bg-slate-800 ">
-                                    <ion-icon name="chatbubbles-outline" class="h-6 w-6 mt-1" style="color: rgb(249, 249, 249);"></ion-icon>
+                                    <ion-icon name="chatbubbles-outline" class="h-6 w-6 mt-1  " style="color: rgb(249, 249, 249);"></ion-icon>
                                 </button>
                             </div>
                         </div>
@@ -457,7 +462,7 @@
 <!--Scripts-->   
 <script type="module" src="/janeiwebsite/scripts/logout.js"></script>
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-<script type="module" src="/janeiwebsite/scripts/home.js"></script>
+<script type="module" src="/janeiwebsite/scripts//modalsheader.js"></script>
 <script type="module" src="/janeiwebsite/scripts/mypurchased.js"></script>
 <script type="module" src="/janeiwebsite/scripts/updateaccount.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

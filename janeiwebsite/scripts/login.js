@@ -1,12 +1,14 @@
 //DATABASE CONNECTION
 async function fetchDataFromDatabase(path) {
-    const firebaseDatabaseUrl = "https://janeilanyarddb-default-rtdb.firebaseio.com/";
+    const firebaseDatabaseUrl = "https://janeidb-default-rtdb.firebaseio.com/";
     const response = await fetch(`${firebaseDatabaseUrl}${path}.json`);
     if (!response.ok) {
         throw new Error('Failed to fetch data from database');
     }
     return await response.json();
 }
+
+
 
     const doc_iderror = true;   
  
@@ -21,7 +23,7 @@ async function fetchDataFromDatabase(path) {
         .then(data => {     
             let isLoggedIn = false;
             for (let e in data) {
-                if (data[e] !== null && data[e].username === username && data[e].password === password) {
+                if (data[e] !== null && data[e].email === username && data[e].password === password) {
                     console.log("Logged in as:", username);
                     console.log("Role:", data[e].role);
                     isLoggedIn = true;

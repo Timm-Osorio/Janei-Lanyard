@@ -92,6 +92,13 @@
     border-top-right-radius: 20px;
     border-bottom-right-radius: 5px;
  }
+ .pic2 {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: center;
+ }
  .btnord {
     box-shadow: 2px 10px 12px rgba(0, 0, 0, 0.713);  
  }
@@ -171,6 +178,13 @@
 .contorder {
     background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.745), rgba(255, 255, 255, 0.153));
 }
+.sticky-message {
+    position: sticky;
+    bottom: 20px;
+    right: 20px;
+    z-index: 40;
+}
+
 </style>
 <body class="bg-[#D9D9D9]">
     <header class=" z-50">
@@ -210,17 +224,15 @@
             </div>
     </header>
 
-    <section class="sec2 h-auto md:p-10 p-5 sticky z-0">
-            <div id="stars"></div>
-            <div id="stars2"></div>
-            <div id="stars3"></div>
+    <section class="h-auto md:p-10 p-5 sticky z-0">
+           
         <div class="title p-10  justify-center rounded-xl">
             <div class="text font-medium md:text-[35px] text-[20px] text-center text-black ">LANYARD DESIGN</div>
             <div class="text font-bold md:text-[65px] text-[35px] text-center text-black">FOR BUILDERS</div>
             <div class="text font-bold md:text-[27px] text-sm text-center text-black">Janei Editing and Printing Services</div>
         </div>
     </section>
-   <!--<section class="sec2 p-2 h-auto sticky ">
+   <section class="sec2 p-2 h-auto sticky ">
             <div id="stars"></div>
             <div id="stars2"></div>
             <div id="stars3"></div>
@@ -255,46 +267,48 @@
                         </div>
                     </div>
                 </div>
-                <div class="lg:w-7/10  "> 
-                    <div class="md:w-7/10 lg:w-auto w-[90vw]  pt-10  "> 
+                <div class="lg:w-7/10"> 
+                    <div class="md:w-7/10 lg:w-auto w-full  pt-10  "> 
                         <div class="flex p-2 gap-2 justify-center z-10">
                             <div id="backgroundBtn" class="button  bg-slate-100 duration-300 font-semibold p-2 border-[3px] border-black text-center  text-sm active cursor-pointer" onclick="showDiv('firstdiv', this)">Texture</div>
                             <div id="patternBtn" class="button bg-slate-100 duration-300 font-semibold  p-2 border-[3px] border-black text-center  text-sm cursor-pointer" onclick="showDiv('seconddiv', this)">Pattern</div>
                             <div id="textFontBtn" class="button bg-slate-100 duration-300 font-semibold  p-2 border-[3px] border-black text-center  text-sm cursor-pointer" onclick="showDiv('thirddiv', this)"> Logo</div>
-                           <div id="logoShapeBtn" class="button bg-slate-100 duration-300 font-semibold  p-2 border-[3px] border-black text-center text-sm cursor-pointer" onclick="showDiv('fourthdiv', this)">Logo Shape</div>
+                           
                         </div>
                         
                         <div id="content" class="-mt-[11px] md:pb-10 mx-auto justify-center">
                             <div id="firstdiv" class="firstdiv w-full lg:w-[500px] border-[3px] md:h-[75vh] h-[50vh] overflow-y-scroll bg-slate-100  border-black py-5 rounded-md" style="display:block;">
-                                <!--Textures
-                                <div class="flex flex-wrap gap-2 justify-center p-4" id="textureContainer">
-                                    <!-- Texture boxes will be dynamically added here 
+                                <!--Textures-->
+                                <div class="flex flex-wrap gap-2 justify-center md:p-4 p-2" id="textureContainer">
+                                    Texture will appear soon!
                                 </div>
                             </div>
                             <div id="seconddiv" class="firstdiv w-full lg:w-[500px] border-[3px] md:h-[75vh] h-[50vh]  overflow-y-scroll bg-slate-100 border-black py-5 rounded-md" style="display:none;">
-                                <!--Patterns
-                                <div class="flex flex-wrap gap-2 justify-center p-4" id="patternContainer">
-                                    <!-- Patterns boxes will be dynamically added here 
+                                <!--Patterns-->
+                                <div class="flex flex-wrap gap-2 justify-center md:p-4 p-2" id="patternContainer">
+                                    Patterns will appear soon!
                                 </div>
                             </div>
                             <div id="thirddiv" class="firstdiv w-full lg:w-[500px] border-[3px] md:h-[75vh] h-[50vh]  overflow-y-scroll bg-slate-100 border-black py-5 rounded-md" style="display:none;">
-                                <!--Logos
-                                <div class="flex flex-wrap gap-2 justify-center p-4" id="logoContainer">
-                                    <!-- Logos boxes will be dynamically added here
+                               <!--Logos-->
+                                <div class="flex flex-wrap gap-2 justify-center md:p-4 p-2" id="logoContainer">
+                                     Logos will appear soon!
                                 </div>
                             </div>
-                            <div id="fourthdiv" class="firstdiv md:w-[550px] border-[3px] bg-slate-100 border-black p-10 rounded-md" style="display:none;">LOGO SHAPES</div>
+                         
                             <button class="btnord p-2 hover:scale-95 duration-300 hover:bg-white bg-yellow-500 font-medium float-right mt-1 rounded-md border-2 border-black ">ORDER NOW</div>
                         </div>
                         
                     </div>
                 </div>
+          
             </div>
         </div>
-    </section>-->
+    </section>
+
     <section class="orderpage h-auto  w-full overflow-hidden">    
         <div class="w-full h-14 bg-[#1F1F1F] pb-10 shadow-lg  shadow-white">
-            <h1 class="text-white font-semibold font-mono p-3 md:pl-10 md:text-left text-center text-[20px] md:text-2xl">PRESET DESIGN</h1>
+            <h1 class="text-white font-semibold font-mono p-3 md:pl-10 md:text-left text-center text-[20px] md:text-2xl">PRESET TEMPLATES DESIGN</h1>
         </div>
       
         <div class="body2">
@@ -309,74 +323,113 @@
                         <img src="/janeiwebsite/assets/purr.gif" alt="dudesnothing" srcset="" class="mx-auto md:h-72 h-20 " >
                         <div class="text-center md:text-xl text-sm font-bold text-yellow-600 ">NO ORDERS YET.</div>
                     </div>
+                  
                     <div class="flex flex-wrap md:gap-6 gap-3 justify-center" id="templateContainer">
                         <!--the preset templates goes here...-->
                     </div>
                 </div>
             </div>
           </div>
+          
     </section>
-    <!--The ano goes here-->
+
+      <!--Floating div for inquiry-->
+
+    <!--The ano goes here-->    
     <div id="myModalorder" class="fixed inset-0 z-50 p-0 md:p-2 flex items-center justify-center bg-[#D9D9D9] bg-opacity-10 overflow-y-scroll hidden ">
         <div class="modal-content bg-[#D9D9D9] rounded-lg ">
             <span class="close absolute top-0 right-0 p-2 md:m-2 cursor-pointer text-slate-300 text-2xl hover:text-yellow-500  "><ion-icon name="arrow-back-outline"></ion-icon></span>
-            <div class="template-name bg-slate-800 p-2 text-white rounded-tl-md rounded-tr-md "></div>
+            <div class=" bg-slate-800 p-2 text-white rounded-tl-md rounded-tr-md "> Janei Editing and Printing Services </div>
          
             <div class="md:mt-0 mt-3 p-2 rounded-lg">
                 <div class="lg:flex justify-center lg:gap-10 gap-5 grid mb-10">
                     
                     <div class="md:w-3/10 justify-center mt-1 md:mt-2 ">
-                        <h1 class="font-mono md:text-[20px] text-xl  md:bg-white rounded-md md:text-black  mb-2 bg-slate-900 text-white font-bold md:font-semibold md:text-left text-center " >CREATE YOUR OWN DESIGN</h1>
+                        <h1 class="  md:text-[20px] text-xl  rounded-md md:text-black  mb-2 text-white font-bold md:font-semibold md:text-left text-center templatename2" > TEMPLATE DESIGN</h1>
                         <div class="firstdiv rounded-md mx-auto w-[350px] lg:h-[650px] md:w-[500px] border-[3px] bg-slate-100 border-black md:p-5 p-2">
-                            <div class="relative w-auto">
-                                <div class="text-sm text-center font-medium text-slate-500">NAPE PART</div>
-                                <div class="flex relative justify-evenly">
-                                    <div class="h-10 absolute z-30 left-0 ml-10 mt-3 text-white">TEXT GOES HERE</div>
-                                    <div class="w-10 h-10 absolute z-30 rounded-full mt-1 bg-black"></div>
-                                    <div class="h-10 absolute z-30 right-0 mr-10 mt-3 text-white">TEXT GOES HERE</div>
-                                </div>
-                                <div class="trapezoid w-[228px] h-[35px] ml-[29%]  "></div>
-                            </div>
-                            <div class="relative w-auto">
-                                <div class="justify-between flex">
-                                    <div class="text-sm font-medium text-slate-500">RIGHT SIDE</div>
-                                    <div class="text-sm font-medium text-slate-500">LEFT SIDE</div>
-                                </div>
-                                <div class="leftbox absolute"></div>
-                                <div class="parallelogram-left ml-[36.5%] z-20 h-[481px] w-[35px] md:mt-0"></div>
-                                <div class="parallelogram-right z-10 ml-[65%] h-[481px] w-[35px]  "></div>
-                                <div></div>
+                            <div class=" templatesImg border border-black pic2 h-full">
+                                <!--Selected Template Images goes here-->
                             </div>
                         </div>
                     </div>
-
+                    <div id="errorContainer5" class="error w-full fixed font-bold bg-yellow-300 text-slate-900 text-center bottom-0 shadow-md shadow-red-600 z-20 text-sm p-3 mx-auto" style="display: none;">
+                        <div class="flex justify-center relative">
+                            <img src="/janeiwebsite/assets/pablita-warning-sign.png" class="h-6 " alt="" srcset="">
+                            <span class="mt-1 pl-3">Only 5 images are accepted!</span> 
+                        </div>                
+                    </div>
                     <div class="lg:w-7/10 ">
-                        <div class="md:w-7/10 lg:w-auto w-[90vw] pt-10">
-                            <div class="flex p-2 gap-2 justify-center z-10">
-                                <div id="backgroundBtn" class="button bg-slate-100 duration-300 font-semibold p-2 border-[3px] border-black text-center text-sm active cursor-pointer" onclick="showDiv('firstdiv', this)">Texture</div>
-                                <div id="patternBtn" class="button bg-slate-100 duration-300 font-semibold p-2 border-[3px] border-black text-center text-sm cursor-pointer" onclick="showDiv('seconddiv', this)">Pattern</div>
-                                <div id="textFontBtn" class="button bg-slate-100 duration-300 font-semibold p-2 border-[3px] border-black text-center text-sm cursor-pointer" onclick="showDiv('thirddiv', this)">Logo</div>
-                            </div>
-                            <div id="content" class="-mt-[11px] md:pb-10 mx-auto justify-center">
-                                <div id="firstdiv" class="firstdiv w-full lg:w-[500px] border-[3px] md:h-[75vh] h-[45vh] overflow-y-scroll bg-slate-100 border-black py-5 rounded-md" style="display:block;">
-                                    <!--Textures-->
-                                    <div class="flex flex-wrap gap-2 justify-center p-4" id="textureContainer">
-                                        <!-- Texture boxes will be dynamically added here -->
+                        <div class="w-full  h-full p-5">
+                            <div class=" bg-slate-200 rounded-lg shadow-md  shadow-black w-auto">
+                                <div class="md:text-2xl text-[15px] text-center font-semibold rounded-tl-lg rounded-tr-lg w-full p-2 md:p-5 bg-[#161616f0] text-yellow-50">ADD TO YOUR ORDER</div>
+                                
+                                    <div class=" p-2 ">
+                                        <form action="" method="">
+                                        <div class="md:p-2 p-2 md:h-64  h-32 bg-white shadow-black shadow-inner rounded-md  overflow-y-auto">
+                                            
+                                                <button id="addInput" type="button" class="float-right py-1 px-3  md:px-4 md:text-xl text-[13px] hover:bg-green-700 duration-300 rounded-md shadow-md text-white hover:scale-95 shadow-slate-600 bg-slate-900">ADD</button>
+                                                <div id="inputContainer" class="md:mt-13 mt-10 space-y-2">
+                                                    <div class="flex items-center">
+                                                        <input type="file" src="" alt="" class="w-full shadow-sm shadow-slate-900 bg-slate-400 p-1 md:p-2 rounded-md">
+                                                        <button type="button"  class="ml-2 md:px-2 md:py-2 p-1   text-red-500 border border-red-500 rounded hover:bg-red-500 hover:text-white">Cancel</button>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        <div class="">
+                                            <div class="text-sm font-medium p-2 md:text-xl">ORDER NOTES</div>
+                                                <div class=" ">
+                                                    <textarea name="" placeholder=" type your gcash name here... " id="" cols="" rows="" class="w-full h-16  md:h-24 rounded-md shadow-inner shadow-gray-900"></textarea>
+                                                </div>
+                                        </div>
+                                        <div class="lg:flex items-center right-0  justify-between">
+                                            
+                                            <div class="lg:mt-10 md:mt-2  ">
+                                                <div class="font-medium p-1 text-black  ">Input payment Screenshot here </div>
+                                                <div class="md:flex gap-2">
+                                                    <div class="">
+                                                        <input type="file" name="" id="" class="w-full text-white bg-slate-900 rounded-md p-1">
+                                                    </div>
+                                                  
+                                                    <button id="orderButton" type="button" class="btnords p-2 md:mt-0 mt-2 bg-slate-800 rounded-md font-medium text-white  ">SCAN ME</button>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class=" p-1  ">
+                                                <div class="textpay font-bold text-4xl text-center text-yellow-500">4500</div>
+                                                <div class="p-2 text-center font-bold md:text-[15px] text-[10px]  ">
+                                                    TOTAL:
+                                                </div>
+                                                <div class="gap-1 lg:justify-normal flex justify-center ">
+                                                    <button id="incrementBtn" type="button" class=" px-3 py-1 font-bold text-xl hover:scale-95 text-white duration-300 hover:bg-green-600 rounded-md bg-slate-900">+</button>
+                                                    <input type="number" name="" id="count" placeholder="0" class="w-16 font-semibold appearance-none rounded-md mx-2">
+                                                    <button id="decrementBtn" type="button" class="px-3 py-1 font-bold text-xl hover:scale-95 text-white duration-300 hover:bg-red-500 rounded-md bg-slate-900">−</button>
+                                                    
+                                                </div>  
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-between pt-2">
+                                            <a href="/janeiwebsite/src/orderpage.html"><button type="button" class="p-2  hover:bg-red-500 bg-slate-500 hover:scale-95 font-semibold text-white rounded-md">CANCEL ORDER</button></a>
+                                            <button  type="button" class="p-2 bg-slate-900 hover:bg-green-500 hover:scale-95 font-semibold text-white rounded-md">ORDER NOW</button>
+                                        </div>
+                                    </form>
+                                <!-- Modal content -->
+                                    <div id="myModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+                                        <div class="bg-white p-1 md:p-2 rounded-lg h-auto">
+                                          <div class="md:text-2xl text-xl font-bold text-center p-5">
+                                            SCAN TO PAY
+                                          </div>
+                                         
+                                          <div class="md:flex w-auto">
+                                            <div class=" flex justify-center">
+                                                <img src="/janeiwebsite/assets/qrcode.png" class="h-56 md:h-72 " alt="" srcset="">
+                                            </div>   
+                                          </div>
+                                          <div class="text-center font-medium p-1">Down payment is acceptable.</div>
+                                          
+                                        </div>
+                                      </div>
                                     </div>
-                                </div>
-                                <div id="seconddiv" class="firstdiv w-full lg:w-[500px] border-[3px] md:h-[75vh] h-[45vh] overflow-y-scroll bg-slate-100 border-black py-5 rounded-md" style="display:none;">
-                                    <!--Patterns-->
-                                    <div class="flex flex-wrap gap-2 justify-center p-4" id="patternContainer">
-                                        <!-- Patterns boxes will be dynamically added here -->
-                                    </div>
-                                </div>
-                                <div id="thirddiv" class="firstdiv w-full lg:w-[500px] border-[3px] md:h-[75vh] h-[45vh] overflow-y-scroll bg-slate-100 border-black py-5 rounded-md" style="display:none;">
-                                    <!--Logos-->
-                                    <div class="flex flex-wrap gap-2 justify-center p-4" id="logoContainer">
-                                        <!-- Logos boxes will be dynamically added here-->
-                                    </div>
-                                </div>
-                                <button class="btnord p-2 hover:scale-95 duration-300 hover:bg-white bg-yellow-500 font-medium float-right mt-1 rounded-md border-2 border-black ">ORDER NOW</button>
+                                
                             </div>
                         </div>
                     </div>
@@ -386,8 +439,58 @@
         </div>
     </div>
     <div class="modal-overlay"></div>
-      </div>
-
+    </div>
+   <!-- <div class="sticky-message z-50 float-right mb-20">
+        <div class="">
+             
+            <div onclick="toggleDropdown()" tabindex="0" role="button" class="bg-yellow-500 hover:bg-yellow-600 cursor-pointer hover:scale-95 duration-150 p-2 rounded-full shadow-md shadow-yellow-100">
+                <ion-icon name="help-circle-outline" class="md:h-9 md:w-10 h-7 w-8 text-white"></ion-icon>
+            </div>
+            
+            <div id="dropdownContent" class="dropdown-content absolute top-0 right-0 p-1 -mt-72 border h-auto bg-white w-9 rounded-md shadow-md shadow-yellow-50 hidden">
+                <div class="p-3 text-black bg-white rounded-md">
+                    <div class="flex flex-wrap">
+                        <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 xl:w-1/3 p-4">
+                            <span class="text-[13px] font-bold">Order Guide:</span><br/>
+                            <span class="text-sm">To start your order journey, 
+                              simply head over to our <a href="/janeiwebsite/src/orderpage.html" class="font-bold hover:text-yellow-500 duration-200 ">Shop page.</a>  From there, you'll
+                              have the delightful choice between bringing your dream 
+                              design to life or selecting from our fabulous preset
+                              templates.
+                        </div>
+                        <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 xl:w-1/3 p-4">
+                            <span class="text-[13px] font-bold ">Order Process:</span><br/>
+                            <span class="text-[13px] font-medium ">In Preview Preset</span> <br/>
+                            <div class="text-sm">
+                            - Select your background color. <br/>
+                             - Select your pattern. <br/>
+                             - Select your font design. <br/>
+                             - Select a shape for your Logo. <br/>
+                             - Lastly, when you're ready, simply 
+                             click the "Order Now" button. From there,  
+                             you can add your images and even include a description. 
+                             We're here to bring your dream design to life, so feel 
+                             free to share your suggestions with us!
+                            </div>
+                        </div>
+                        <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 xl:w-1/3 p-4">
+                            <span class="text-[13px] font-medium">In Preset Templates:</span> <br/>
+                           <div class="text-sm ">
+                                - First, select the design that best matches your desires.<br/>
+                                - Once you've found the perfect fit, simply click the "Order Now" button.<br/>
+                                - From there, you can add your images and even include a description.
+                                We're here to turn your dream design into a reality, so don't hesitate to share your ideas with us!<br/>
+                                <br/>
+                            
+                                Let's work together to make some magic happen! 😊🎨
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </div>  
+        </div>
+    </div>-->
+    
 <!--FOOTER-->
 <footer class="h-60 bottom-0 p-5 w-auto bg-[#1F1F1F]">
     <div class="">
@@ -417,7 +520,8 @@
 <!--Scripts--> 
 <script type="module" src="/janeiwebsite/scripts/custompreview.js"></script>
 <script type="module" src="/janeiwebsite/scripts/logout.js"></script>  
-<script type="module" src="/janeiwebsite/scripts/home.js"></script>
+<script type="module" src="/janeiwebsite/scripts/modalsheader.js"></script>
+<script type="module" src="/janeiwebsite/scripts/orderinfo.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
@@ -456,6 +560,10 @@
         box.classList.toggle("box-clicked");
     }
 
+    function toggleDropdown() {
+        var dropdown = document.getElementById("dropdownContent");
+        dropdown.classList.toggle("hidden");
+        }
 
 </script>
 </body>

@@ -4,7 +4,7 @@ import { getDatabase, ref, get, update } from "https://www.gstatic.com/firebasej
 const firebaseConfig = {
   apiKey: "AIzaSyB7ZxE8vJo0r5QWKqJ9jfFWpySnHaRWsiQ",
   authDomain: "janeilanyarddb.firebaseapp.com",
-  databaseURL: "https://janeilanyarddb-default-rtdb.firebaseio.com",
+  databaseURL: "https://janeidb-default-rtdb.firebaseio.com",
   projectId: "janeilanyarddb",
   storageBucket: "janeilanyarddb.appspot.com",
   messagingSenderId: "548579996655",

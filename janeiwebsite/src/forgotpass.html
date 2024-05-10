@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  href="/janeiwebsite/styles/output.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/janeiwebsite/styles/tailwind.css">
+    <title>Janei Lanyard</title>
+    <link rel="icon" type="icon" href="/janeiwebsite/assets/logolanyard.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/janeiwebsite/styles/body.css">
+</head>
+<style>
+   
+</style>
+<body class=" h-screen overflow-hidden">
+    <section class="bg-cover bg-center h-full w-full bg-no-repeat flex justify-center items-center" style="background-image: url('/janeiwebsite/assets/loginbgimg.png')">
+        <div class="w-full h-screen overflow-y-auto absolute top-0 left-0 z-[1] bg-[#ffffff9e] flex p-2 justify-center items-center">
+            <div class="message"></div>
+            <div class="bg-white w-96  p-5 bg-opacity-65 rounded-md border border-black shadow-xl shadow-[#686868]">
+                <form id="forgotPasswordForm">
+                    <div class="text-xl text-center font-bold pb-5 text-black ">
+                        FORGOT PASSWORD?
+                    </div>
+                    <div class="py-2 font-medium ">
+                        Input email account:
+                    </div>
+                    
+                    <div class="bg-slate-100 w-auto rounded-md">
+                        
+                        <input id="email" required type="email" class="w-full  rounded-md text-black ">
+                        
+                    </div>
+                    <button class="p-2 w-full bg-slate-700  text-center mt-2 rounded-md text-white font-medium hover:scale-95 duration-200">SUBMIT</button>
+                    
+                    <a href="/janeiwebsite/src/changepass.html">
+                        <div class="pt-5 font-medium float-right text-sm hover:text-blue-900 ">
+                            Remember Password?
+                        </div>
+                    </a>
+                </form>
+            </div>
+        </div>
+    </section>
+
+<script src="/janeiwebsite/scripts/forgotpass.js"></script>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

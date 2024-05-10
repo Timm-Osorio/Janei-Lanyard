@@ -390,20 +390,17 @@
             e.name = e.name === 'menu' ? 'close' : 'menu'
             navLinks.classList.toggle('top-[10%]')
         }
+
         function toggleDropdown() {
         var dropdown = document.getElementById("dropdownContent");
         dropdown.classList.toggle("hidden");
         }
 
-        document.addEventListener("click", function(event) {
-            var dropdown = document.getElementById("dropdownContent");
-            if (!event.target.closest(".sticky-message") && !event.target.closest(".dropdown-content")) {
-                dropdown.classList.add("hidden");
-            }
-        });
+     
 
        
 </script>
+<script type="module" src="/janeiwebsite/scripts/changeimg.js"></script>
 <script type="module" src="/janeiwebsite/scripts/logout.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

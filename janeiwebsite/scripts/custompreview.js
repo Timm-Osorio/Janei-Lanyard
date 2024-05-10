@@ -4,7 +4,7 @@ import { getDatabase, ref, onValue, set, get, child} from "https://www.gstatic.c
 const firebaseConfig = {
   apiKey: "AIzaSyB7ZxE8vJo0r5QWKqJ9jfFWpySnHaRWsiQ",
   authDomain: "janeilanyarddb.firebaseapp.com",
-  databaseURL: "https://janeilanyarddb-default-rtdb.firebaseio.com",
+  databaseURL: "https://janeidb-default-rtdb.firebaseio.com",
   projectId: "janeilanyarddb",
   storageBucket: "janeilanyarddb.appspot.com",
   messagingSenderId: "548579996655",
@@ -34,7 +34,7 @@ function displayTextures(data) {
       
             textureBox.innerHTML = `
                 <img src="data:image/png;base64,${texture.ImgUrl}" alt="${texture.Name}" class="w-full h-full object-cover"> 
-                <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 font-medium border text-sm bg-white bg-opacity-70  rounded">${texture.Name}</div>
+                <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 font-medium border  text-center text-sm bg-white bg-opacity-70  rounded">${texture.Name}</div>
             `;
             // Add click event listener to each texture box
             (function(texture) {
@@ -61,7 +61,7 @@ function displayPatterns(data2) {
       
             patternsBox.innerHTML = `
                 <img src="data:image/png;base64,${patterns.ImgUrl}" alt="${patterns.Name}" class="w-full h-full object-cover"> 
-                <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 font-medium border text-sm bg-white bg-opacity-70  rounded">${patterns.Name}</div>
+                <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 font-medium border text-center text-sm bg-white bg-opacity-70  rounded">${patterns.Name}</div>
             `;
             // Add click event listener to each texture box
             (function(pattern) {
@@ -88,7 +88,7 @@ function displayLogos(data3) {
       
             logosBox.innerHTML = `
                 <img src="data:image/png;base64,${logos.ImgUrl}" alt="${logos.Name}" class="w-full h-full object-cover"> 
-                <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 font-medium border text-sm bg-white bg-opacity-70  rounded">${logos.Name}</div>
+                <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 font-medium border   text-center text-sm bg-white bg-opacity-70  rounded">${logos.Name}</div>
             `;
             // Add click event listener to each texture box
             (function(logos) {
@@ -125,7 +125,8 @@ function logTemplatesData() {
 logTemplatesData();
 // Function to fetch template data based on templateId
 function populateTemplates() {
-  
+   const container = document.getElementById('templateContainer');
+    container.innerHTML = '<div class="loader text-xl p-10 ">Loading...</div>';
     onValue(templatesRef, (snapshot) => {
         const templatesData = snapshot.val(); 
         const container = document.getElementById('templateContainer');
@@ -212,13 +213,27 @@ function getTemplateData(templateId) {
 function displayModal(templateData) {
     const modal = document.getElementById('myModalorder');
     modal.style.display = 'block';
-    const templateNameElement = modal.querySelector('.template-name');
-    if (templateNameElement) {
-        templateNameElement.textContent = templateData.name;
+    const templateNameElement2 = modal.querySelector('.templatename2');
+
+    const templateImgDiv = modal.querySelector('.templatesImg');
+  
+    if ( templateNameElement2 && templateImgDiv) {
+  
+        templateNameElement2.textContent = templateData.name;
+        const imgElement = document.createElement('img');
+        imgElement.src = `data:image/png;base64,${templateData.preview}`;
+        imgElement.classList.add('w-full', 'h-full', 'object-cover', 'mx-auto', 'rounded-xl');
+        templateImgDiv.innerHTML = '';
+        templateImgDiv.appendChild(imgElement);
+
     } else {
         console.error("Modal elements not found.");
     }
 }
+
+
+
+
 // Get the close span element
 const closeSpan = document.querySelector('.close');
 
