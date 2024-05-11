@@ -41,6 +41,25 @@ function displayTextures(data) {
                 // Add click event listener to each texture box
                 textureBox.addEventListener('click', function() {
                     console.log('Selected texture:', texture);
+                    var textureUrl = `data:image/png;base64,${texture.ImgUrl}`;
+                    // Set background style for the left parallelogram
+                    var leftParallelogram = document.querySelector('.parallelogram-left');
+                    leftParallelogram.style.backgroundImage = `url('${textureUrl}')`;
+                    leftParallelogram.style.backgroundRepeat = 'no-repeat';
+                    leftParallelogram.style.backgroundPosition = 'center';
+                    leftParallelogram.style.backgroundSize = 'cover';
+                    // Set background style for the right parallelogram
+                    var rightParallelogram = document.querySelector('.parallelogram-right');
+                    rightParallelogram.style.backgroundImage = `url('${textureUrl}')`;
+                    rightParallelogram.style.backgroundRepeat = 'no-repeat';
+                    rightParallelogram.style.backgroundPosition = 'center';
+                    rightParallelogram.style.backgroundSize = 'cover';
+
+                    var trapeziod = document.querySelector('.trapezoid');
+                    trapeziod.style.backgroundImage = `url('${textureUrl}')`;
+                    trapeziod.style.backgroundRepeat = 'no-repeat';
+                    trapeziod.style.backgroundPosition = 'center';
+                    trapeziod.style.backgroundSize = 'fit';
                 });
             })(texture);
             
@@ -63,18 +82,52 @@ function displayPatterns(data2) {
                 <img src="data:image/png;base64,${patterns.ImgUrl}" alt="${patterns.Name}" class="w-full h-full object-cover"> 
                 <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 font-medium border text-center text-sm bg-white bg-opacity-70  rounded">${patterns.Name}</div>
             `;
-            // Add click event listener to each texture box
-            (function(pattern) {
-                // Add click event listener to each texture box
-                patternsBox.addEventListener('click', function() {
-                    console.log('Selected pattern:', pattern);
-                });
-            })(patterns);
             
+            // Add click event listener to each pattern box
+            patternsBox.addEventListener('click', createPatternClickListener(patterns));
+
             container.appendChild(patternsBox);
         }
     }
 }
+
+// Function to create a click event listener for a pattern
+function createPatternClickListener(pattern) {
+    return function() {
+        console.log('Selected pattern:', pattern);
+        var patternUrl = `data:image/png;base64,${pattern.ImgUrl}`;
+        
+        // Set background style for the left parallelogram
+        var patterngraph = document.querySelector('.rightbox');
+        patterngraph.style.backgroundImage = `url('${patternUrl}')`;
+        patterngraph.style.backgroundRepeat = 'no-repeat';
+        patterngraph.style.backgroundPosition = 'center';
+        patterngraph.style.backgroundSize = 'cover';
+
+        // Set background style for the right parallelogram
+        var patterngraph2 = document.querySelector('.leftbox');
+        patterngraph2.style.backgroundImage = `url('${patternUrl}')`;
+        patterngraph2.style.backgroundRepeat = 'no-repeat';
+        patterngraph2.style.backgroundPosition = 'center';
+        patterngraph2.style.backgroundSize = 'cover';
+
+        var patterngraph3 = document.querySelector('.rightbox2');
+        patterngraph3.style.backgroundImage = `url('${patternUrl}')`;
+        patterngraph3.style.backgroundRepeat = 'no-repeat';
+        patterngraph3.style.backgroundPosition = 'center';
+        patterngraph3.style.backgroundSize = 'cover';
+
+        // Set background style for the right parallelogram
+        var patterngraph4 = document.querySelector('.leftbox2');
+        patterngraph4.style.backgroundImage = `url('${patternUrl}')`;
+        patterngraph4.style.backgroundRepeat = 'no-repeat';
+        patterngraph4.style.backgroundPosition = 'center';
+        patterngraph4.style.backgroundSize = 'cover';
+    };
+}
+
+
+
 function displayLogos(data3) {
     var container = document.getElementById("logoContainer");
     if (!container) return; 
@@ -95,6 +148,13 @@ function displayLogos(data3) {
                 // Add click event listener to each texture box
                 logosBox.addEventListener('click', function() {
                     console.log('Selected logo:', logos);
+                    var logoUrl = `data:image/png;base64,${logos.ImgUrl}`;
+
+                    var logoIMG = document.querySelector('.logohere');
+                    logoIMG.style.backgroundImage = `url('${logoUrl}')`;
+                    logoIMG.style.backgroundRepeat = 'no-repeat';
+                    logoIMG.style.backgroundPosition = 'center';
+                    logoIMG.style.backgroundSize = 'cover';
                 });
             })(logos);
             
@@ -107,12 +167,12 @@ onValue(texturesRef, (snapshot) => {
     const data = snapshot.val();
     displayTextures(data);
 });
-onValue(patternsRef, (snapshot) => {
-    const data2 = snapshot.val();
+onValue(patternsRef, (snapshot2) => {
+    const data2 = snapshot2.val();
     displayPatterns(data2);
 });
-onValue(logosRef, (snapshot) => {
-    const data3 = snapshot.val();
+onValue(logosRef, (snapshot3) => {
+    const data3 = snapshot3.val();
     displayLogos(data3);
 });
 
@@ -230,6 +290,8 @@ function displayModal(templateData) {
         console.error("Modal elements not found.");
     }
 }
+// Define the showDiv function
+// Define the showDiv function
 
 
 
