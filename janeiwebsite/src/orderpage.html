@@ -382,6 +382,7 @@
                     
                     <div class="md:w-3/10 justify-center mt-1 md:mt-2 ">
                         <h1 class="  md:text-[20px] text-xl  rounded-md md:text-black  mb-2 text-white font-bold md:font-semibold md:text-left text-center templatename2" > TEMPLATE DESIGN</h1>
+                        <div class="seletedTemplateId" style="display: none;"></div>
                         <div class="firstdiv rounded-md mx-auto w-[350px] lg:h-[650px] md:w-[500px] border-[3px] bg-slate-100 border-black md:p-5 p-2">
                             <div class=" templatesImg border border-black pic2 h-full">
                                 <!--Selected Template Images goes here-->
@@ -414,17 +415,17 @@
                                         <div class="">
                                             <div class="text-sm font-medium p-2 md:text-xl">ORDER NOTES</div>
                                                 <div class=" ">
-                                                    <textarea name="" placeholder=" type your gcash name here... " id="" cols="" rows="" class="w-full h-16  md:h-24 rounded-md shadow-inner shadow-gray-900"></textarea>
+                                                    <textarea name="" placeholder=" type your gcash name here and your order notes... " id="notes" cols="" rows="" class="w-full h-16  md:h-24 rounded-md shadow-inner shadow-gray-900"></textarea>
                                                 </div>
                                         </div>
-                                        <div class="p-10 bg-black"></div>
+                                       
                                         <div class="lg:flex items-center right-0  justify-between">
                                             
                                             <div class="lg:mt-10 md:mt-2  ">
                                                 <div class="font-medium p-1 text-black  ">Input payment Screenshot here </div>
                                                 <div class="md:flex gap-2">
                                                     <div class="">
-                                                        <input type="file" name="" id="" class="w-full text-white bg-slate-900 rounded-md p-1">
+                                                        <input type="file" name="" id="paymentScreenshot" class="w-full text-white bg-slate-900 rounded-md p-1">
                                                     </div>
                                                   
                                                     <button id="orderButton" type="button" class="btnords p-2 md:mt-0 mt-2 bg-slate-800 rounded-md font-medium text-white  ">SCAN ME</button>
@@ -432,13 +433,14 @@
                                                 
                                             </div>
                                             <div class=" p-1  ">
-                                                <div class="textpay font-bold text-4xl text-center text-yellow-500">4500</div>
+                                                <div class="totalpay textpay font-bold text-4xl text-center text-yellow-500">0</div>
+                                                <div class="totalpay2 textpay font-bold text-4xl text-center text-yellow-500" style="display: none;">0</div>
                                                 <div class="p-2 text-center font-bold md:text-[15px] text-[10px]  ">
                                                     TOTAL:
                                                 </div>
                                                 <div class="gap-1 lg:justify-normal flex justify-center ">
                                                     <button id="incrementBtn" type="button" class=" px-3 py-1 font-bold text-xl hover:scale-95 text-white duration-300 hover:bg-green-600 rounded-md bg-slate-900">+</button>
-                                                    <input type="number" name="" id="count" placeholder="0" class="w-16 font-semibold appearance-none rounded-md mx-2">
+                                                    <input type="number" name="" id="count" placeholder="0" class=" w-16 font-semibold appearance-none rounded-md mx-2">
                                                     <button id="decrementBtn" type="button" class="px-3 py-1 font-bold text-xl hover:scale-95 text-white duration-300 hover:bg-red-500 rounded-md bg-slate-900">−</button>
                                                     
                                                 </div>  
@@ -446,7 +448,7 @@
                                         </div>
                                         <div class="flex justify-between pt-2">
                                             <a href="/janeiwebsite/src/orderpage.html"><button type="button" class="p-2  hover:bg-red-500 bg-slate-500 hover:scale-95 font-semibold text-white rounded-md">CANCEL ORDER</button></a>
-                                            <button  type="button" class="p-2 bg-slate-900 hover:bg-green-500 hover:scale-95 font-semibold text-white rounded-md">ORDER NOW</button>
+                                            <button id="orderButtonSubmit" type="button" class="p-2 bg-slate-900 hover:bg-green-500 hover:scale-95 font-semibold text-white rounded-md">ORDER NOW</button>
                                         </div>
                                     </form>
                                 <!-- Modal content -->

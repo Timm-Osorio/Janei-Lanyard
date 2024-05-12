@@ -1,10 +1,10 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-import { getDatabase, ref, onValue, set, get, child} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+import { getDatabase, ref, onValue, set, push, get, child} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB7ZxE8vJo0r5QWKqJ9jfFWpySnHaRWsiQ",
   authDomain: "janeilanyarddb.firebaseapp.com",
-  databaseURL: "https://janeidb-default-rtdb.firebaseio.com",
+  databaseURL: "https://janeilanyarddb-9ba85-default-rtdb.firebaseio.com/",
   projectId: "janeilanyarddb",
   storageBucket: "janeilanyarddb.appspot.com",
   messagingSenderId: "548579996655",
@@ -20,6 +20,7 @@ const texturesRef = ref(db, 'textures/');
 const patternsRef = ref(db, 'patterns/');
 const logosRef = ref(db, 'logos/');
 const templatesRef = ref(db, 'templates/');
+
 // Function to display data in the divs 
 function displayTextures(data) {
     var container = document.getElementById("textureContainer");
@@ -90,7 +91,6 @@ function displayPatterns(data2) {
         }
     }
 }
-
 // Function to create a click event listener for a pattern
 function createPatternClickListener(pattern) {
     return function() {
@@ -125,9 +125,7 @@ function createPatternClickListener(pattern) {
         patterngraph4.style.backgroundSize = 'cover';
     };
 }
-
-
-
+//templates
 function displayLogos(data3) {
     var container = document.getElementById("logoContainer");
     if (!container) return; 
@@ -179,7 +177,7 @@ onValue(logosRef, (snapshot3) => {
 function logTemplatesData() {
     onValue(templatesRef, (snapshot) => {
         const data = snapshot.val();
-        console.log(data); 
+        
     });
 }
 logTemplatesData();
@@ -198,7 +196,8 @@ function populateTemplates() {
             if (Object.hasOwnProperty.call(templatesData, templateId)) {
               
                 const id = parseInt(templateId);
-                if (id !== 0) {
+                //if (id !== 0) {
+                    if (id == 4) {
                     const template = templatesData[templateId];
                 // Create the template HTML structure
                 const templateHtml = `
@@ -239,19 +238,6 @@ function populateTemplates() {
 
 populateTemplates();
 
-// Function to show the modal
-function showModal(templateId) {
-
-    getTemplateData(templateId)
-        .then(templateData => {
-           
-            displayModal(templateData);
-        })
-        .catch(error => {
-            console.error("Error fetching template data:", error);
-        });
-}
-
 // Function to fetch template data based on templateId
 function getTemplateData(templateId) {
     const templateRef = ref(db, `templates/${templateId}`);
@@ -269,41 +255,293 @@ function getTemplateData(templateId) {
         return null;
     });
 }
-//call modal
+
+const closeSpan = document.querySelector('.close');
+closeSpan.addEventListener('click', function() {
+    const modal = document.getElementById('myModalorder');
+    modal.style.display = 'none';
+});
+
+
+// Add input field
+var inputCount = 0;
+var totalPrice = 0;
+var totalpay = 0;
+var selectedTemplateName = null; // Define selectedTemplateName
+
+// Default input clicked cancel laman
+document.getElementById('inputContainer').addEventListener('click', function(event) {
+    if (event.target.classList.contains('border-red-500')) {
+        var fileInput = event.target.parentNode.querySelector('input[type=file]');
+        fileInput.value = '';
+
+    }
+});
+
+// Counter
+document.addEventListener("DOMContentLoaded", function() {
+    const countElement = document.getElementById("count");
+    const incrementBtn = document.getElementById("incrementBtn");
+    const decrementBtn = document.getElementById("decrementBtn");
+    let count = 1;
+
+    function updateCount() {
+        countElement.value = count;
+        updateTotalPrice();
+    }
+    updateCount();
+
+    incrementBtn.addEventListener("click", function() {
+        count++;
+        updateCount();
+    });
+
+    decrementBtn.addEventListener("click", function() {
+        count--;
+        updateCount();
+    });
+});
+
+// Update total price function
+// Update total price function
+function updateTotalPrice() {
+    const templatePriceText = document.querySelector('.totalpay').textContent;
+    const templatePriceText2 = document.querySelector('.totalpay2').textContent;
+
+    const templatePrice = parseFloat(templatePriceText);
+    const templatePrice2 = parseFloat(templatePriceText2);
+    let totalCount = parseInt(document.getElementById("count").value);
+
+    // Calculate the total price based on the current count
+    totalPrice = templatePrice  + templatePrice2;
+
+    // Update the total price display
+    document.querySelector(".totalpay").textContent = totalPrice.toFixed(2);
+}
+
+// Modal order
+const orderButton = document.getElementById('orderButton');
+const modal = document.getElementById('myModal');
+
+orderButton.addEventListener('click', function() {
+    modal.classList.remove('hidden');
+});
+
+modal.addEventListener('click', function(event) {
+    if (event.target === modal) {
+        modal.classList.add('hidden');
+    }
+});
+
+// Only 5 images are accepted
+document.getElementById('addInput').addEventListener('click', function() {
+    if (inputCount < 4) {
+        var inputContainer = document.getElementById('inputContainer');
+
+        var inputField = document.createElement('div');
+        inputField.className = 'flex items-center';
+
+        var newInput = document.createElement('input');
+        newInput.type = 'file';
+        newInput.className = 'w-full bg-slate-300 shadow-sm shadow-slate-900 md:p-2 p-1 rounded-md';
+        inputField.appendChild(newInput);
+
+        // Cancel the inputted field
+        var cancelButton = document.createElement('button');
+        cancelButton.className = 'ml-2 md:px-2 md:py-2 p-1 text-red-500 border border-red-500 rounded hover:bg-red-500 hover:text-white';
+        cancelButton.textContent = 'Cancel';
+        cancelButton.addEventListener('click', function(event) {
+            var inputField = this.parentNode; 
+            inputField.parentNode.removeChild(inputField);  
+            inputCount--;   
+            updateTotalPrice();
+        });
+        inputField.appendChild(cancelButton);
+
+        inputContainer.appendChild(inputField);
+        inputCount++; 
+        updateTotalPrice();
+    } else {
+        const errorContainer5 = document.getElementById('errorContainer5');
+        errorContainer5.style.display = 'block';
+        setTimeout(() => {
+            errorContainer5.style.display = 'none';
+        }, 3000);
+    }
+});
+
+// Function to show the modal
+function showModal(templateId) {
+    getTemplateData(templateId)
+        .then(templateData => {
+            selectedTemplateName = templateData.name; 
+            displayModal(templateData);
+        })
+        .catch(error => {
+            console.error("Error fetching template data:", error);
+        });
+}
+
+// Call modal
 function displayModal(templateData) {
     const modal = document.getElementById('myModalorder');
     modal.style.display = 'block';
     const templateNameElement2 = modal.querySelector('.templatename2');
-
+    const templatetotal = modal.querySelector('.totalpay');
+    const templatetotal2 = modal.querySelector('.totalpay2');
     const templateImgDiv = modal.querySelector('.templatesImg');
+    const selectedTemplateIdElement = modal.querySelector('.seletedTemplateId');
   
-    if ( templateNameElement2 && templateImgDiv) {
-  
+
+    if (templateNameElement2 && templateImgDiv ) {
+     
+        selectedTemplateIdElement.textContent = templateData.id;
+        templatetotal.textContent = templateData.price;
+        templatetotal2.textContent = templateData.price;
         templateNameElement2.textContent = templateData.name;
         const imgElement = document.createElement('img');
         imgElement.src = `data:image/png;base64,${templateData.preview}`;
         imgElement.classList.add('w-full', 'h-full', 'object-cover', 'mx-auto', 'rounded-xl');
         templateImgDiv.innerHTML = '';
         templateImgDiv.appendChild(imgElement);
-
     } else {
         console.error("Modal elements not found.");
     }
 }
-// Define the showDiv function
-// Define the showDiv function
 
+document.getElementById("orderButtonSubmit").addEventListener("click", async function() {
+    try {
+        const userId = localStorage.getItem('currentid');
+        if (!userId) {
+            console.error('User ID not found in localStorage');
+            return;
+        }
+        
+        const userSnapshot = await get(ref(db, `customers/${userId}`));
+        if (!userSnapshot.exists()) {
+            console.error('User data not found for user ID:', userId);
+            return;
+        }
 
+        
+        const userData = userSnapshot.val();
+        const firstName = userData.firstName;
+        const lastName = userData.lastName;
+        const notes = document.getElementById("notes").value;
+        const paymentScreenshot = document.getElementById("paymentScreenshot").files[0];
+        const paymentScreenshotReader = new FileReader();
+        
+    
 
+            try {
+                const lastOrderId = await getLastOrderId();
+                const lastMessageId = await getLastMessageId(lastOrderId);
+                const lastOrderChats = await getLastChatId();
+                const newOrderId = lastOrderId + 1;
+                const newMessageId = lastMessageId + 1;
+                const newchats = lastOrderChats + 1;
+                const currentTime = new Date();
+                const formattedDateTime = currentTime.toLocaleDateString();
+                const currentDate = new Date();
+                const formattedTime = currentDate.toLocaleString();
+                const selectedTemplateId = document.querySelector('.seletedTemplateId').textContent;
+                const totalPay = document.querySelector('.totalpay').textContent;
+                let totalCount = parseInt(document.getElementById("count").value);
 
-// Get the close span element
-const closeSpan = document.querySelector('.close');
+                set(ref(db, 'newOrders/' + newOrderId), {
+                    notes: notes,
+                    Fk_cusID: userId,
+                    id: newOrderId.toString(),
+                    total_price: totalPay,
+                    templateId: selectedTemplateId,
+                    status: "CONFIRMING",
+                    quantity: totalCount,
+                    name: selectedTemplateName,
+                    date: formattedDateTime  
+                    
+                });
+                set(ref(db, 'orderChats/' + newchats), {
+                    id: newchats.toString(),
+                    OrderNo: newOrderId,
+                    customerName: firstName + " " + lastName,      
+                    isRead: "false",  
+                    
+                });
+                set(ref(db,  "orderChats/" + newOrderId + "/Messages/" + newMessageId ), {
+                    Sender: "Customer", 
+                    SenderName: firstName + " " + lastName,
+                    Content: "Order Placed.",
+                    TimeSent: formattedTime,    
+                 
+                });
 
-// Add event listener to close span
-closeSpan.addEventListener('click', function() {
-    // Get the modal element
-    const modal = document.getElementById('myModalorder');
+                console.log("SUCCESS")
+            } catch (error) {
+                console.error('Error:', error);
+            
+        };
 
-    // Hide the modal
-    modal.style.display = 'none';
+       
+    } catch (error) {
+        console.error('Error in orderButton click event listener:', error);
+    }
 });
+
+
+
+async function getLastOrderId() {
+    try {
+        const response = await get(ref(db, 'newOrders'));
+        if (!response.exists()) {
+            return 0; 
+        }
+        const orderData = response.val();
+        const orderIds = Object.keys(orderData);
+        if (orderIds.length === 0) {
+            return 0; 
+        }
+        const lastorderId = Math.max(...orderIds.map(id => parseInt(id)));
+        return lastorderId;
+    } catch (error) {
+        console.error('Error fetching last order ID:', error);
+        throw error;
+    }
+}
+
+async function getLastMessageId(orderId) {
+    try {
+        const response = await get(ref(db, `orderChats/${orderId}/Messages/`));
+        if (!response.exists()) {
+            return 0; 
+        }
+        const messageData = response.val();
+        const messageIds = Object.keys(messageData);
+        if (messageIds.length === 0) {
+            return 0; 
+        }
+        const lastMessageId = Math.max(...messageIds.map(id => parseInt(id)));
+        return lastMessageId;
+    } catch (error) {
+        console.error('Error fetching last message ID:', error);
+        throw error;
+    }   
+}
+
+async function getLastChatId() {
+    try {
+        const response = await get(ref(db, 'orderChats'));
+        if (!response.exists()) {
+            return 0; 
+        }
+        const chatData = response.val();
+        const chatIds = Object.keys(chatData);
+        if (chatIds.length === 0) {
+            return 0; 
+        }
+        const lastChatId = Math.max(...chatIds.map(id => parseInt(id)));
+        return lastChatId;
+    } catch (error) {
+        console.error('Error fetching last chat ID:', error);
+        throw error;
+    }   
+}

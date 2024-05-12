@@ -1,6 +1,6 @@
 //DATABASE CONNECTION
 async function fetchDataFromDatabase(path) {
-    const firebaseDatabaseUrl = "https://janeidb-default-rtdb.firebaseio.com/";
+    const firebaseDatabaseUrl = "https://janeilanyarddb-9ba85-default-rtdb.firebaseio.com/";
     const response = await fetch(`${firebaseDatabaseUrl}${path}.json`);
     if (!response.ok) {
         throw new Error('Failed to fetch data from database');

@@ -4,7 +4,7 @@ import { getDatabase, ref, set, get, child} from "https://www.gstatic.com/fireba
 const firebaseConfig = {
   apiKey: "AIzaSyB7ZxE8vJo0r5QWKqJ9jfFWpySnHaRWsiQ",
   authDomain: "janeilanyarddb.firebaseapp.com",
-  databaseURL: "https://janeidb-default-rtdb.firebaseio.com",
+  databaseURL: "https://janeilanyarddb-9ba85-default-rtdb.firebaseio.com/",
   projectId: "janeilanyarddb",
   storageBucket: "janeilanyarddb.appspot.com",
   messagingSenderId: "548579996655",
