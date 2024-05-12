@@ -374,7 +374,7 @@
     <!--The ano goes here-->    
     <div id="myModalorder" class="fixed inset-0 z-50 p-0 md:p-2 flex items-center justify-center bg-[#D9D9D9] bg-opacity-10 overflow-y-scroll hidden ">
         <div class="modal-content bg-[#D9D9D9] rounded-lg ">
-            <span class="close absolute top-0 right-0 p-2 md:m-2 cursor-pointer text-slate-300 text-2xl hover:text-yellow-500  "><ion-icon name="arrow-back-outline"></ion-icon></span>
+           
             <div class=" bg-slate-800 p-2 text-white rounded-tl-md rounded-tr-md "> Janei Editing and Printing Services </div>
          
             <div class="md:mt-0 mt-3 p-2 rounded-lg">
@@ -395,6 +395,18 @@
                             <span class="mt-1 pl-3">Only 5 images are accepted!</span> 
                         </div>                
                     </div>
+                    <div id="errorContainer6" class="error w-full fixed font-bold bg-yellow-300 text-slate-900 text-center bottom-0 shadow-md shadow-red-600 z-20 text-sm p-3 mx-auto" style="display: none;">
+                        <div class="flex justify-center relative">
+                            <img src="/janeiwebsite/assets/pablita-warning-sign.png" class="h-6 " alt="" srcset="">
+                            <span class="mt-1 pl-3">Please put a notes to guide as what your desire design.</span> 
+                        </div>                
+                    </div>
+                    <div id="errorContainer7" class="error w-full fixed font-bold bg-yellow-300 text-slate-900 text-center bottom-0 shadow-md shadow-red-600 z-20 text-sm p-3 mx-auto" style="display: none;">
+                        <div class="flex justify-center relative">
+                            <img src="/janeiwebsite/assets/pablita-warning-sign.png" class="h-6 " alt="" srcset="">
+                            <span class="mt-1 pl-3">Please Input your Payment Screenshot.</span> 
+                        </div>                
+                    </div>
                     <div class="lg:w-7/10 ">
                         <div class="w-full  h-full p-5">
                             <div class=" bg-slate-200 rounded-lg shadow-md  shadow-black w-auto">
@@ -407,7 +419,7 @@
                                                 <button id="addInput" type="button" class="float-right py-1 px-3  md:px-4 md:text-xl text-[13px] hover:bg-green-700 duration-300 rounded-md shadow-md text-white hover:scale-95 shadow-slate-600 bg-slate-900">ADD</button>
                                                 <div id="inputContainer" class="md:mt-13 mt-10 space-y-2">
                                                     <div class="flex items-center">
-                                                        <input type="file" src="" alt="" class="w-full shadow-sm shadow-slate-900 bg-slate-400 p-1 md:p-2 rounded-md">
+                                                        <input type="file" id="addImage" src="" alt="" class="w-full shadow-sm shadow-slate-900 bg-slate-400 p-1 md:p-2 rounded-md">
                                                         <button type="button"  class="ml-2 md:px-2 md:py-2 p-1   text-red-500 border border-red-500 rounded hover:bg-red-500 hover:text-white">Cancel</button>
                                                     </div>
                                                 </div>

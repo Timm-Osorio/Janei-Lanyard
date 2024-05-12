@@ -80,8 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         document.getElementById('orderstatus').textContent = 'To confirm';
                                     } 
                                     else if (order.status === 'DESIGNING'){
-                                        document.getElementById('orderstatus').textContent = 'Order Processing';
-                                        document.getElementById('cancelorder').style.display = 'none';
+                                        document.getElementById('orderstatus').textContent = 'Order Designing';
                                     }
                                     else if (order.status === 'PRINTING'){
                                         document.getElementById('orderstatus').textContent = 'Order Printing';
@@ -409,7 +408,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             });
                         } else {
                             console.log("No orders found for the current user");
-                            document.getElementById('noorders').style.display = 'block';
+                          
                         }
                     } else {
                         console.log("No orders found in the database");

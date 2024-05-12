@@ -256,11 +256,6 @@ function getTemplateData(templateId) {
     });
 }
 
-const closeSpan = document.querySelector('.close');
-closeSpan.addEventListener('click', function() {
-    const modal = document.getElementById('myModalorder');
-    modal.style.display = 'none';
-});
 
 
 // Add input field
@@ -269,14 +264,76 @@ var totalPrice = 0;
 var totalpay = 0;
 var selectedTemplateName = null; // Define selectedTemplateName
 
+// Define an array to store the base64 strings of the images
+var imageStrings = [];
+
 // Default input clicked cancel laman
 document.getElementById('inputContainer').addEventListener('click', function(event) {
     if (event.target.classList.contains('border-red-500')) {
         var fileInput = event.target.parentNode.querySelector('input[type=file]');
         fileInput.value = '';
-
     }
 });
+
+// Only 5 images are accepted
+document.getElementById('addInput').addEventListener('click', function() {
+    if (inputCount < 4) { // Limit to 4 to have total of 5 images including the initial one
+        var inputContainer = document.getElementById('inputContainer');
+
+        var inputField = document.createElement('div');
+        inputField.className = 'flex items-center';
+
+        var newInput = document.createElement('input');
+        newInput.type = 'file';
+        newInput.className = 'w-full bg-slate-300 shadow-sm shadow-slate-900 md:p-2 p-1 rounded-md';
+        inputField.appendChild(newInput);
+
+        // Add event listener to handle file selection
+        newInput.addEventListener('change', function(event) {
+            var file = event.target.files[0];
+            var reader = new FileReader();
+            reader.onload = function(event) {
+                var imageData = event.target.result;
+                imageStrings.push(imageData); // Store the base64 string of the image
+            };
+            reader.readAsDataURL(file); // Read file as data URL
+        });
+
+        // Cancel the inputted field
+        var cancelButton = document.createElement('button');
+        cancelButton.className = 'ml-2 md:px-2 md:py-2 p-1 text-red-500 border border-red-500 rounded hover:bg-red-500 hover:text-white';
+        cancelButton.textContent = 'Cancel';
+        cancelButton.addEventListener('click', function(event) {
+            var inputField = this.parentNode;
+            inputField.parentNode.removeChild(inputField);
+            inputCount--;
+    
+        });
+        inputField.appendChild(cancelButton);
+
+        inputContainer.appendChild(inputField);
+        inputCount++;
+     
+    } else {
+        const errorContainer5 = document.getElementById('errorContainer5');
+        errorContainer5.style.display = 'block';
+        setTimeout(() => {
+            errorContainer5.style.display = 'none';
+        }, 3000);
+    }
+});
+// Function to send image strings to the database
+async function sendImagesToDatabase(orderId) {
+    const assetsRef = ref(db, 'newOrders/' + orderId + '/cusAssets');
+    const assetsSnapshot = await get(assetsRef); // Get a snapshot of current assets
+    const numAssets = assetsSnapshot.exists() ? Object.keys(assetsSnapshot.val()).length : 0;
+    const assetIndex = numAssets + 1; // Increment the counter for the next asset
+    const newAssetRef = child(assetsRef, assetIndex.toString()); // Create a reference to the new asset
+    await set(newAssetRef, imageStrings); // Set the image data under the incremented counter
+    imageStrings = []; // Clear the array after sending images to the database
+}
+
+
 
 // Counter
 document.addEventListener("DOMContentLoaded", function() {
@@ -291,6 +348,12 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     updateCount();
 
+    function updateCount2() {
+        countElement.value = count;
+        updateTotalPrice2();
+    }
+    updateCount2();
+
     incrementBtn.addEventListener("click", function() {
         count++;
         updateCount();
@@ -298,27 +361,33 @@ document.addEventListener("DOMContentLoaded", function() {
 
     decrementBtn.addEventListener("click", function() {
         count--;
-        updateCount();
+        updateCount2();
     });
 });
 
 // Update total price function
-// Update total price function
+//Incremenet
 function updateTotalPrice() {
     const templatePriceText = document.querySelector('.totalpay').textContent;
     const templatePriceText2 = document.querySelector('.totalpay2').textContent;
-
     const templatePrice = parseFloat(templatePriceText);
     const templatePrice2 = parseFloat(templatePriceText2);
     let totalCount = parseInt(document.getElementById("count").value);
 
-    // Calculate the total price based on the current count
     totalPrice = templatePrice  + templatePrice2;
-
-    // Update the total price display
     document.querySelector(".totalpay").textContent = totalPrice.toFixed(2);
 }
+//Decrement
+function updateTotalPrice2() {
+    const templatePriceText = document.querySelector('.totalpay').textContent;
+    const templatePriceText2 = document.querySelector('.totalpay2').textContent;
+    const templatePrice = parseFloat(templatePriceText);
+    const templatePrice2 = parseFloat(templatePriceText2);
+    let totalCount = parseInt(document.getElementById("count").value);
 
+    totalPrice = templatePrice - templatePrice2;
+    document.querySelector(".totalpay").textContent = totalPrice.toFixed(2);
+}
 // Modal order
 const orderButton = document.getElementById('orderButton');
 const modal = document.getElementById('myModal');
@@ -330,43 +399,6 @@ orderButton.addEventListener('click', function() {
 modal.addEventListener('click', function(event) {
     if (event.target === modal) {
         modal.classList.add('hidden');
-    }
-});
-
-// Only 5 images are accepted
-document.getElementById('addInput').addEventListener('click', function() {
-    if (inputCount < 4) {
-        var inputContainer = document.getElementById('inputContainer');
-
-        var inputField = document.createElement('div');
-        inputField.className = 'flex items-center';
-
-        var newInput = document.createElement('input');
-        newInput.type = 'file';
-        newInput.className = 'w-full bg-slate-300 shadow-sm shadow-slate-900 md:p-2 p-1 rounded-md';
-        inputField.appendChild(newInput);
-
-        // Cancel the inputted field
-        var cancelButton = document.createElement('button');
-        cancelButton.className = 'ml-2 md:px-2 md:py-2 p-1 text-red-500 border border-red-500 rounded hover:bg-red-500 hover:text-white';
-        cancelButton.textContent = 'Cancel';
-        cancelButton.addEventListener('click', function(event) {
-            var inputField = this.parentNode; 
-            inputField.parentNode.removeChild(inputField);  
-            inputCount--;   
-            updateTotalPrice();
-        });
-        inputField.appendChild(cancelButton);
-
-        inputContainer.appendChild(inputField);
-        inputCount++; 
-        updateTotalPrice();
-    } else {
-        const errorContainer5 = document.getElementById('errorContainer5');
-        errorContainer5.style.display = 'block';
-        setTimeout(() => {
-            errorContainer5.style.display = 'none';
-        }, 3000);
     }
 });
 
@@ -423,19 +455,46 @@ document.getElementById("orderButtonSubmit").addEventListener("click", async fun
             return;
         }
 
+      
         
         const userData = userSnapshot.val();
         const firstName = userData.firstName;
         const lastName = userData.lastName;
         const notes = document.getElementById("notes").value;
         const paymentScreenshot = document.getElementById("paymentScreenshot").files[0];
-        const paymentScreenshotReader = new FileReader();
-        
-    
+        if (!notes) {
+            console.error('Notes field is empty');
+            const errorContainer6 = document.getElementById('errorContainer6');
+            errorContainer6.style.display = 'block';
+            setTimeout(() => {
+            errorContainer6.style.display = 'none';
+        }, 3000);
+            return;
+        }
 
+        if (!paymentScreenshot) {
+            console.error('No file selected');
+            const errorContainer7 = document.getElementById('errorContainer7');
+            errorContainer7.style.display = 'block';
+            setTimeout(() => {
+            errorContainer7.style.display = 'none';
+        }, 3000);
+            return;
+        }
+        const paymentScreenshotReader = new FileReader();
+
+        paymentScreenshotReader.onload = async function(event) {
+            const arrayBuffer = event.target.result;
+            const uint8Array = new Uint8Array(arrayBuffer);
+            const binaryString = uint8Array.reduce((data, byte) => {
+                return data + String.fromCharCode(byte);
+            }, '');
+
+            const byteStringImg = btoa(binaryString); 
+            
             try {
                 const lastOrderId = await getLastOrderId();
-                const lastMessageId = await getLastMessageId(lastOrderId);
+                const lastMessageId = await getLastMessageId();
                 const lastOrderChats = await getLastChatId();
                 const newOrderId = lastOrderId + 1;
                 const newMessageId = lastMessageId + 1;
@@ -445,47 +504,55 @@ document.getElementById("orderButtonSubmit").addEventListener("click", async fun
                 const currentDate = new Date();
                 const formattedTime = currentDate.toLocaleString();
                 const selectedTemplateId = document.querySelector('.seletedTemplateId').textContent;
-                const totalPay = document.querySelector('.totalpay').textContent;
-                let totalCount = parseInt(document.getElementById("count").value);
+                const totalPay = parseInt(document.querySelector('.totalpay2').textContent);
+                const totalCount = parseInt(document.getElementById("count").value);
 
                 set(ref(db, 'newOrders/' + newOrderId), {
                     notes: notes,
                     Fk_cusID: userId,
-                    id: newOrderId.toString(),
-                    total_price: totalPay,
+                    id: newOrderId,
+                    price: totalPay,
                     templateId: selectedTemplateId,
                     status: "CONFIRMING",
                     quantity: totalCount,
                     name: selectedTemplateName,
-                    date: formattedDateTime  
-                    
+                    date: formattedDateTime,
+                    paymentScreenshot: byteStringImg
                 });
                 set(ref(db, 'orderChats/' + newchats), {
-                    id: newchats.toString(),
-                    OrderNo: newOrderId,
-                    customerName: firstName + " " + lastName,      
+                    id: newchats,
+                    OrderNo: newOrderId.toString(),
+                    customerName: firstName + " " + lastName,
                     isRead: "false",  
                     
                 });
                 set(ref(db,  "orderChats/" + newOrderId + "/Messages/" + newMessageId ), {
+                    id: newMessageId,
                     Sender: "Customer", 
                     SenderName: firstName + " " + lastName,
-                    Content: "Order Placed.",
+                    Content: "Order Placed." + " " + selectedTemplateName,
                     TimeSent: formattedTime,    
                  
                 });
-
-                console.log("SUCCESS")
+                document.getElementById("notes").value = "";
+                document.getElementById("paymentScreenshot").value = "";
+                console.log("SUCCESS");
+                sendImagesToDatabase(newOrderId);
+            
             } catch (error) {
                 console.error('Error:', error);
-            
+            }
         };
 
-       
+        // Read file as binary string
+        paymentScreenshotReader.readAsArrayBuffer(paymentScreenshot);
+
+
     } catch (error) {
         console.error('Error in orderButton click event listener:', error);
     }
 });
+
 
 
 
