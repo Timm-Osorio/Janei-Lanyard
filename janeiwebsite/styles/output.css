@@ -1442,6 +1442,10 @@ select {
   margin-top: -20%;
 }
 
+.mt-\[-65\%\] {
+  margin-top: -65%;
+}
+
 .mt-\[105\%\] {
   margin-top: 105%;
 }
@@ -1464,54 +1468,6 @@ select {
 
 .mt-\[7\%\] {
   margin-top: 7%;
-}
-
-.mt-\[-120\%\] {
-  margin-top: -120%;
-}
-
-.mt-\[-100\%\] {
-  margin-top: -100%;
-}
-
-.mt-\[-10\%\] {
-  margin-top: -10%;
-}
-
-.mt-\[-60\%\] {
-  margin-top: -60%;
-}
-
-.mt-\[-50\%\] {
-  margin-top: -50%;
-}
-
-.mt-\[-55\%\] {
-  margin-top: -55%;
-}
-
-.mt-\[-45\%\] {
-  margin-top: -45%;
-}
-
-.mt-\[-47\%\] {
-  margin-top: -47%;
-}
-
-.mt-\[-47\.5\%\] {
-  margin-top: -47.5%;
-}
-
-.mt-\[-90\%\] {
-  margin-top: -90%;
-}
-
-.mt-\[-70\%\] {
-  margin-top: -70%;
-}
-
-.mt-\[-65\%\] {
-  margin-top: -65%;
 }
 
 .box-border {
@@ -1685,6 +1641,10 @@ select {
   height: 15rem;
 }
 
+.h-64 {
+  height: 16rem;
+}
+
 .h-7 {
   height: 1.75rem;
 }
@@ -1703,10 +1663,6 @@ select {
 
 .h-\[100\%\] {
   height: 100%;
-}
-
-.h-\[20\%\] {
-  height: 20%;
 }
 
 .h-\[27\%\] {
@@ -1747,22 +1703,6 @@ select {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-\[22\%\] {
-  height: 22%;
-}
-
-.h-28 {
-  height: 7rem;
-}
-
-.h-40 {
-  height: 10rem;
-}
-
-.h-64 {
-  height: 16rem;
 }
 
 .min-h-\[60vh\] {
@@ -3207,6 +3147,11 @@ select {
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
+.bg-green-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+}
+
 .bg-green-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(22 163 74 / var(--tw-bg-opacity));
@@ -3489,6 +3434,11 @@ select {
   padding-right: 0.5rem;
 }
 
+.px-2\.5 {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+}
+
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -3542,16 +3492,6 @@ select {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-
-.px-1 {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-}
-
-.px-2\.5 {
-  padding-left: 0.625rem;
-  padding-right: 0.625rem;
 }
 
 .pb-10 {
@@ -4966,6 +4906,10 @@ select {
     margin-top: -3px;
   }
 
+  .md\:mt-\[-47\.5\%\] {
+    margin-top: -47.5%;
+  }
+
   .md\:mt-\[10\%\] {
     margin-top: 10%;
   }
@@ -4984,10 +4928,6 @@ select {
 
   .md\:mt-\[80\%\] {
     margin-top: 80%;
-  }
-
-  .md\:mt-\[-47\.5\%\] {
-    margin-top: -47.5%;
   }
 
   .md\:block {

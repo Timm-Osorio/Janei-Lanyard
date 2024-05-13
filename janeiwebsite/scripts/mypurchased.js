@@ -71,10 +71,31 @@ document.addEventListener('DOMContentLoaded', function() {
                                 //content of the orders show in the modal
                                 detailsButton.addEventListener('click', function() {
                                     console.log('Details button clicked for order:', order);
-                                    document.getElementById('orderid').textContent = order.id;
-                                    document.getElementById('ordername').textContent = order.name; 
+                                    document.getElementById('chatroom-messages').innerHTML = '';
+                                    document.getElementById('ordername').textContent = order.name;
+                                    document.getElementById('templateId').textContent = order.templateId;  
+                                    document.getElementById('templateIMG').textContent = '';
+                                    var templateId = order.templateId;
+                                    var templateRef = ref(db, "templates/" + templateId);
+                                    get(templateRef)
+                                        .then((snapshot) => {
+                                            var templateData = snapshot.val();
+                                            if (templateData) {
+                                                var base64String = templateData.preview; 
+                                                var imgElement = document.createElement('img');
+                                                imgElement.src = "data:image/png;base64," + base64String;
+                                                imgElement.classList.add('w-full', 'h-full', 'object-contain', 'rounded-lg');
+                                                imgElement.alt = 'Template Image';
+                                                document.getElementById('templateIMG').appendChild(imgElement);
+                                            } else {
+                                                console.log('Template not found for template ID:', templateId);
+                                            }
+                                        })
+                                        .catch((error) => {
+                                            console.log('Error getting template data:', error.message);
+                                        });  
                                     document.getElementById('orderquantity').textContent = order.quantity;
-                                    document.getElementById('orderamount').textContent = order.price;
+                                    document.getElementById('orderamount').textContent = order.price_ammount;
                                 
                                     if (order.status === 'CONFIRMING') {
                                         document.getElementById('orderstatus').textContent = 'To confirm';
@@ -240,8 +261,29 @@ document.addEventListener('DOMContentLoaded', function() {
                                     console.log('Details button clicked for order:', order2);
                                     document.getElementById('orderid').textContent = order2.id;
                                     document.getElementById('ordername').textContent = order2.name; 
+                                    document.getElementById('templateId').textContent = order2.templateId;  
+                                    document.getElementById('templateIMG').textContent = '';
+                                    var templateId = order2.templateId;
+                                    var templateRef = ref(db, "templates/" + templateId);
+                                    get(templateRef)
+                                        .then((snapshot) => {
+                                            var templateData = snapshot.val();
+                                            if (templateData) {
+                                                var base64String = templateData.preview; 
+                                                var imgElement = document.createElement('img');
+                                                imgElement.src = "data:image/png;base64," + base64String;
+                                                imgElement.classList.add('w-full', 'h-full', 'object-contain', 'rounded-lg');
+                                                imgElement.alt = 'Template Image';
+                                                document.getElementById('templateIMG').appendChild(imgElement);
+                                            } else {
+                                                console.log('Template not found for template ID:', templateId);
+                                            }
+                                        })
+                                        .catch((error) => {
+                                            console.log('Error getting template data:', error.message);
+                                        });
                                     document.getElementById('orderquantity').textContent = order2.quantity;
-                                    document.getElementById('orderamount').textContent = order2.price;
+                                    document.getElementById('orderamount').textContent = order2.price_ammount;
                                    
                                     if (order2.status === 'COMPLETE'){
                                         document.getElementById('orderstatus').textContent = 'Order Completed';
@@ -356,8 +398,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.log("Error getting orders data: " + error.message);
                 });
 
-
-                var ordersRef3 = ref(db, "cancelOrder");
+                // order cancel by you
+                var ordersRef3 = ref(db, "cancelorder");
                 get(ordersRef3 )
                 .then((snapshot3) => {
                     var ordersData3 = snapshot3.val();
@@ -392,8 +434,29 @@ document.addEventListener('DOMContentLoaded', function() {
                                     console.log('Details button clicked for order:', order3);
                                     document.getElementById('orderid').textContent = order3.id;
                                     document.getElementById('ordername').textContent = order3.name; 
+                                    document.getElementById('templateId').textContent = order3.templateId;  
+                                    document.getElementById('templateIMG').textContent = '';
+                                    var templateId = order3.templateId;
+                                    var templateRef = ref(db, "templates/" + templateId);
+                                    get(templateRef)
+                                        .then((snapshot) => {
+                                            var templateData = snapshot.val();
+                                            if (templateData) {
+                                                var base64String = templateData.preview; 
+                                                var imgElement = document.createElement('img');
+                                                imgElement.src = "data:image/png;base64," + base64String;
+                                                imgElement.classList.add('w-full', 'h-full', 'object-contain', 'rounded-lg');
+                                                imgElement.alt = 'Template Image';
+                                                document.getElementById('templateIMG').appendChild(imgElement);
+                                            } else {
+                                                console.log('Template not found for template ID:', templateId);
+                                            }
+                                        })
+                                        .catch((error) => {
+                                            console.log('Error getting template data:', error.message);
+                                        });
                                     document.getElementById('orderquantity').textContent = order3.quantity;
-                                    document.getElementById('orderamount').textContent = order3.price; 
+                                    document.getElementById('orderamount').textContent = order3.price_ammount;
                                     document.getElementById('orderstatus').textContent = 'Order Cancelled';
                                     document.getElementById('chatroom').style.display = 'none';
                                     document.getElementById('cancelorder').style.display = 'none';
@@ -475,7 +538,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var orderData = snapshot.val();
 
         if (orderData) {
-            var newOrderRef = ref(db, "cancelOrder/" + orderId);
+            var newOrderRef = ref(db, "cancelorder/" + orderId);
             orderData.status = "CANCELLED";
             await set(newOrderRef, orderData);
             await remove(orderRef);

@@ -197,7 +197,7 @@ function populateTemplates() {
               
                 const id = parseInt(templateId);
                 //if (id !== 0) {
-                    if (id == 4) {
+                    if (id !== 0) {
                     const template = templatesData[templateId];
                 // Create the template HTML structure
                 const templateHtml = `
@@ -332,9 +332,6 @@ async function sendImagesToDatabase(orderId) {
     await set(newAssetRef, imageStrings); // Set the image data under the incremented counter
     imageStrings = []; // Clear the array after sending images to the database
 }
-
-
-
 // Counter
 document.addEventListener("DOMContentLoaded", function() {
     const countElement = document.getElementById("count");
@@ -426,7 +423,6 @@ function displayModal(templateData) {
   
 
     if (templateNameElement2 && templateImgDiv ) {
-     
         selectedTemplateIdElement.textContent = templateData.id;
         templatetotal.textContent = templateData.price;
         templatetotal2.textContent = templateData.price;
@@ -440,7 +436,7 @@ function displayModal(templateData) {
         console.error("Modal elements not found.");
     }
 }
-
+//order part
 document.getElementById("orderButtonSubmit").addEventListener("click", async function() {
     try {
         const userId = localStorage.getItem('currentid');
@@ -453,10 +449,7 @@ document.getElementById("orderButtonSubmit").addEventListener("click", async fun
         if (!userSnapshot.exists()) {
             console.error('User data not found for user ID:', userId);
             return;
-        }
-
-      
-        
+        }     
         const userData = userSnapshot.val();
         const firstName = userData.firstName;
         const lastName = userData.lastName;
@@ -503,15 +496,17 @@ document.getElementById("orderButtonSubmit").addEventListener("click", async fun
                 const formattedDateTime = currentTime.toLocaleDateString();
                 const currentDate = new Date();
                 const formattedTime = currentDate.toLocaleString();
-                const selectedTemplateId = document.querySelector('.seletedTemplateId').textContent;
-                const totalPay = parseInt(document.querySelector('.totalpay2').textContent);
-                const totalCount = parseInt(document.getElementById("count").value);
-
+                let selectedTemplateId = document.querySelector('.seletedTemplateId').textContent;
+                let totalPay = parseInt(document.querySelector('.totalpay2').textContent);
+                let totalPay2 = parseInt(document.querySelector('.totalpay').textContent);
+                let totalCount = parseInt(document.getElementById("count").value);
+               
                 set(ref(db, 'newOrders/' + newOrderId), {
                     notes: notes,
                     Fk_cusID: userId,
-                    id: newOrderId,
+                    id: newOrderId.toString(),
                     price: totalPay,
+                    price_ammount: totalPay2,
                     templateId: selectedTemplateId,
                     status: "CONFIRMING",
                     quantity: totalCount,
@@ -534,11 +529,25 @@ document.getElementById("orderButtonSubmit").addEventListener("click", async fun
                     TimeSent: formattedTime,    
                  
                 });
-                document.getElementById("notes").value = "";
-                document.getElementById("paymentScreenshot").value = "";
+
                 console.log("SUCCESS");
                 sendImagesToDatabase(newOrderId);
-            
+               //clear fields after submit
+                totalPay = "",
+                totalPay2 = "",
+                selectedTemplateId = "",
+          
+                
+                document.getElementById("count").value = "";
+                document.getElementById("notes").value = "";
+                document.getElementById("paymentScreenshot").value = "";
+                const closeOrderModal = document.getElementById("myModalorder");
+                closeOrderModal.style.display = 'none';
+                document.getElementById("OrderSuccess").classList.remove("hidden");
+                setTimeout(function() {
+                    document.getElementById("OrderSuccess").classList.add("hidden");
+                }, 3000); 
+           
             } catch (error) {
                 console.error('Error:', error);
             }
@@ -552,9 +561,6 @@ document.getElementById("orderButtonSubmit").addEventListener("click", async fun
         console.error('Error in orderButton click event listener:', error);
     }
 });
-
-
-
 
 async function getLastOrderId() {
     try {
@@ -612,3 +618,14 @@ async function getLastChatId() {
         throw error;
     }   
 }
+
+
+document.getElementById("cancelOrderBtn").addEventListener("click", function() {
+
+    document.getElementById("count").value = "";
+    document.getElementById("notes").value = "";
+    document.getElementById("paymentScreenshot").value = "";
+    console.log("SUCCESS cancel");
+    const closeOrderModal = document.getElementById("myModalorder");
+    closeOrderModal.style.display = 'none';
+});

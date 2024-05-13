@@ -134,7 +134,7 @@ document.getElementById("submit").addEventListener('click', async function(e) {
                 address = "";
                 phonenum = "";
                 localStorage.setItem('currentid', newUserId.toString());
-                window.location.href = "/janeiwebsite/src/home.html";
+                window.location.href = "/janeiwebsite/index.html";
             } catch (error) {
                 console.error("Error:", error);
             }

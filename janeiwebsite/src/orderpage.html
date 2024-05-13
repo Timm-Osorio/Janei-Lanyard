@@ -263,7 +263,7 @@
                                 <div class="flex relative mx-auto">  
                                      <!--LOGO GOES HERE-->
                                     <div class="lc h-10 absolute z-30 left-0  md:ml-[27%] ml-16  mt-3 text-white text-[10px]">TEXT GOES HERE</div>                           
-                                    <div class="logohere w-10 h-10 absolute  flex ml-[46%] z-30 mx-auto rounded-full  bg-white"></div>  
+                                    <div id="displayImage" class="logohere  w-10 h-10 absolute  flex ml-[46%] z-30 mx-auto rounded-full  bg-white"></div>  
                                     <div class="rc h-10 absolute z-30 right-0 md:mr-[27%] mr-14 mt-3 text-white text-[10px] ">TEXT GOES HERE</div>  
                                 </div>
                                
@@ -327,6 +327,7 @@
                             </div>
                             <div id="thirddiv" class="firstdiv w-full lg:w-[500px] border-[3px] md:h-[75vh] h-[50vh]  overflow-y-scroll bg-slate-100 border-black py-5 rounded-md" style="display:none;">
                                <!--Logos-->
+                               <input id="fileInput "  type="file" placeholder="" class="bg-slate-300 block text-black  mx-auto right-0 p-1 rounded-md">
                                 <div class="flex flex-wrap gap-2 justify-center md:p-4 p-2" id="logoContainer">
                                      Logos will appear soon!
                                 </div>
@@ -370,7 +371,13 @@
     </section>
 
       <!--Floating div for inquiry-->
-
+    <div id="OrderSuccess" class="hidden fixed inset-0 flex items-center justify-center">
+        <div class="bg-green-500 text-slate-900 py-3 px-6 rounded-md shadow-md flex  ">
+            <ion-icon name="bag-check-outline" class="text-3xl"></ion-icon>
+            <div class="p-1 font-medium px-2">Order Success </div>
+        </div>
+    </div>
+    
     <!--The ano goes here-->    
     <div id="myModalorder" class="fixed inset-0 z-50 p-0 md:p-2 flex items-center justify-center bg-[#D9D9D9] bg-opacity-10 overflow-y-scroll hidden ">
         <div class="modal-content bg-[#D9D9D9] rounded-lg ">
@@ -398,7 +405,7 @@
                     <div id="errorContainer6" class="error w-full fixed font-bold bg-yellow-300 text-slate-900 text-center bottom-0 shadow-md shadow-red-600 z-20 text-sm p-3 mx-auto" style="display: none;">
                         <div class="flex justify-center relative">
                             <img src="/janeiwebsite/assets/pablita-warning-sign.png" class="h-6 " alt="" srcset="">
-                            <span class="mt-1 pl-3">Please put a notes to guide as what your desire design.</span> 
+                            <span class="mt-1 pl-3">Please put a notes to guide us what your dream design.</span> 
                         </div>                
                     </div>
                     <div id="errorContainer7" class="error w-full fixed font-bold bg-yellow-300 text-slate-900 text-center bottom-0 shadow-md shadow-red-600 z-20 text-sm p-3 mx-auto" style="display: none;">
@@ -407,6 +414,7 @@
                             <span class="mt-1 pl-3">Please Input your Payment Screenshot.</span> 
                         </div>                
                     </div>
+
                     <div class="lg:w-7/10 ">
                         <div class="w-full  h-full p-5">
                             <div class=" bg-slate-200 rounded-lg shadow-md  shadow-black w-auto">
@@ -459,7 +467,7 @@
                                             </div>
                                         </div>
                                         <div class="flex justify-between pt-2">
-                                            <a href="/janeiwebsite/src/orderpage.html"><button type="button" class="p-2  hover:bg-red-500 bg-slate-500 hover:scale-95 font-semibold text-white rounded-md">CANCEL ORDER</button></a>
+                                            <button id="cancelOrderBtn" type="button" class="p-2  hover:bg-red-500 bg-slate-500 hover:scale-95 font-semibold text-white rounded-md">CANCEL ORDER</button>
                                             <button id="orderButtonSubmit" type="button" class="p-2 bg-slate-900 hover:bg-green-500 hover:scale-95 font-semibold text-white rounded-md">ORDER NOW</button>
                                         </div>
                                     </form>
@@ -631,6 +639,8 @@ document.getElementById('toggleButton').addEventListener('click', function() {
         icon.setAttribute('name', 'moon');
     }
 });
+
+//modal confirm order
 
 
 </script>
