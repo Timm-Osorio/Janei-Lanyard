@@ -174,6 +174,8 @@ onValue(logosRef, (snapshot3) => {
     displayLogos(data3);
 });
 
+/* THIS IS THE PREMADE TEMPLATE FUNCTIONALITIES */
+
 function logTemplatesData() {
     onValue(templatesRef, (snapshot) => {
         const data = snapshot.val();
@@ -256,17 +258,12 @@ function getTemplateData(templateId) {
     });
 }
 
-
-
 // Add input field
 var inputCount = 0;
 var totalPrice = 0;
 var totalpay = 0;
-var selectedTemplateName = null; // Define selectedTemplateName
-
-// Define an array to store the base64 strings of the images
+var selectedTemplateName = null; 
 var imageStrings = [];
-
 // Default input clicked cancel laman
 document.getElementById('inputContainer').addEventListener('click', function(event) {
     if (event.target.classList.contains('border-red-500')) {
@@ -277,7 +274,7 @@ document.getElementById('inputContainer').addEventListener('click', function(eve
 
 // Only 5 images are accepted
 document.getElementById('addInput').addEventListener('click', function() {
-    if (inputCount < 4) { // Limit to 4 to have total of 5 images including the initial one
+    if (inputCount < 5) { 
         var inputContainer = document.getElementById('inputContainer');
 
         var inputField = document.createElement('div');
@@ -296,7 +293,7 @@ document.getElementById('addInput').addEventListener('click', function() {
                 var imageData = event.target.result;
                 imageStrings.push(imageData); // Store the base64 string of the image
             };
-            reader.readAsDataURL(file); // Read file as data URL
+            reader.readAsDataURL(file); 
         });
 
         // Cancel the inputted field
@@ -307,7 +304,6 @@ document.getElementById('addInput').addEventListener('click', function() {
             var inputField = this.parentNode;
             inputField.parentNode.removeChild(inputField);
             inputCount--;
-    
         });
         inputField.appendChild(cancelButton);
 
@@ -322,15 +318,44 @@ document.getElementById('addInput').addEventListener('click', function() {
         }, 3000);
     }
 });
-// Function to send image strings to the database
+
 async function sendImagesToDatabase(orderId) {
     const assetsRef = ref(db, 'newOrders/' + orderId + '/cusAssets');
-    const assetsSnapshot = await get(assetsRef); // Get a snapshot of current assets
-    const numAssets = assetsSnapshot.exists() ? Object.keys(assetsSnapshot.val()).length : 0;
-    const assetIndex = numAssets + 1; // Increment the counter for the next asset
-    const newAssetRef = child(assetsRef, assetIndex.toString()); // Create a reference to the new asset
-    await set(newAssetRef, imageStrings); // Set the image data under the incremented counter
-    imageStrings = []; // Clear the array after sending images to the database
+
+    // Map each image string to a promise of setting it in the database
+    const promises = imageStrings.map(async (imageData, index) => {
+        const base64Index = imageData.indexOf(',');
+        if (base64Index !== -1) {
+            imageData = imageData.slice(base64Index + 1); 
+        }
+        const assetIndex = index + 1;
+        const newAssetRef = child(assetsRef, assetIndex.toString());
+        await set(newAssetRef, { img: imageData });
+    });
+    await Promise.all(promises);
+    imageStrings = [];
+}
+function clearInputContainer() {
+    var inputContainer = document.getElementById('inputContainer');
+    while (inputContainer.firstChild) {
+        inputContainer.removeChild(inputContainer.firstChild);
+    }
+
+    // Iterate over each input field inside the inputContainer
+    var inputFields = document.querySelectorAll('#inputContainer input[type="file"]');
+    inputFields.forEach(function(inputField) {
+        // Get the value of the file input
+        var imageDataToRemove = inputField.value;
+        // Check if the value is present in the imageStrings array
+        var indexToRemove = imageStrings.indexOf(imageDataToRemove);
+        // If found, remove it from the array
+        if (indexToRemove !== -1) {
+            imageStrings.splice(indexToRemove, 1);
+        }
+    });
+
+    // Reset inputCount to 0
+    inputCount = 0;
 }
 // Counter
 document.addEventListener("DOMContentLoaded", function() {
@@ -361,7 +386,6 @@ document.addEventListener("DOMContentLoaded", function() {
         updateCount2();
     });
 });
-
 // Update total price function
 //Incremenet
 function updateTotalPrice() {
@@ -532,15 +556,15 @@ document.getElementById("orderButtonSubmit").addEventListener("click", async fun
 
                 console.log("SUCCESS");
                 sendImagesToDatabase(newOrderId);
-               //clear fields after submit
+               //clear fields after 
+                imageStrings = [];
                 totalPay = "",
                 totalPay2 = "",
                 selectedTemplateId = "",
-          
-                
                 document.getElementById("count").value = "";
                 document.getElementById("notes").value = "";
                 document.getElementById("paymentScreenshot").value = "";
+                clearInputContainer();
                 const closeOrderModal = document.getElementById("myModalorder");
                 closeOrderModal.style.display = 'none';
                 document.getElementById("OrderSuccess").classList.remove("hidden");
@@ -619,7 +643,6 @@ async function getLastChatId() {
     }   
 }
 
-
 document.getElementById("cancelOrderBtn").addEventListener("click", function() {
 
     document.getElementById("count").value = "";
@@ -628,4 +651,6 @@ document.getElementById("cancelOrderBtn").addEventListener("click", function() {
     console.log("SUCCESS cancel");
     const closeOrderModal = document.getElementById("myModalorder");
     closeOrderModal.style.display = 'none';
+    clearInputContainer();
+  
 });
