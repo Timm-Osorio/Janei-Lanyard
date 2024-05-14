@@ -2,15 +2,15 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/fireba
 import { getDatabase, ref, onValue, set, push, get, child} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB7ZxE8vJo0r5QWKqJ9jfFWpySnHaRWsiQ",
-  authDomain: "janeilanyarddb.firebaseapp.com",
-  databaseURL: "https://janeilanyarddb-9ba85-default-rtdb.firebaseio.com/",
-  projectId: "janeilanyarddb",
-  storageBucket: "janeilanyarddb.appspot.com",
-  messagingSenderId: "548579996655",
-  appId: "1:548579996655:web:de6b2dd2a4ee0a75627c1a",
-  measurementId: "G-JYFDCP813Q"
-};
+    apiKey: "AIzaSyByGsDfEcXJa2rTW0CG40XRLoa944XtI0I",
+    authDomain: "janeilanyarddb-9ba85.firebaseapp.com",
+    databaseURL: "https://janeilanyarddb-9ba85-default-rtdb.firebaseio.com",
+    projectId: "janeilanyarddb-9ba85",
+    storageBucket: "janeilanyarddb-9ba85.appspot.com",
+    messagingSenderId: "221726110604",
+    appId: "1:221726110604:web:73a171eb5277b900ca5ca9",
+    measurementId: "G-4YXSRNE3YW"
+  };
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
@@ -102,7 +102,7 @@ function getTemplateData(templateId) {
 }
 
 // Add input field
-var inputCount = 0;
+var inputCount = 1;
 var totalPrice = 0;
 var totalpay = 0;
 var selectedTemplateName = null; 
@@ -177,6 +177,7 @@ async function sendImagesToDatabase(orderId) {
     });
     await Promise.all(promises);
     imageStrings = [];
+    clearInputContainer();
 }
 function clearInputContainer() {
     var inputContainer = document.getElementById('inputContainer');
@@ -198,7 +199,7 @@ function clearInputContainer() {
     });
 
     // Reset inputCount to 0
-    inputCount = 0;
+  
 }
 // Counter
 document.addEventListener("DOMContentLoaded", function() {
@@ -225,8 +226,11 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     decrementBtn.addEventListener("click", function() {
-        count--;
-        updateCount2();
+        if (count > 1) {
+            count--;
+            updateCount2();
+        }
+     
     });
 });
 // Update total price function
@@ -240,6 +244,7 @@ function updateTotalPrice() {
 
     totalPrice = templatePrice  + templatePrice2;
     document.querySelector(".totalpay").textContent = totalPrice.toFixed(2);
+
 }
 //Decrement
 function updateTotalPrice2() {
@@ -251,6 +256,7 @@ function updateTotalPrice2() {
 
     totalPrice = templatePrice - templatePrice2;
     document.querySelector(".totalpay").textContent = totalPrice.toFixed(2);
+    
 }
 // Modal order
 const orderButton = document.getElementById('orderButton');
@@ -417,6 +423,7 @@ document.getElementById("orderButtonSubmit").addEventListener("click", async fun
            
             } catch (error) {
                 console.error('Error:', error);
+                
             }
         };
 
@@ -488,12 +495,15 @@ async function getLastChatId() {
 
 document.getElementById("cancelOrderBtn").addEventListener("click", function() {
 
-    document.getElementById("count").value = "";
+    document.getElementById("count").value = 1;
+    document.getElementById("incrementBtn").value = "";
+    document.getElementById("decrementBtn").value = "";
     document.getElementById("notes").value = "";
     document.getElementById("paymentScreenshot").value = "";
     console.log("SUCCESS cancel");
     const closeOrderModal = document.getElementById("myModalorder");
     closeOrderModal.style.display = 'none';
     clearInputContainer();
-  
+    
+   
 });

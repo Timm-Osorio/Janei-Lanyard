@@ -2,15 +2,15 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/fireba
 import { getDatabase, ref, get, update, push, set, remove } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 //I love you kong nababasa mo man to
 const firebaseConfig = {
-  apiKey: "AIzaSyB7ZxE8vJo0r5QWKqJ9jfFWpySnHaRWsiQ",
-  authDomain: "janeilanyarddb.firebaseapp.com",
-  databaseURL: "https://janeilanyarddb-9ba85-default-rtdb.firebaseio.com/",
-  projectId: "janeilanyarddb",
-  storageBucket: "janeilanyarddb.appspot.com",
-  messagingSenderId: "548579996655",
-  appId: "1:548579996655:web:de6b2dd2a4ee0a75627c1a",
-  measurementId: "G-JYFDCP813Q"
-};
+    apiKey: "AIzaSyByGsDfEcXJa2rTW0CG40XRLoa944XtI0I",
+    authDomain: "janeilanyarddb-9ba85.firebaseapp.com",
+    databaseURL: "https://janeilanyarddb-9ba85-default-rtdb.firebaseio.com",
+    projectId: "janeilanyarddb-9ba85",
+    storageBucket: "janeilanyarddb-9ba85.appspot.com",
+    messagingSenderId: "221726110604",
+    appId: "1:221726110604:web:73a171eb5277b900ca5ca9",
+    measurementId: "G-4YXSRNE3YW"
+  };
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     console.log('Details button clicked for order:', order);
                                     document.getElementById('chatroom-messages').innerHTML = '';
                                     document.getElementById('ordername').textContent = order.name;
+                                    document.getElementById('orderid').textContent = order.id;
                                     document.getElementById('templateId').textContent = order.templateId;  
                                     document.getElementById('templateIMG').textContent = '';
                                     var templateId = order.templateId;
@@ -227,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then((snapshot2) => {
                     var ordersData2 = snapshot2.val();
                     if (ordersData2) {         
-                        var userOrders2 = Object.values(ordersData2).filter(order => order.Fk_cusID === userId);
+                        var userOrders2 = Object.values(ordersData2).filter(order2 => order2.Fk_cusID === userId);
                         if (userOrders2.length > 0) {
                             document.getElementById('orders-container2').innerHTML = '';
 
@@ -391,7 +392,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             document.getElementById('noorders').style.display = 'block';
                         }
                     } else {
-                        console.log("No orders found in the database");
+                        console.log("No Completed orders found in the database");
                     }
                 })
                 .catch((error) => {
@@ -399,7 +400,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
 
                 // order cancel by you
-                var ordersRef3 = ref(db, "cancelorder");
+                var ordersRef3 = ref(db, "cancelOrders");
                 get(ordersRef3 )
                 .then((snapshot3) => {
                     var ordersData3 = snapshot3.val();
@@ -470,7 +471,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 document.getElementById('orders-container3').appendChild(orderDiv3);
                             });
                         } else {
-                            console.log("No orders found for the current user");
+                            console.log("No cancel orders found for the current user");
                           
                         }
                     } else {
@@ -538,10 +539,21 @@ document.addEventListener('DOMContentLoaded', function() {
         var orderDatacan = snapshot.val();
 
         if (orderDatacan) {
-            var newOrderRefcan = ref(db, "cancelorder/" + orderId);
+            var newOrderRefcan = ref(db, "cancelOrders/" + orderId);
             orderDatacan.status = "CANCELLED";
             await set(newOrderRefcan, orderDatacan);
             await remove(orderRefcan);
+            location.reload();
+            console.log('Order successfully cancelled and moved to cancelledOrders table:', orderId);
+            var orderChatRef = ref(db, "orderChats/" + orderId);
+            remove(orderChatRef)
+                .then(() => {
+                    console.log('Chat messages removed for order:', orderId);
+                })
+                .catch((error) => {
+                    console.error('Error removing chat messages:', error);
+                });
+            
             location.reload();
             console.log('Order successfully cancelled and moved to cancelledOrders table:', orderId);
             

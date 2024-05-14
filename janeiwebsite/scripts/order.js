@@ -2,15 +2,15 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/fireba
 import { getDatabase, ref, onValue, set, push, get, child} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB7ZxE8vJo0r5QWKqJ9jfFWpySnHaRWsiQ",
-  authDomain: "janeilanyarddb.firebaseapp.com",
-  databaseURL: "https://janeilanyarddb-9ba85-default-rtdb.firebaseio.com/",
-  projectId: "janeilanyarddb",
-  storageBucket: "janeilanyarddb.appspot.com",
-  messagingSenderId: "548579996655",
-  appId: "1:548579996655:web:de6b2dd2a4ee0a75627c1a",
-  measurementId: "G-JYFDCP813Q"
-};
+    apiKey: "AIzaSyByGsDfEcXJa2rTW0CG40XRLoa944XtI0I",
+    authDomain: "janeilanyarddb-9ba85.firebaseapp.com",
+    databaseURL: "https://janeilanyarddb-9ba85-default-rtdb.firebaseio.com",
+    projectId: "janeilanyarddb-9ba85",
+    storageBucket: "janeilanyarddb-9ba85.appspot.com",
+    messagingSenderId: "221726110604",
+    appId: "1:221726110604:web:73a171eb5277b900ca5ca9",
+    measurementId: "G-4YXSRNE3YW"
+  };
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
@@ -19,7 +19,7 @@ const db = getDatabase(app);
 const texturesRef = ref(db, 'textures/');
 const patternsRef = ref(db, 'patterns/');
 const logosRef = ref(db, 'logos/');
-const templatesRef = ref(db, 'templates/');
+
 
 // Function to display data in the divs 
 function displayTextures(data) {
