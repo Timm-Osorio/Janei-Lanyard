@@ -215,6 +215,23 @@
 .spacehow {
     filter: drop-shadow(0px 0px 5px rgb(0, 192, 199));
 }
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.firstdiv2 {
+  background-image: radial-gradient(circle, #e7e7e7, #929292, rgb(5, 0, 70)); 
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite; 
+}
 </style>
 <body class="bg-[#D9D9D9]">
     <header class=" z-10">
@@ -361,18 +378,66 @@
         </div>
     </section>
     <!--Customize-->
-    <div id="orderModal" class="fixed inset-0 md:p-2 z-50 flex items-center justify-center bg-[#D9D9D9] bg-opacity-10 ">
+    <div id="orderModal" class="fixed hidden inset-0 md:p-2 z-50 flex items-center justify-center bg-[#D9D9D9] bg-opacity-10 ">
         <div class="modal-content bg-[#D9D9D9] rounded-lg h-full w-full ">
             <div class="bg-slate-900 w-full h-3 rounded-tl-md rounded-tr-md "></div>
             <div class="flex justify-between w-full px-2 py-1 border-b-2 border-slate-300">
                 <div class="md:text-xl text-sm font-bold ">SELECTED ASSETS</div>
-                <div id="closeModalcus" class="text-slate-900 hover:text-gray-800 focus:outline-none cursor-pointer">
+                <div id="closeModalcus" class="text-slate-900 hover:text-yellow-600 focus:outline-none cursor-pointer">
                     <ion-icon name="arrow-undo" class="md:text-2xl text-xl"></ion-icon>
                 </div>
             </div>
-            <div class="md:flex p-2 md:p-10">
-                <div class="w-full p-10 bg-slate-600">
+        
+            <div class="md:flex p-2 md:p-10 overflow-y-scroll">
+                
+                <div class="w-full p-2">
+                    <div id="content2" class="firstdiv2 rounded-md mx-auto w-[350px] lg:h-[650px] md:w-[500px] border-[3px] bg-slate-500 border-black md:p-5 p-2">
+                       
+                        <div class="relative w-auto ">
+                            <div class="text-sm text-center justify-center font-medium text-slate-500">NAPE PART</div>
+                   
+                                <div class="flex relative mx-auto">  
+                                     <!--LOGO GOES HERE-->
+                                    <div class="lc h-10 absolute z-30 left-0  md:ml-[27%] ml-16  mt-3 text-white text-[10px]">TEXT GOES HERE</div>                           
+                                    <div id="displayImage2" class="logohere  w-10 h-10 absolute  flex ml-[46%] z-30 mx-auto rounded-full  bg-white"></div>  
+                                    <div class="rc h-10 absolute z-30 right-0 md:mr-[27%] mr-14 mt-3 text-white text-[10px] ">TEXT GOES HERE</div>  
+                                </div>
+                               
+                            <div id="texture3" class="trapezoid md:w-[60%] h-64 md:mt-[-47.5%] mt-[-65%] w-[90%] mx-auto"></div>
+                            <div class="trapezoid2 md:w-[60%] w-[84%] absolute md:mt-[10%] mt-[7%] md:ml-[21%]  ml-[9.5%] "></div>
+                      
+                        </div>
+                        <div class="relative w-auto ">
+                            <div class="justify-between flex">
+                                <div class=" text-sm font-medium text-slate-500">RIGHT SIDE</div>
+                                <div class="text-sm font-medium text-slate-500">LEFT SIDE</div>
+                            </div>
 
+                            <!--PATTERNS GOES HERE-->
+                            <div id="pat1" class="leftbox  absolute bg-black bg-opacity-0  md:mt-16 mt-10 ml-6 skew-x-[-40deg] rotate-[-55deg] md:ml-[19%] z-30 w-[60px] h-[80px] "></div>
+                            <div id="pat2" class="leftbox2 absolute bg-black bg-opacity-0  md:mt-[80%] mt-[105%] ml-[33%] skew-x-[-40deg] rotate-[-55deg] md:ml-[37%] z-10 w-[59px] h-[80px] "></div>
+                            <div class="leftbox4 absolute bg-black bg-opacity-0   mt-[45%] ml-[20%] md:mt-[39%] skew-x-[-40deg] rotate-[-55deg] md:ml-[27.5%] z-10 w-[59px] h-[27%]  ">                   
+                                <div class="lc rotate-[90deg] font-bold text-black mt-[184%] md:ml-3 ml-2 absolute">HERE</div>
+                                <div class="lc rotate-[90deg] font-bold  text-black mt-[106%] md:ml-3 ml-2 absolute">GOES</div>
+                                <div class="lc rotate-[90deg] font-bold  text-black mt-[32%] md:ml-3 ml-2 absolute">TEXT</div>                      
+                            </div>
+                          
+                            
+                            <div class="rightbox4 absolute bg-slate-200   bg-opacity-0 md:mt-[39%] mt-[45%] ml-[65%] skew-x-[34deg] rotate-[49deg] md:ml-[60.5%] z-30 w-[59px] h-[27%] "> 
+                                <div class="rc rotate-[-90deg] font-bold mt-[184%] ml-4 text-white  absolute">TEXT</div>
+                                <div class="rc rotate-[-90deg] font-bold  mt-[106%] ml-3 text-white absolute">GOES</div>
+                                <div class="rc rotate-[-90deg] font-bold  mt-[32%] ml-3 text-white absolute">HERE</div>
+                            </div>
+                            <div id="pat3" class="rightbox2 absolute bg-slate-200 bg-opacity-0  md:mt-[13%] mt-9 ml-[78%] skew-x-[35deg] rotate-[50deg] md:ml-[69%] z-30 w-[58.5px] h-[80px] "></div>
+                            <div id="pat4" class="rightbox absolute bg-slate-200  bg-opacity-0  md:mt-[80%] mt-[105%] ml-[53%] skew-x-[34deg] rotate-[49deg] md:ml-[51.5%] z-30 w-[58.5px] h-[80px] "></div>
+                            
+                            <!--TEXTURE GOES HERE-->
+                            <div id="texture2" class="parallelogram-left  md:ml-[30%] z-20 md:mt-[5%] ml-[23%]  h-[500px] w-[50px]"></div>
+                            <div id="texture1" class="parallelogram-right absolute  z-0 md:ml-[60%] md:mt-[-110%] ml-[65%] mt-[-152%] h-[500px] w-[50px] "></div>
+                   
+                            <div class=""></div>
+                        </div>
+                    </div>
                 </div>
                 <div class=" w-full p-10 bg-slate-100">
 
