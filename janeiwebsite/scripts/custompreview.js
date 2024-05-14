@@ -416,17 +416,26 @@ document.getElementById("orderButtonSubmit").addEventListener("click", async fun
                 clearInputContainer();
                 const closeOrderModal = document.getElementById("myModalorder");
                 closeOrderModal.style.display = 'none';
-                document.getElementById("OrderSuccess").classList.remove("hidden");
-                setTimeout(function() {
-                    document.getElementById("OrderSuccess").classList.add("hidden");
-                }, 3000); 
-           
+                const orderSuccessElement = document.getElementById("OrderSuccess");
+                orderSuccessElement.classList.remove("hidden");
+
+                // Countdown
+                let count = 3;
+                const countdownElement = document.getElementById("countdown");
+                countdownElement.classList.remove("hidden");
+                const countdown = setInterval(() => {
+                    countdownElement.textContent = count;
+                    count--;
+                    if (count < 0) {
+                        clearInterval(countdown);
+                        orderSuccessElement.classList.add("hidden");
+                        window.location.href = "/janeiwebsite/src/profile.html";
+                    }
+                }, 1000);
             } catch (error) {
                 console.error('Error:', error);
-                
             }
         };
-
         // Read file as binary string
         paymentScreenshotReader.readAsArrayBuffer(paymentScreenshot);
 

@@ -22,6 +22,12 @@
  .text {
     filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.686));
  }
+ .cnt {
+    filter: drop-shadow(0px 1px 5px rgb(255, 255, 255));
+ }
+ .cnty {
+    filter: drop-shadow(0px 1px 5px rgb(255, 255, 255));
+ }
  .firstdiv {
     box-shadow: 7px 7px 12px #000 ;
  }
@@ -196,17 +202,29 @@
 .lc, .rc {
     filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.993));
 }
-
+@keyframes jump {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-jump {
+  animation: jump 2s infinite;
+}
+.animate-jump:hover {
+  animation: none ;
+}
+.spacehow {
+    filter: drop-shadow(0px 0px 5px rgb(0, 192, 199));
+}
 </style>
 <body class="bg-[#D9D9D9]">
-    <header class=" z-50">
+    <header class=" z-10">
         <nav class="flex justify-between items-center w-[92%] pt-2 md:pt-5 mx-auto">
             <div class="flex">
                 <img class="w-16 cursor-pointer p-1" src="/janeiwebsite/assets/logolanyard.png" alt="...">
                 <span class="md:pt-3 pt-4 p-2 text-2xl lg:text-3xl font-bold absolute ml-16 text-black">JANEI</span>
             </div>
             
-            <div class="nav-links p-3 md:rounded-full z-50 duration-500 md:static absolute
+            <div class="nav-links p-3 md:rounded-full z-20 duration-500 md:static absolute
              bg-[#1F1F1F] shadow-slate-200 shadow-lg md:min-h-fit min-h-[60vh]
              left-0 top-[-100%]  md:w-auto  w-full flex items-center px-5">
 
@@ -278,9 +296,9 @@
                             </div>
 
                             <!--PATTERNS GOES HERE-->
-                            <div class="leftbox absolute bg-black bg-opacity-0  md:mt-16 mt-10 ml-6 skew-x-[-40deg] rotate-[-55deg] md:ml-[19%] z-30 w-[60px] h-[80px] "></div>
+                            <div class="leftbox  absolute bg-black bg-opacity-0  md:mt-16 mt-10 ml-6 skew-x-[-40deg] rotate-[-55deg] md:ml-[19%] z-30 w-[60px] h-[80px] "></div>
                             <div class="leftbox2 absolute bg-black bg-opacity-0  md:mt-[80%] mt-[105%] ml-[33%] skew-x-[-40deg] rotate-[-55deg] md:ml-[37%] z-10 w-[59px] h-[80px] "></div>
-                            <div class="leftbox2 absolute bg-black bg-opacity-0   mt-[45%] ml-[20%] md:mt-[39%] skew-x-[-40deg] rotate-[-55deg] md:ml-[27.5%] z-10 w-[59px] h-[27%]  ">                   
+                            <div class="leftbox4 absolute bg-black bg-opacity-0   mt-[45%] ml-[20%] md:mt-[39%] skew-x-[-40deg] rotate-[-55deg] md:ml-[27.5%] z-10 w-[59px] h-[27%]  ">                   
                                 <div class="lc rotate-[90deg] font-bold text-black mt-[184%] md:ml-3 ml-2 absolute">HERE</div>
                                 <div class="lc rotate-[90deg] font-bold  text-black mt-[106%] md:ml-3 ml-2 absolute">GOES</div>
                                 <div class="lc rotate-[90deg] font-bold  text-black mt-[32%] md:ml-3 ml-2 absolute">TEXT</div>                      
@@ -333,7 +351,7 @@
                                 </div>
                             </div>
                          
-                            <button id="btnord" class="btnord p-2 hover:scale-95 duration-300 hover:bg-white bg-yellow-500 font-medium float-right mt-1 rounded-md border-2 border-black ">ORDER NOW</div>
+                            <button id="orderNowButton" class="btnord p-2 hover:scale-95 duration-300 hover:bg-white bg-yellow-500 font-medium float-right mt-1 rounded-md border-2 border-black ">ORDER NOW</div>
                         </div>
                         
                     </div>
@@ -342,7 +360,27 @@
             </div>
         </div>
     </section>
+    <!--Customize-->
+    <div id="orderModal" class="fixed inset-0 md:p-2 z-50 flex items-center justify-center bg-[#D9D9D9] bg-opacity-10 ">
+        <div class="modal-content bg-[#D9D9D9] rounded-lg h-full w-full ">
+            <div class="bg-slate-900 w-full h-3 rounded-tl-md rounded-tr-md "></div>
+            <div class="flex justify-between w-full px-2 py-1 border-b-2 border-slate-300">
+                <div class="md:text-xl text-sm font-bold ">SELECTED ASSETS</div>
+                <div id="closeModalcus" class="text-slate-900 hover:text-gray-800 focus:outline-none cursor-pointer">
+                    <ion-icon name="arrow-undo" class="md:text-2xl text-xl"></ion-icon>
+                </div>
+            </div>
+            <div class="md:flex p-2 md:p-10">
+                <div class="w-full p-10 bg-slate-600">
 
+                </div>
+                <div class=" w-full p-10 bg-slate-100">
+
+                </div>
+            </div>
+           
+        </div>
+    </div>
     <section class="orderpage h-auto  w-full overflow-hidden">    
         <div class="w-full h-14 bg-[#1F1F1F] pb-10 shadow-lg  shadow-white">
             <h1 class="text-white font-semibold font-mono p-3 md:pl-10 md:text-left text-center text-[20px] md:text-2xl">PRESET TEMPLATES DESIGN</h1>
@@ -372,18 +410,43 @@
 
       <!--Floating div for inquiry-->
     <div id="OrderSuccess" class="hidden fixed inset-0 flex items-center justify-center">
-        <div class="bg-green-500 text-slate-900 py-3 px-6 rounded-md shadow-md flex  ">
-            <ion-icon name="bag-check-outline" class="text-3xl"></ion-icon>
-            <div class="p-1 font-medium px-2">Order Success </div>
+        <div id="backgroundLayer" class="fixed inset-0 bg-black bg-opacity-60 z-10"></div>
+        <div class="shadow-lg shadow-white slate-900 py-3 border-2 border-white px-6 z-20 rounded-md bg-green-500 ">
+            <div id="countdown" class="cnt text-2xl font-bold text-yellow-500 text-center">4</div>
+            <div class=" text-slate-900 py-3 px-6 rounded-md flex  ">
+                <ion-icon name="bag-check-outline" class="cnty text-3xl pt-1.5 "></ion-icon>
+                <div class="cnt p-1 font-medium text-2xl px-2">Order Success </div>
+            </div> 
+           <div class="text-center text-sm font-medium text-slate-900">will redirect to order purchased page.</div> 
         </div>
     </div>
+  
 
     <!--The ano goes here-->    
-    <div id="myModalorder" class="fixed inset-0 z-50 p-0 md:p-2 flex items-center justify-center bg-[#D9D9D9] bg-opacity-10 overflow-y-scroll hidden ">
+    <div id="myModalorder" class="fixed inset-0 z-50 p-0 md:p-2 z-50 flex items-center justify-center bg-[#D9D9D9] bg-opacity-10 overflow-y-scroll hidden ">
         <div class="modal-content bg-[#D9D9D9] rounded-lg ">
-           
+              <!--Errors-->
+                <div id="errorContainer5" class="error w-full fixed font-bold bg-yellow-300 text-slate-900 text-center bottom-0 shadow-md shadow-red-600 z-20 text-sm p-3 mx-auto" style="display: none;">
+                    <div class="flex justify-center relative">
+                        <img src="/janeiwebsite/assets/pablita-warning-sign.png" class="h-6 " alt="" srcset="">
+                        <span class="mt-1 pl-3">Only 5 images are accepted!</span> 
+                    </div>                
+                </div>
+                <div id="errorContainer6" class="error w-full fixed font-bold bg-yellow-300 text-slate-900 text-center bottom-0 shadow-md shadow-red-600 z-20 text-sm p-3 mx-auto" style="display: none;">
+                    <div class="flex justify-center relative">
+                        <img src="/janeiwebsite/assets/pablita-warning-sign.png" class="h-6 " alt="" srcset="">
+                        <span class="mt-1 pl-3">Please put a notes to guide us what your dream design.</span> 
+                    </div>                
+                </div>
+                <div id="errorContainer7" class="error w-full fixed font-bold bg-yellow-300 text-slate-900 text-center bottom-0 shadow-md shadow-red-600 z-20 text-sm p-3 mx-auto" style="display: none;">
+                    <div class="flex justify-center relative">
+                        <img src="/janeiwebsite/assets/pablita-warning-sign.png" class="h-6 " alt="" srcset="">
+                        <span class="mt-1 pl-3">Please Input your Payment Screenshot.</span> 
+                    </div>                
+                </div>
+            <div>
             <div class=" bg-slate-800 p-2 text-white rounded-tl-md rounded-tr-md "> Janei Editing and Printing Services </div>
-         
+            </div>
             <div class="md:mt-0 mt-3 p-2 rounded-lg">
                 <div class="lg:flex justify-center lg:gap-10 gap-5 grid mb-10">
                     
@@ -396,24 +459,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="errorContainer5" class="error w-full fixed font-bold bg-yellow-300 text-slate-900 text-center bottom-0 shadow-md shadow-red-600 z-20 text-sm p-3 mx-auto" style="display: none;">
-                        <div class="flex justify-center relative">
-                            <img src="/janeiwebsite/assets/pablita-warning-sign.png" class="h-6 " alt="" srcset="">
-                            <span class="mt-1 pl-3">Only 5 images are accepted!</span> 
-                        </div>                
-                    </div>
-                    <div id="errorContainer6" class="error w-full fixed font-bold bg-yellow-300 text-slate-900 text-center bottom-0 shadow-md shadow-red-600 z-20 text-sm p-3 mx-auto" style="display: none;">
-                        <div class="flex justify-center relative">
-                            <img src="/janeiwebsite/assets/pablita-warning-sign.png" class="h-6 " alt="" srcset="">
-                            <span class="mt-1 pl-3">Please put a notes to guide us what your dream design.</span> 
-                        </div>                
-                    </div>
-                    <div id="errorContainer7" class="error w-full fixed font-bold bg-yellow-300 text-slate-900 text-center bottom-0 shadow-md shadow-red-600 z-20 text-sm p-3 mx-auto" style="display: none;">
-                        <div class="flex justify-center relative">
-                            <img src="/janeiwebsite/assets/pablita-warning-sign.png" class="h-6 " alt="" srcset="">
-                            <span class="mt-1 pl-3">Please Input your Payment Screenshot.</span> 
-                        </div>                
-                    </div>
+                 
 
                     <div class="lg:w-7/10 ">
                         <div class="w-full  h-full p-5">
@@ -466,7 +512,7 @@
                                             </div>
                                         </div>
                                         <div class="flex justify-between pt-2">
-                                            <button id="cancelOrderBtn" type="button" class="p-2  hover:bg-red-500 bg-slate-500 hover:scale-95 font-semibold text-white rounded-md">CANCEL ORDER</button>
+                                            <button id="cancelOrderBtn" type="button" class="p-2  hover:bg-red-500 bg-slate-500 hover:scale-95 font-semibold text-white rounded-md">CLOSE</button>
                                             <button id="orderButtonSubmit" type="button" class="p-2 bg-slate-900 hover:bg-green-500 hover:scale-95 font-semibold text-white rounded-md">ORDER NOW</button>
                                         </div>
                                     </form>
@@ -496,7 +542,54 @@
             </div>
         </div>
     </div>
-    <div class="modal-overlay"></div>
+
+
+    <div id="howtobtn" class="bg-opacity-5 rounded-full bottom-5 float-right md:right-10 right-3 fixed transition-transform duration-500 transform hover:-translate-y-2 animate-jump cursor-pointer">
+        <img src="/janeiwebsite/assets/how.png" alt="" srcset="" class="spacehow md:h-20 h-16">
+    </div>
+
+    <div id="how" class="modal hidden fixed w-full h-full top-0 left-0 z-30 flex items-center justify-center">
+        <div id="backgroundLayer" class="fixed inset-0 bg-black bg-opacity-60 z-30"></div>
+        <!-- Modal content -->
+        <div class="modal-content bg-white border border-slate-600 z-40 shadow-lg shadow-white w-5/6 md:max-w-md mx-auto rounded-md">
+            <div class="bg-slate-900 w-full h-3 rounded-tl-md rounded-tr-md "></div>
+                <div class="flex justify-between w-full px-2 py-1 border-b-2 border-slate-300">
+                    <div class="md:text-xl text-sm font-bold ">HOW TO ORDER?</div>
+                    <div id="howbtn" class="text-slate-900 hover:text-gray-800 focus:outline-none cursor-pointer">
+                        <ion-icon name="arrow-undo" class="md:text-2xl text-xl"></ion-icon>
+                    </div>
+                </div>
+                <div class="px-3 py-2">
+                    <span class="font-bold text-sm ">IN SELECTION DESIGN</span> <br>
+                    <span class="text-[13px] font-normal "> - You can select any provided assets that will serve as a blueprint of your dream design.</span> <br>
+                    <span class="text-[13px] font-normal "> - You can add a logo image of your choice from your device.</span> <br>
+                    <span class="text-[13px] font-normal "> - Click/Tap the Order now to proceed with your order.</span> <br>
+                    <span class="text-[13px] font-normal "> - After that fill the form and put your notes so we, our team will be guided on how we make your dream lanyard design put into reality.✨</span>
+                </div>
+                <div class="px-3 py-1">
+                    <span class="font-bold text-sm ">IN PRESET TEMPLATES</span> <br>
+                    <span class="text-[13px] font-normal "> - You can select one template of your choice.</span> <br>
+                    <span class="text-[13px] font-normal "> - Click/Tap the CART image to proceed with your order.</span> <br>
+                    <span class="text-[13px] font-normal "> - Fill the form and put a notes to guide us.</span> <br>
+                    <span class="text-[13px] font-normal "> - Tap the Order Now and go directly to the Profile page to navigate your Order.✨</span>
+                </div>
+                <div class="px-3 py-1">
+                    <span class="text-[13px] font-semibold "> Refer with this link to remove your image background.</span> <br>
+                    <div class="flex">
+                        <ion-icon name="link" class=" p-1.5"></ion-icon>
+                        <span class="text-[13px] py-1 font-normal text-blue-500 ">https://www.remove.bg/</span> <br>
+                    </div>
+                    <span class="text-sm py-1 ">copy this link and paste to your browser. <br>
+                    credits to @remove.bg, a Canva Austria GmbH brand</span>
+                    <span></span>
+                    
+                </div>
+            </div>
+          <div class="md:flex">
+            <div class=""></div>
+            <div class=""></div>
+          </div>
+    </div>
     </div>
    
     
@@ -589,7 +682,26 @@ document.getElementById('toggleButton').addEventListener('click', function() {
 });
 
 //modal confirm order
+  var modalcus = document.getElementById("orderModal");
+  var btncus = document.getElementById("orderNowButton");
+  var closeBtn = document.getElementById("closeModalcus");
+  btncus.onclick = function() {
+    modalcus.classList.remove('hidden');
+  }
+  closeBtn.onclick = function() {
+    modalcus.classList.add('hidden');
+  }
 
+  var how = document.getElementById("how");
+  var btnhow = document.getElementById("howtobtn");
+  var howbtn = document.getElementById("howbtn");
+
+  btnhow.onclick = function() {
+    how.classList.remove('hidden');
+  }
+  howbtn.onclick = function() {
+    how.classList.add('hidden');
+  }
 
 </script>
 </body>
