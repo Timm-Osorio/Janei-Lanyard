@@ -533,15 +533,15 @@ document.addEventListener('DOMContentLoaded', function() {
 // remove and cancel order
 document.addEventListener('DOMContentLoaded', function() {
     async function cancelOrder(orderId) {
-        var orderRef = ref(db, "newOrders/" + orderId);
-        var snapshot = await get(orderRef);
-        var orderData = snapshot.val();
+        var orderRefcan = ref(db, "newOrders/" + orderId);
+        var snapshot = await get(orderRefcan);
+        var orderDatacan = snapshot.val();
 
-        if (orderData) {
-            var newOrderRef = ref(db, "cancelorder/" + orderId);
-            orderData.status = "CANCELLED";
-            await set(newOrderRef, orderData);
-            await remove(orderRef);
+        if (orderDatacan) {
+            var newOrderRefcan = ref(db, "cancelorder/" + orderId);
+            orderDatacan.status = "CANCELLED";
+            await set(newOrderRefcan, orderDatacan);
+            await remove(orderRefcan);
             location.reload();
             console.log('Order successfully cancelled and moved to cancelledOrders table:', orderId);
             

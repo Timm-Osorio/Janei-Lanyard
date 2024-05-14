@@ -280,7 +280,7 @@
                             <!--PATTERNS GOES HERE-->
                             <div class="leftbox absolute bg-black bg-opacity-0  md:mt-16 mt-10 ml-6 skew-x-[-40deg] rotate-[-55deg] md:ml-[19%] z-30 w-[60px] h-[80px] "></div>
                             <div class="leftbox2 absolute bg-black bg-opacity-0  md:mt-[80%] mt-[105%] ml-[33%] skew-x-[-40deg] rotate-[-55deg] md:ml-[37%] z-10 w-[59px] h-[80px] "></div>
-                            <div class="leftbox2 absolute bg-black bg-opacity-0  bg-opacity-0 mt-[45%] ml-[20%] md:mt-[39%] skew-x-[-40deg] rotate-[-55deg] md:ml-[27.5%] z-10 w-[59px] h-[27%]  ">                   
+                            <div class="leftbox2 absolute bg-black bg-opacity-0   mt-[45%] ml-[20%] md:mt-[39%] skew-x-[-40deg] rotate-[-55deg] md:ml-[27.5%] z-10 w-[59px] h-[27%]  ">                   
                                 <div class="lc rotate-[90deg] font-bold text-black mt-[184%] md:ml-3 ml-2 absolute">HERE</div>
                                 <div class="lc rotate-[90deg] font-bold  text-black mt-[106%] md:ml-3 ml-2 absolute">GOES</div>
                                 <div class="lc rotate-[90deg] font-bold  text-black mt-[32%] md:ml-3 ml-2 absolute">TEXT</div>                      
@@ -333,7 +333,7 @@
                                 </div>
                             </div>
                          
-                            <button class="btnord p-2 hover:scale-95 duration-300 hover:bg-white bg-yellow-500 font-medium float-right mt-1 rounded-md border-2 border-black ">ORDER NOW</div>
+                            <button id="btnord" class="btnord p-2 hover:scale-95 duration-300 hover:bg-white bg-yellow-500 font-medium float-right mt-1 rounded-md border-2 border-black ">ORDER NOW</div>
                         </div>
                         
                     </div>
@@ -377,7 +377,123 @@
             <div class="p-1 font-medium px-2">Order Success </div>
         </div>
     </div>
-    
+    <div id="myModalorder2" class="fixed inset-0 z-50 p-0 md:p-2 flex items-center justify-center bg-[#D9D9D9] bg-opacity-10 overflow-y-scroll hidden ">
+        <div class="modal-content bg-[#D9D9D9] rounded-lg ">
+           
+            <div class=" bg-slate-800 p-2 text-white rounded-tl-md rounded-tr-md "> Janei Editing and Printing Services </div>
+         
+            <div class="md:mt-0 mt-3 p-2 rounded-lg">
+                <div class="lg:flex justify-center lg:gap-10 gap-5 grid mb-10">
+                    
+                    <div class="md:w-3/10 justify-center mt-1 md:mt-2 ">
+                        <h1 class="  md:text-[20px] text-xl  rounded-md md:text-black  mb-2 text-white font-bold md:font-semibold md:text-left text-center templatename2" > TEMPLATE DESIGN</h1>
+                        <div style="display: none;"></div>
+                        <div class="firstdiv rounded-md mx-auto w-[350px] lg:h-[650px] md:w-[500px] border-[3px] bg-slate-100 border-black md:p-5 p-2">
+                            <div class="border border-black pic2 h-full">
+                                <img src="/janeiwebsite/assets/a2.png" alt="" srcset="">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="errorContainer51" class="error w-full fixed font-bold bg-yellow-300 text-slate-900 text-center bottom-0 shadow-md shadow-red-600 z-20 text-sm p-3 mx-auto" style="display: none;">
+                        <div class="flex justify-center relative">
+                            <img src="/janeiwebsite/assets/pablita-warning-sign.png" class="h-6 " alt="" srcset="">
+                            <span class="mt-1 pl-3">Only 5 images are accepted!</span> 
+                        </div>                
+                    </div>
+                    <div id="errorContainer61" class="error w-full fixed font-bold bg-yellow-300 text-slate-900 text-center bottom-0 shadow-md shadow-red-600 z-20 text-sm p-3 mx-auto" style="display: none;">
+                        <div class="flex justify-center relative">
+                            <img src="/janeiwebsite/assets/pablita-warning-sign.png" class="h-6 " alt="" srcset="">
+                            <span class="mt-1 pl-3">Please put a notes to guide us what your dream design.</span> 
+                        </div>                
+                    </div>
+                    <div id="errorContainer71" class="error w-full fixed font-bold bg-yellow-300 text-slate-900 text-center bottom-0 shadow-md shadow-red-600 z-20 text-sm p-3 mx-auto" style="display: none;">
+                        <div class="flex justify-center relative">
+                            <img src="/janeiwebsite/assets/pablita-warning-sign.png" class="h-6 " alt="" srcset="">
+                            <span class="mt-1 pl-3">Please Input your Payment Screenshot.</span> 
+                        </div>                
+                    </div>
+
+                    <div class="lg:w-7/10 ">
+                        <div class="w-full  h-full p-5">
+                            <div class=" bg-slate-200 rounded-lg shadow-md  shadow-black w-auto">
+                                <div class="md:text-2xl text-[15px] text-center font-semibold rounded-tl-lg rounded-tr-lg w-full p-2 md:p-5 bg-[#161616f0] text-yellow-50">ADD TO YOUR ORDER</div>
+                                
+                                    <div class=" p-2 ">
+                                        <form action="" method="">
+                                        <div class="md:p-2 p-2 md:h-64  h-32 bg-white shadow-black shadow-inner rounded-md  overflow-y-auto">
+                                            <div class="flex justify-between">
+                                                <div class="text-sm text-slate-700 py-2 px-2">Add assets here.</div>
+                                                <button id="addInput2" type="button" class=" py-1 px-3  md:px-4 md:text-xl text-[13px] hover:bg-green-700 duration-300 rounded-md shadow-md text-white hover:scale-95 shadow-slate-600 bg-slate-900">ADD</button>
+                                            </div>
+                                                <div id="inputContainer2" class="md:mt-13 mt-5 space-y-2">
+                                                    <!--ASSETS ADDED-->
+                                                </div>
+                                        </div>
+                                        <div class="">
+                                            <div class="text-sm font-medium p-2 md:text-xl">ORDER NOTES</div>
+                                                <div class=" ">
+                                                    <textarea name="" placeholder=" type your gcash name here and your order notes... " id="notes2" cols="" rows="" class="w-full h-16  md:h-24 rounded-md shadow-inner shadow-gray-900"></textarea>
+                                                </div>
+                                        </div>
+                                       
+                                        <div class="lg:flex items-center right-0  justify-between">
+                                            
+                                            <div class="lg:mt-10 md:mt-2  ">
+                                                <div class="font-medium p-1 text-black  ">Input payment Screenshot here </div>
+                                                <div class="md:flex gap-2">
+                                                    <div class="">
+                                                        <input type="file" name="" id="paymentScreenshot2" class="w-full text-white bg-slate-900 rounded-md p-1">
+                                                    </div>
+                                                  
+                                                    <button id="orderButtongcash" type="button" class="btnords2 p-2 md:mt-0 mt-2 bg-slate-800 rounded-md font-medium text-white  ">SCAN ME</button>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class=" p-1  ">
+                                                <div class="totalpay22 textpay font-bold text-4xl text-center text-yellow-500">0</div>
+                                                <div class="totalpay222 textpay font-bold text-4xl text-center text-yellow-500" style="display: none;">0</div>
+                                                <div class="p-2 text-center font-bold md:text-[15px] text-[10px]  ">
+                                                    TOTAL:
+                                                </div>
+                                                <div class="gap-1 lg:justify-normal flex justify-center ">
+                                                    <button id="incrementBtn2" type="button" class=" px-3 py-1 font-bold text-xl hover:scale-95 text-white duration-300 hover:bg-green-600 rounded-md bg-slate-900">+</button>
+                                                    <input type="number" name="" id="count2" placeholder="0" class=" w-16 font-semibold appearance-none rounded-md mx-2">
+                                                    <button id="decrementBtn2" type="button" class="px-3 py-1 font-bold text-xl hover:scale-95 text-white duration-300 hover:bg-red-500 rounded-md bg-slate-900">−</button>
+                                                    
+                                                </div>  
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-between pt-2">
+                                            <button id="cancelOrderBtn2" type="button" class="p-2  hover:bg-red-500 bg-slate-500 hover:scale-95 font-semibold text-white rounded-md">CANCEL ORDER</button>
+                                            <button id="orderButtonSubmit2" type="button" class="p-2 bg-slate-900 hover:bg-green-500 hover:scale-95 font-semibold text-white rounded-md">ORDER NOW</button>
+                                        </div>
+                                    </form>
+                                <!-- Modal content -->
+                                    <div id="myModal2" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+                                        <div class="bg-white p-1 md:p-2 rounded-lg h-auto">
+                                          <div class="md:text-2xl text-xl font-bold text-center p-5">
+                                            SCAN TO PAY
+                                          </div>
+                                         
+                                          <div class="md:flex w-auto">
+                                            <div class=" flex justify-center">
+                                                <img src="/janeiwebsite/assets/qrcode.png" class="h-56 md:h-72 " alt="" srcset="">
+                                            </div>   
+                                          </div>
+                                          <div class="text-center font-medium p-1">Down payment is acceptable.</div>
+                                          
+                                        </div>
+                                      </div>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
     <!--The ano goes here-->    
     <div id="myModalorder" class="fixed inset-0 z-50 p-0 md:p-2 flex items-center justify-center bg-[#D9D9D9] bg-opacity-10 overflow-y-scroll hidden ">
         <div class="modal-content bg-[#D9D9D9] rounded-lg ">
@@ -423,9 +539,11 @@
                                     <div class=" p-2 ">
                                         <form action="" method="">
                                         <div class="md:p-2 p-2 md:h-64  h-32 bg-white shadow-black shadow-inner rounded-md  overflow-y-auto">
-                                            
-                                                <button id="addInput" type="button" class="float-right py-1 px-3  md:px-4 md:text-xl text-[13px] hover:bg-green-700 duration-300 rounded-md shadow-md text-white hover:scale-95 shadow-slate-600 bg-slate-900">ADD</button>
-                                                <div id="inputContainer" class="md:mt-13 mt-10 space-y-2">
+                                            <div class="flex justify-between">
+                                                <div class="text-sm text-slate-700 py-2 px-2">Add assets here.</div>
+                                                <button id="addInput" type="button" class=" py-1 px-3  md:px-4 md:text-xl text-[13px] hover:bg-green-700 duration-300 rounded-md shadow-md text-white hover:scale-95 shadow-slate-600 bg-slate-900">ADD</button>
+                                            </div>
+                                                <div id="inputContainer" class="md:mt-13 mt-5 space-y-2">
                                                     <!--ASSETS ADDED-->
                                                 </div>
                                         </div>
@@ -457,7 +575,7 @@
                                                 </div>
                                                 <div class="gap-1 lg:justify-normal flex justify-center ">
                                                     <button id="incrementBtn" type="button" class=" px-3 py-1 font-bold text-xl hover:scale-95 text-white duration-300 hover:bg-green-600 rounded-md bg-slate-900">+</button>
-                                                    <input type="number" name="" id="count" placeholder="0" class=" w-16 font-semibold appearance-none rounded-md mx-2">
+                                                    <input type="number" name="" id="count" disabled placeholder="0" class=" w-16 font-semibold appearance-none rounded-md mx-2">
                                                     <button id="decrementBtn" type="button" class="px-3 py-1 font-bold text-xl hover:scale-95 text-white duration-300 hover:bg-red-500 rounded-md bg-slate-900">−</button>
                                                     
                                                 </div>  
@@ -496,56 +614,7 @@
     </div>
     <div class="modal-overlay"></div>
     </div>
-   <!-- <div class="sticky-message z-50 float-right mb-20">
-        <div class="">
-             
-            <div onclick="toggleDropdown()" tabindex="0" role="button" class="bg-yellow-500 hover:bg-yellow-600 cursor-pointer hover:scale-95 duration-150 p-2 rounded-full shadow-md shadow-yellow-100">
-                <ion-icon name="help-circle-outline" class="md:h-9 md:w-10 h-7 w-8 text-white"></ion-icon>
-            </div>
-            
-            <div id="dropdownContent" class="dropdown-content absolute top-0 right-0 p-1 -mt-72 border h-auto bg-white w-9 rounded-md shadow-md shadow-yellow-50 hidden">
-                <div class="p-3 text-black bg-white rounded-md">
-                    <div class="flex flex-wrap">
-                        <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 xl:w-1/3 p-4">
-                            <span class="text-[13px] font-bold">Order Guide:</span><br/>
-                            <span class="text-sm">To start your order journey, 
-                              simply head over to our <a href="/janeiwebsite/src/orderpage.html" class="font-bold hover:text-yellow-500 duration-200 ">Shop page.</a>  From there, you'll
-                              have the delightful choice between bringing your dream 
-                              design to life or selecting from our fabulous preset
-                              templates.
-                        </div>
-                        <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 xl:w-1/3 p-4">
-                            <span class="text-[13px] font-bold ">Order Process:</span><br/>
-                            <span class="text-[13px] font-medium ">In Preview Preset</span> <br/>
-                            <div class="text-sm">
-                            - Select your background color. <br/>
-                             - Select your pattern. <br/>
-                             - Select your font design. <br/>
-                             - Select a shape for your Logo. <br/>
-                             - Lastly, when you're ready, simply 
-                             click the "Order Now" button. From there,  
-                             you can add your images and even include a description. 
-                             We're here to bring your dream design to life, so feel 
-                             free to share your suggestions with us!
-                            </div>
-                        </div>
-                        <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 xl:w-1/3 p-4">
-                            <span class="text-[13px] font-medium">In Preset Templates:</span> <br/>
-                           <div class="text-sm ">
-                                - First, select the design that best matches your desires.<br/>
-                                - Once you've found the perfect fit, simply click the "Order Now" button.<br/>
-                                - From there, you can add your images and even include a description.
-                                We're here to turn your dream design into a reality, so don't hesitate to share your ideas with us!<br/>
-                                <br/>
-                            
-                                Let's work together to make some magic happen! 😊🎨
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            </div>  
-        </div>
-    </div>-->
+   
     
 <!--FOOTER-->
 <footer class="h-60 bottom-0 p-5 w-auto bg-[#1F1F1F]">
@@ -578,11 +647,9 @@
 <script type="module" src="/janeiwebsite/scripts/logout.js"></script>  
 <script type="module" src="/janeiwebsite/scripts/modalsheader.js"></script>
 <script type="module" src="/janeiwebsite/scripts/orderinfo.js"></script>
+<script type="module" src="/janeiwebsite/scripts/order.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
-
-
 <script>
 //navbar
      const navLinks = document.querySelector('.nav-links')
