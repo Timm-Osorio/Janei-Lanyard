@@ -390,17 +390,13 @@
             e.name = e.name === 'menu' ? 'close' : 'menu'
             navLinks.classList.toggle('top-[10%]')
         }
+
         function toggleDropdown() {
         var dropdown = document.getElementById("dropdownContent");
         dropdown.classList.toggle("hidden");
         }
 
-        document.addEventListener("click", function(event) {
-            var dropdown = document.getElementById("dropdownContent");
-            if (!event.target.closest(".sticky-message") && !event.target.closest(".dropdown-content")) {
-                dropdown.classList.add("hidden");
-            }
-        });
+     
 
        
 </script>

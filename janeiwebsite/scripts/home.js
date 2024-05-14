@@ -34,8 +34,7 @@
     });
   });
 
-//Gallery images
-  function changeImages(clickedImage) {
+function changeImages(clickedImage) {
     var images = document.querySelectorAll('.image-container img');
     for (var i = 0; i < images.length; i++) {
       if (images[i] === clickedImage) {

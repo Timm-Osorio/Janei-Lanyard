@@ -22,6 +22,12 @@
  .text {
     filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.686));
  }
+ .cnt {
+    filter: drop-shadow(0px 1px 5px rgb(255, 255, 255));
+ }
+ .cnty {
+    filter: drop-shadow(0px 1px 5px rgb(255, 255, 255));
+ }
  .firstdiv {
     box-shadow: 7px 7px 12px #000 ;
  }
@@ -92,6 +98,13 @@
     border-top-right-radius: 20px;
     border-bottom-right-radius: 5px;
  }
+ .pic2 {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: center;
+ }
  .btnord {
     box-shadow: 2px 10px 12px rgba(0, 0, 0, 0.713);  
  }
@@ -135,10 +148,16 @@
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.694);
  }
  .trapezoid {
-    border-bottom: 35px solid rgb(47, 47, 47);
+    clip-path: polygon(13% 84%, 88% 84%, 100% 100%, 0% 100%);
+    background-color: rgb(54, 54, 54); /* Add background color to make it visible */
+    background-position: center;
+    background-size: cover;
+    z-index: 10;
+}
+ .trapezoid2 {
+    border-bottom: 45px solid rgb(0, 0, 0);
 	border-left: 25px solid transparent;
 	border-right: 25px solid transparent;
-	
  }
  .left {
   border-bottom-right-radius: 50px ;
@@ -149,38 +168,80 @@
   border-bottom-left-radius: 100px ;
  }
 .parallelogram-left {
-    margin-top: 10px;
     transform: skew(15deg);
     background: rgb(173, 173, 173);
     clip-path: polygon(5% 100%, 100% 100%, 100% 0%, 0% 10%);
-    background-image: url("/janeiwebsite/assets/3d-casual-life-color-palette-and-brush.png");
     background-position: center;
     background-size: contain;
     z-index: 10;
+
 }
 .parallelogram-right {
-    margin-top: -106%;
+ 
     transform: skew(-15deg);
     background: rgb(47, 47, 47);
     clip-path: polygon(-5% 100%, 100% 100%, 100% 10%, 0% 0%);
-    background-image: url("/janeiwebsite/assets/3d-fluency-paint-brush.png");
     background-position: center;
     background-size: contain;
     z-index: 0;
+ 
 }
 .contorder {
     background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.745), rgba(255, 255, 255, 0.153));
 }
+.sticky-message {
+    position: sticky;
+    bottom: 20px;
+    right: 20px;
+    z-index: 40;
+}
+.dark-mode {
+    background-color: rgb(39, 39, 39); 
+    color: white;
+}
+.lc, .rc {
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.993));
+}
+@keyframes jump {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-jump {
+  animation: jump 2s infinite;
+}
+.animate-jump:hover {
+  animation: none ;
+}
+.spacehow {
+    filter: drop-shadow(0px 0px 5px rgb(0, 192, 199));
+}
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.firstdiv2 {
+  background-image: radial-gradient(circle, #e7e7e7, #929292, rgb(5, 0, 70)); 
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite; 
+}
 </style>
 <body class="bg-[#D9D9D9]">
-    <header class=" z-50">
+    <header class=" z-10">
         <nav class="flex justify-between items-center w-[92%] pt-2 md:pt-5 mx-auto">
             <div class="flex">
                 <img class="w-16 cursor-pointer p-1" src="/janeiwebsite/assets/logolanyard.png" alt="...">
                 <span class="md:pt-3 pt-4 p-2 text-2xl lg:text-3xl font-bold absolute ml-16 text-black">JANEI</span>
             </div>
             
-            <div class="nav-links p-3 md:rounded-full z-50 duration-500 md:static absolute
+            <div class="nav-links p-3 md:rounded-full z-20 duration-500 md:static absolute
              bg-[#1F1F1F] shadow-slate-200 shadow-lg md:min-h-fit min-h-[60vh]
              left-0 top-[-100%]  md:w-auto  w-full flex items-center px-5">
 
@@ -210,35 +271,39 @@
             </div>
     </header>
 
-    <section class="sec2 h-auto md:p-10 p-5 sticky z-0">
-            <div id="stars"></div>
-            <div id="stars2"></div>
-            <div id="stars3"></div>
+    <section class="h-auto md:p-10 p-5 sticky z-0">
+           
         <div class="title p-10  justify-center rounded-xl">
             <div class="text font-medium md:text-[35px] text-[20px] text-center text-black ">LANYARD DESIGN</div>
             <div class="text font-bold md:text-[65px] text-[35px] text-center text-black">FOR BUILDERS</div>
             <div class="text font-bold md:text-[27px] text-sm text-center text-black">Janei Editing and Printing Services</div>
         </div>
     </section>
-   <!--<section class="sec2 p-2 h-auto sticky ">
+   <section class="sec2 p-2 h-auto sticky ">
             <div id="stars"></div>
             <div id="stars2"></div>
             <div id="stars3"></div>
         <div class="">
             <div class="lg:flex justify-center lg:gap-10 gap-5 grid mb-10 ">
                 <div class="md:w-3/10  justify-center"> 
-                    <h1 class="font-mono md:text-[20px] text-sm font-bold md:font-semibold p-2 md:text-left text-center ">CREATE YOUR OWN DESIGN</h1>
-                    <div class="firstdiv rounded-md mx-auto w-[350px] lg:h-[650px] md:w-[500px] border-[3px] bg-slate-100 border-black md:p-5 p-2">
+                    <div class="flex justify-between mb-2">
+                        <h1 class="font-mono md:text-[20px] text-sm font-bold md:font-semibold p-2 md:text-left text-center " >CREATE YOUR OWN DESIGN</h1>
+                        <button id="toggleButton" class="bg-slate-600 rounded-full px-2.5 shadow-md shadow-black "><ion-icon name="sunny" style="color: white ;"></ion-icon></button>
+                    </div>
+                    <div id="content2" class="firstdiv rounded-md mx-auto w-[350px] lg:h-[650px] md:w-[500px] border-[3px] bg-slate-100 border-black md:p-5 p-2">
+                       
                         <div class="relative w-auto ">
-                            <div class="text-sm text-center font-medium text-slate-500">NAPE PART</div>
+                            <div class="text-sm text-center justify-center font-medium text-slate-500">NAPE PART</div>
                    
-                                <div class="flex relative justify-evenly ">  
-                                    <div class="h-10 absolute z-30 left-0  ml-10  mt-3 text-white ">TEXT GOES HERE</div>                           
-                                    <div class="w-10 h-10 absolute z-30 rounded-full mt-1 bg-black"></div>  
-                                    <div class="h-10 absolute z-30 right-0 mr-10  mt-3 text-white ">TEXT GOES HERE</div>  
+                                <div class="flex relative mx-auto">  
+                                     <!--LOGO GOES HERE-->
+                                    <div class="lc h-10 absolute z-30 left-0  md:ml-[27%] ml-16  mt-3 text-white text-[10px]">TEXT GOES HERE</div>                           
+                                    <div id="displayImage" class="logohere  w-10 h-10 absolute  flex ml-[46%] z-30 mx-auto rounded-full  bg-white"></div>  
+                                    <div class="rc h-10 absolute z-30 right-0 md:mr-[27%] mr-14 mt-3 text-white text-[10px] ">TEXT GOES HERE</div>  
                                 </div>
                                
-                            <div class="trapezoid"></div>
+                            <div class="trapezoid md:w-[60%] h-64 md:mt-[-47.5%] mt-[-65%] w-[90%] mx-auto"></div>
+                            <div class="trapezoid2 md:w-[60%] w-[84%] absolute md:mt-[10%] mt-[7%] md:ml-[21%]  ml-[9.5%] "></div>
                       
                         </div>
                         <div class="relative w-auto ">
@@ -246,55 +311,144 @@
                                 <div class=" text-sm font-medium text-slate-500">RIGHT SIDE</div>
                                 <div class="text-sm font-medium text-slate-500">LEFT SIDE</div>
                             </div>
-                            <div class="leftbox absolute "></div>
-                            <div class="parallelogram-left md:ml-28 ml-16 z-20 h-[400px] md:h-[500px] w-[40px] md:w-[60px] md:mt-0"></div>
+
+                            <!--PATTERNS GOES HERE-->
+                            <div class="leftbox  absolute bg-black bg-opacity-0  md:mt-16 mt-10 ml-6 skew-x-[-40deg] rotate-[-55deg] md:ml-[19%] z-30 w-[60px] h-[80px] "></div>
+                            <div class="leftbox2 absolute bg-black bg-opacity-0  md:mt-[80%] mt-[105%] ml-[33%] skew-x-[-40deg] rotate-[-55deg] md:ml-[37%] z-10 w-[59px] h-[80px] "></div>
+                            <div class="leftbox4 absolute bg-black bg-opacity-0   mt-[45%] ml-[20%] md:mt-[39%] skew-x-[-40deg] rotate-[-55deg] md:ml-[27.5%] z-10 w-[59px] h-[27%]  ">                   
+                                <div class="lc rotate-[90deg] font-bold text-black mt-[184%] md:ml-3 ml-2 absolute">HERE</div>
+                                <div class="lc rotate-[90deg] font-bold  text-black mt-[106%] md:ml-3 ml-2 absolute">GOES</div>
+                                <div class="lc rotate-[90deg] font-bold  text-black mt-[32%] md:ml-3 ml-2 absolute">TEXT</div>                      
+                            </div>
+                          
                             
-                            <div class="parallelogram-right z-10 md:ml-[66%] h-[400px] md:h-[500px] w-[40px] md:w-[60px] ml-[65%] md:mt-[-110%] mt-[-399px] "></div>
+                            <div class="rightbox4 absolute bg-slate-200   bg-opacity-0 md:mt-[39%] mt-[45%] ml-[65%] skew-x-[34deg] rotate-[49deg] md:ml-[60.5%] z-30 w-[59px] h-[27%] "> 
+                                <div class="rc rotate-[-90deg] font-bold mt-[184%] ml-4 text-white  absolute">TEXT</div>
+                                <div class="rc rotate-[-90deg] font-bold  mt-[106%] ml-3 text-white absolute">GOES</div>
+                                <div class="rc rotate-[-90deg] font-bold  mt-[32%] ml-3 text-white absolute">HERE</div>
+                            </div>
+                            <div class="rightbox2 absolute bg-slate-200 bg-opacity-0  md:mt-[13%] mt-9 ml-[78%] skew-x-[35deg] rotate-[50deg] md:ml-[69%] z-30 w-[58.5px] h-[80px] "></div>
+                            <div class="rightbox absolute bg-slate-200  bg-opacity-0  md:mt-[80%] mt-[105%] ml-[53%] skew-x-[34deg] rotate-[49deg] md:ml-[51.5%] z-30 w-[58.5px] h-[80px] "></div>
+                            
+                            <!--TEXTURE GOES HERE-->
+                            <div class="parallelogram-left  md:ml-[30%] z-20 md:mt-[5%] ml-[23%]  h-[500px] w-[50px]"></div>
+                            <div class="parallelogram-right absolute  z-0 md:ml-[60%] md:mt-[-110%] ml-[65%] mt-[-152%] h-[500px] w-[50px] "></div>
                    
                             <div class=""></div>
                         </div>
                     </div>
                 </div>
-                <div class="lg:w-7/10  "> 
-                    <div class="md:w-7/10 lg:w-auto w-[90vw]  pt-10  "> 
+                <div class="lg:w-7/10"> 
+                    <div class="md:w-7/10 lg:w-auto w-full  pt-10  "> 
                         <div class="flex p-2 gap-2 justify-center z-10">
                             <div id="backgroundBtn" class="button  bg-slate-100 duration-300 font-semibold p-2 border-[3px] border-black text-center  text-sm active cursor-pointer" onclick="showDiv('firstdiv', this)">Texture</div>
                             <div id="patternBtn" class="button bg-slate-100 duration-300 font-semibold  p-2 border-[3px] border-black text-center  text-sm cursor-pointer" onclick="showDiv('seconddiv', this)">Pattern</div>
                             <div id="textFontBtn" class="button bg-slate-100 duration-300 font-semibold  p-2 border-[3px] border-black text-center  text-sm cursor-pointer" onclick="showDiv('thirddiv', this)"> Logo</div>
-                           <div id="logoShapeBtn" class="button bg-slate-100 duration-300 font-semibold  p-2 border-[3px] border-black text-center text-sm cursor-pointer" onclick="showDiv('fourthdiv', this)">Logo Shape</div>
+                           
                         </div>
                         
                         <div id="content" class="-mt-[11px] md:pb-10 mx-auto justify-center">
                             <div id="firstdiv" class="firstdiv w-full lg:w-[500px] border-[3px] md:h-[75vh] h-[50vh] overflow-y-scroll bg-slate-100  border-black py-5 rounded-md" style="display:block;">
-                                <!--Textures
-                                <div class="flex flex-wrap gap-2 justify-center p-4" id="textureContainer">
-                                    <!-- Texture boxes will be dynamically added here 
+                                <!--Textures-->
+                                <div class="flex flex-wrap gap-2 justify-center md:p-4 p-2" id="textureContainer">
+                                    Texture will appear soon!
                                 </div>
                             </div>
                             <div id="seconddiv" class="firstdiv w-full lg:w-[500px] border-[3px] md:h-[75vh] h-[50vh]  overflow-y-scroll bg-slate-100 border-black py-5 rounded-md" style="display:none;">
-                                <!--Patterns
-                                <div class="flex flex-wrap gap-2 justify-center p-4" id="patternContainer">
-                                    <!-- Patterns boxes will be dynamically added here 
+                                <!--Patterns-->
+                                <div class="flex flex-wrap gap-2 justify-center md:p-4 p-2" id="patternContainer">
+                                    Patterns will appear soon!
                                 </div>
                             </div>
                             <div id="thirddiv" class="firstdiv w-full lg:w-[500px] border-[3px] md:h-[75vh] h-[50vh]  overflow-y-scroll bg-slate-100 border-black py-5 rounded-md" style="display:none;">
-                                <!--Logos
-                                <div class="flex flex-wrap gap-2 justify-center p-4" id="logoContainer">
-                                    <!-- Logos boxes will be dynamically added here
+                               <!--Logos-->
+                               <input id="fileInput "  type="file" placeholder="" class="bg-slate-300 block text-black  mx-auto right-0 p-1 rounded-md">
+                                <div class="flex flex-wrap gap-2 justify-center md:p-4 p-2" id="logoContainer">
+                                     Logos will appear soon!
                                 </div>
                             </div>
-                            <div id="fourthdiv" class="firstdiv md:w-[550px] border-[3px] bg-slate-100 border-black p-10 rounded-md" style="display:none;">LOGO SHAPES</div>
-                            <button class="btnord p-2 hover:scale-95 duration-300 hover:bg-white bg-yellow-500 font-medium float-right mt-1 rounded-md border-2 border-black ">ORDER NOW</div>
+                         
+                            <button id="orderNowButton" class="btnord p-2 hover:scale-95 duration-300 hover:bg-white bg-yellow-500 font-medium float-right mt-1 rounded-md border-2 border-black ">ORDER NOW</div>
                         </div>
                         
                     </div>
                 </div>
+          
             </div>
         </div>
-    </section>-->
+    </section>
+    <!--Customize-->
+    <div id="orderModal" class="fixed hidden inset-0 md:p-2 z-50 flex items-center justify-center bg-[#D9D9D9] bg-opacity-10 ">
+        <div class="modal-content bg-[#D9D9D9] rounded-lg h-full w-full ">
+            <div class="bg-slate-900 w-full h-3 rounded-tl-md rounded-tr-md "></div>
+            <div class="flex justify-between w-full px-2 py-1 border-b-2 border-slate-300">
+                <div class="md:text-xl text-sm font-bold ">SELECTED ASSETS</div>
+                <div id="closeModalcus" class="text-slate-900 hover:text-yellow-600 focus:outline-none cursor-pointer">
+                    <ion-icon name="arrow-undo" class="md:text-2xl text-xl"></ion-icon>
+                </div>
+            </div>
+        
+            <div class="md:flex p-2 md:p-10 overflow-y-scroll">
+                
+                <div class="w-full p-2">
+                    <div id="content2" class="firstdiv2 rounded-md mx-auto w-[350px] lg:h-[650px] md:w-[500px] border-[3px] bg-slate-500 border-black md:p-5 p-2">
+                       
+                        <div class="relative w-auto ">
+                            <div class="text-sm text-center justify-center font-medium text-slate-500">NAPE PART</div>
+                   
+                                <div class="flex relative mx-auto">  
+                                     <!--LOGO GOES HERE-->
+                                    <div class="lc h-10 absolute z-30 left-0  md:ml-[27%] ml-16  mt-3 text-white text-[10px]">TEXT GOES HERE</div>                           
+                                    <div id="displayImage2" class="logohere  w-10 h-10 absolute  flex ml-[46%] z-30 mx-auto rounded-full  bg-white"></div>  
+                                    <div class="rc h-10 absolute z-30 right-0 md:mr-[27%] mr-14 mt-3 text-white text-[10px] ">TEXT GOES HERE</div>  
+                                </div>
+                               
+                            <div id="texture3" class="trapezoid md:w-[60%] h-64 md:mt-[-47.5%] mt-[-65%] w-[90%] mx-auto"></div>
+                            <div class="trapezoid2 md:w-[60%] w-[84%] absolute md:mt-[10%] mt-[7%] md:ml-[21%]  ml-[9.5%] "></div>
+                      
+                        </div>
+                        <div class="relative w-auto ">
+                            <div class="justify-between flex">
+                                <div class=" text-sm font-medium text-slate-500">RIGHT SIDE</div>
+                                <div class="text-sm font-medium text-slate-500">LEFT SIDE</div>
+                            </div>
+
+                            <!--PATTERNS GOES HERE-->
+                            <div id="pat1" class="leftbox  absolute bg-black bg-opacity-0  md:mt-16 mt-10 ml-6 skew-x-[-40deg] rotate-[-55deg] md:ml-[19%] z-30 w-[60px] h-[80px] "></div>
+                            <div id="pat2" class="leftbox2 absolute bg-black bg-opacity-0  md:mt-[80%] mt-[105%] ml-[33%] skew-x-[-40deg] rotate-[-55deg] md:ml-[37%] z-10 w-[59px] h-[80px] "></div>
+                            <div class="leftbox4 absolute bg-black bg-opacity-0   mt-[45%] ml-[20%] md:mt-[39%] skew-x-[-40deg] rotate-[-55deg] md:ml-[27.5%] z-10 w-[59px] h-[27%]  ">                   
+                                <div class="lc rotate-[90deg] font-bold text-black mt-[184%] md:ml-3 ml-2 absolute">HERE</div>
+                                <div class="lc rotate-[90deg] font-bold  text-black mt-[106%] md:ml-3 ml-2 absolute">GOES</div>
+                                <div class="lc rotate-[90deg] font-bold  text-black mt-[32%] md:ml-3 ml-2 absolute">TEXT</div>                      
+                            </div>
+                          
+                            
+                            <div class="rightbox4 absolute bg-slate-200   bg-opacity-0 md:mt-[39%] mt-[45%] ml-[65%] skew-x-[34deg] rotate-[49deg] md:ml-[60.5%] z-30 w-[59px] h-[27%] "> 
+                                <div class="rc rotate-[-90deg] font-bold mt-[184%] ml-4 text-white  absolute">TEXT</div>
+                                <div class="rc rotate-[-90deg] font-bold  mt-[106%] ml-3 text-white absolute">GOES</div>
+                                <div class="rc rotate-[-90deg] font-bold  mt-[32%] ml-3 text-white absolute">HERE</div>
+                            </div>
+                            <div id="pat3" class="rightbox2 absolute bg-slate-200 bg-opacity-0  md:mt-[13%] mt-9 ml-[78%] skew-x-[35deg] rotate-[50deg] md:ml-[69%] z-30 w-[58.5px] h-[80px] "></div>
+                            <div id="pat4" class="rightbox absolute bg-slate-200  bg-opacity-0  md:mt-[80%] mt-[105%] ml-[53%] skew-x-[34deg] rotate-[49deg] md:ml-[51.5%] z-30 w-[58.5px] h-[80px] "></div>
+                            
+                            <!--TEXTURE GOES HERE-->
+                            <div id="texture2" class="parallelogram-left  md:ml-[30%] z-20 md:mt-[5%] ml-[23%]  h-[500px] w-[50px]"></div>
+                            <div id="texture1" class="parallelogram-right absolute  z-0 md:ml-[60%] md:mt-[-110%] ml-[65%] mt-[-152%] h-[500px] w-[50px] "></div>
+                   
+                            <div class=""></div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" w-full p-10 bg-slate-100">
+
+                </div>
+            </div>
+           
+        </div>
+    </div>
     <section class="orderpage h-auto  w-full overflow-hidden">    
         <div class="w-full h-14 bg-[#1F1F1F] pb-10 shadow-lg  shadow-white">
-            <h1 class="text-white font-semibold font-mono p-3 md:pl-10 md:text-left text-center text-[20px] md:text-2xl">PRESET DESIGN</h1>
+            <h1 class="text-white font-semibold font-mono p-3 md:pl-10 md:text-left text-center text-[20px] md:text-2xl">PRESET TEMPLATES DESIGN</h1>
         </div>
       
         <div class="body2">
@@ -309,74 +463,142 @@
                         <img src="/janeiwebsite/assets/purr.gif" alt="dudesnothing" srcset="" class="mx-auto md:h-72 h-20 " >
                         <div class="text-center md:text-xl text-sm font-bold text-yellow-600 ">NO ORDERS YET.</div>
                     </div>
+                  
                     <div class="flex flex-wrap md:gap-6 gap-3 justify-center" id="templateContainer">
                         <!--the preset templates goes here...-->
                     </div>
                 </div>
             </div>
           </div>
+          
     </section>
-    <!--The ano goes here-->
-    <div id="myModalorder" class="fixed inset-0 z-50 p-0 md:p-2 flex items-center justify-center bg-[#D9D9D9] bg-opacity-10 overflow-y-scroll hidden ">
+
+      <!--Floating div for inquiry-->
+    <div id="OrderSuccess" class="hidden fixed inset-0 flex items-center justify-center">
+        <div id="backgroundLayer" class="fixed inset-0 bg-black bg-opacity-60 z-10"></div>
+        <div class="shadow-lg shadow-white slate-900 py-3 border-2 border-white px-6 z-20 rounded-md bg-green-500 ">
+            <div id="countdown" class="cnt text-2xl font-bold text-yellow-500 text-center">4</div>
+            <div class=" text-slate-900 py-3 px-6 rounded-md flex  ">
+                <ion-icon name="bag-check-outline" class="cnty text-3xl pt-1.5 "></ion-icon>
+                <div class="cnt p-1 font-medium text-2xl px-2">Order Success </div>
+            </div> 
+           <div class="text-center text-sm font-medium text-slate-900">will redirect to order purchased page.</div> 
+        </div>
+    </div>
+  
+
+    <!--The ano goes here-->    
+    <div id="myModalorder" class="fixed inset-0 z-50 p-0 md:p-2 z-50 flex items-center justify-center bg-[#D9D9D9] bg-opacity-10 overflow-y-scroll hidden ">
         <div class="modal-content bg-[#D9D9D9] rounded-lg ">
-            <span class="close absolute top-0 right-0 p-2 md:m-2 cursor-pointer text-slate-300 text-2xl hover:text-yellow-500  "><ion-icon name="arrow-back-outline"></ion-icon></span>
-            <div class="template-name bg-slate-800 p-2 text-white rounded-tl-md rounded-tr-md "></div>
-         
+              <!--Errors-->
+                <div id="errorContainer5" class="error w-full fixed font-bold bg-yellow-300 text-slate-900 text-center bottom-0 shadow-md shadow-red-600 z-20 text-sm p-3 mx-auto" style="display: none;">
+                    <div class="flex justify-center relative">
+                        <img src="/janeiwebsite/assets/pablita-warning-sign.png" class="h-6 " alt="" srcset="">
+                        <span class="mt-1 pl-3">Only 5 images are accepted!</span> 
+                    </div>                
+                </div>
+                <div id="errorContainer6" class="error w-full fixed font-bold bg-yellow-300 text-slate-900 text-center bottom-0 shadow-md shadow-red-600 z-20 text-sm p-3 mx-auto" style="display: none;">
+                    <div class="flex justify-center relative">
+                        <img src="/janeiwebsite/assets/pablita-warning-sign.png" class="h-6 " alt="" srcset="">
+                        <span class="mt-1 pl-3">Please put a notes to guide us what your dream design.</span> 
+                    </div>                
+                </div>
+                <div id="errorContainer7" class="error w-full fixed font-bold bg-yellow-300 text-slate-900 text-center bottom-0 shadow-md shadow-red-600 z-20 text-sm p-3 mx-auto" style="display: none;">
+                    <div class="flex justify-center relative">
+                        <img src="/janeiwebsite/assets/pablita-warning-sign.png" class="h-6 " alt="" srcset="">
+                        <span class="mt-1 pl-3">Please Input your Payment Screenshot.</span> 
+                    </div>                
+                </div>
+            <div>
+            <div class=" bg-slate-800 p-2 text-white rounded-tl-md rounded-tr-md "> Janei Editing and Printing Services </div>
+            </div>
             <div class="md:mt-0 mt-3 p-2 rounded-lg">
                 <div class="lg:flex justify-center lg:gap-10 gap-5 grid mb-10">
                     
                     <div class="md:w-3/10 justify-center mt-1 md:mt-2 ">
-                        <h1 class="font-mono md:text-[20px] text-xl  md:bg-white rounded-md md:text-black  mb-2 bg-slate-900 text-white font-bold md:font-semibold md:text-left text-center " >CREATE YOUR OWN DESIGN</h1>
+                        <h1 class="  md:text-[20px] text-xl  rounded-md md:text-black  mb-2 text-white font-bold md:font-semibold md:text-left text-center templatename2" > TEMPLATE DESIGN</h1>
+                        <div class="seletedTemplateId" style="display: none;"></div>
                         <div class="firstdiv rounded-md mx-auto w-[350px] lg:h-[650px] md:w-[500px] border-[3px] bg-slate-100 border-black md:p-5 p-2">
-                            <div class="relative w-auto">
-                                <div class="text-sm text-center font-medium text-slate-500">NAPE PART</div>
-                                <div class="flex relative justify-evenly">
-                                    <div class="h-10 absolute z-30 left-0 ml-10 mt-3 text-white">TEXT GOES HERE</div>
-                                    <div class="w-10 h-10 absolute z-30 rounded-full mt-1 bg-black"></div>
-                                    <div class="h-10 absolute z-30 right-0 mr-10 mt-3 text-white">TEXT GOES HERE</div>
-                                </div>
-                                <div class="trapezoid w-[228px] h-[35px] ml-[29%]  "></div>
-                            </div>
-                            <div class="relative w-auto">
-                                <div class="justify-between flex">
-                                    <div class="text-sm font-medium text-slate-500">RIGHT SIDE</div>
-                                    <div class="text-sm font-medium text-slate-500">LEFT SIDE</div>
-                                </div>
-                                <div class="leftbox absolute"></div>
-                                <div class="parallelogram-left ml-[36.5%] z-20 h-[481px] w-[35px] md:mt-0"></div>
-                                <div class="parallelogram-right z-10 ml-[65%] h-[481px] w-[35px]  "></div>
-                                <div></div>
+                            <div class=" templatesImg border border-black pic2 h-full">
+                                <!--Selected Template Images goes here-->
                             </div>
                         </div>
                     </div>
+                 
 
                     <div class="lg:w-7/10 ">
-                        <div class="md:w-7/10 lg:w-auto w-[90vw] pt-10">
-                            <div class="flex p-2 gap-2 justify-center z-10">
-                                <div id="backgroundBtn" class="button bg-slate-100 duration-300 font-semibold p-2 border-[3px] border-black text-center text-sm active cursor-pointer" onclick="showDiv('firstdiv', this)">Texture</div>
-                                <div id="patternBtn" class="button bg-slate-100 duration-300 font-semibold p-2 border-[3px] border-black text-center text-sm cursor-pointer" onclick="showDiv('seconddiv', this)">Pattern</div>
-                                <div id="textFontBtn" class="button bg-slate-100 duration-300 font-semibold p-2 border-[3px] border-black text-center text-sm cursor-pointer" onclick="showDiv('thirddiv', this)">Logo</div>
-                            </div>
-                            <div id="content" class="-mt-[11px] md:pb-10 mx-auto justify-center">
-                                <div id="firstdiv" class="firstdiv w-full lg:w-[500px] border-[3px] md:h-[75vh] h-[45vh] overflow-y-scroll bg-slate-100 border-black py-5 rounded-md" style="display:block;">
-                                    <!--Textures-->
-                                    <div class="flex flex-wrap gap-2 justify-center p-4" id="textureContainer">
-                                        <!-- Texture boxes will be dynamically added here -->
+                        <div class="w-full  h-full p-5">
+                            <div class=" bg-slate-200 rounded-lg shadow-md  shadow-black w-auto">
+                                <div class="md:text-2xl text-[15px] text-center font-semibold rounded-tl-lg rounded-tr-lg w-full p-2 md:p-5 bg-[#161616f0] text-yellow-50">ADD TO YOUR ORDER</div>
+                                
+                                    <div class=" p-2 ">
+                                        <form action="" method="">
+                                        <div class="md:p-2 p-2 md:h-64  h-32 bg-white shadow-black shadow-inner rounded-md  overflow-y-auto">
+                                            <div class="flex justify-between">
+                                                <div class="text-sm text-slate-700 py-2 px-2">Add assets here.</div>
+                                                <button id="addInput" type="button" class=" py-1 px-3  md:px-4 md:text-xl text-[13px] hover:bg-green-700 duration-300 rounded-md shadow-md text-white hover:scale-95 shadow-slate-600 bg-slate-900">ADD</button>
+                                            </div>
+                                                <div id="inputContainer" class="md:mt-13 mt-5 space-y-2">
+                                                    <!--ASSETS ADDED-->
+                                                </div>
+                                        </div>
+                                        <div class="">
+                                            <div class="text-sm font-medium p-2 md:text-xl">ORDER NOTES</div>
+                                                <div class=" ">
+                                                    <textarea name="" placeholder=" type your gcash name here and your order notes... " id="notes" cols="" rows="" class="w-full h-16  md:h-24 rounded-md shadow-inner shadow-gray-900"></textarea>
+                                                </div>
+                                        </div>
+                                       
+                                        <div class="lg:flex items-center right-0  justify-between">
+                                            
+                                            <div class="lg:mt-10 md:mt-2  ">
+                                                <div class="font-medium p-1 text-black  ">Input payment Screenshot here </div>
+                                                <div class="md:flex gap-2">
+                                                    <div class="">
+                                                        <input type="file" name="" id="paymentScreenshot" class="w-full text-white bg-slate-900 rounded-md p-1">
+                                                    </div>
+                                                  
+                                                    <button id="orderButton" type="button" class="btnords p-2 md:mt-0 mt-2 bg-slate-800 rounded-md font-medium text-white  ">SCAN ME</button>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class=" p-1  ">
+                                                <div class="totalpay textpay font-bold text-4xl text-center text-yellow-500">0</div>
+                                                <div class="totalpay2 textpay font-bold text-4xl text-center text-yellow-500" style="display: none;">0</div>
+                                                <div class="p-2 text-center font-bold md:text-[15px] text-[10px]  ">
+                                                    TOTAL:
+                                                </div>
+                                                <div class="gap-1 lg:justify-normal flex justify-center ">
+                                                    <button id="incrementBtn" type="button" class=" px-3 py-1 font-bold text-xl hover:scale-95 text-white duration-300 hover:bg-green-600 rounded-md bg-slate-900">+</button>
+                                                    <input type="number" name="" id="count" placeholder="0" class=" w-16 font-semibold appearance-none rounded-md mx-2">
+                                                    <button id="decrementBtn" type="button" class="px-3 py-1 font-bold text-xl hover:scale-95 text-white duration-300 hover:bg-red-500 rounded-md bg-slate-900">−</button>
+                                                    
+                                                </div>  
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-between pt-2">
+                                            <button id="cancelOrderBtn" type="button" class="p-2  hover:bg-red-500 bg-slate-500 hover:scale-95 font-semibold text-white rounded-md">CLOSE</button>
+                                            <button id="orderButtonSubmit" type="button" class="p-2 bg-slate-900 hover:bg-green-500 hover:scale-95 font-semibold text-white rounded-md">ORDER NOW</button>
+                                        </div>
+                                    </form>
+                                <!-- Modal content -->
+                                    <div id="myModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+                                        <div class="bg-white p-1 md:p-2 rounded-lg h-auto">
+                                          <div class="md:text-2xl text-xl font-bold text-center p-5">
+                                            SCAN TO PAY
+                                          </div>
+                                         
+                                          <div class="md:flex w-auto">
+                                            <div class=" flex justify-center">
+                                                <img src="/janeiwebsite/assets/qrcode.png" class="h-56 md:h-72 " alt="" srcset="">
+                                            </div>   
+                                          </div>
+                                          <div class="text-center font-medium p-1">Down payment is acceptable.</div>
+                                          
+                                        </div>
+                                      </div>
                                     </div>
-                                </div>
-                                <div id="seconddiv" class="firstdiv w-full lg:w-[500px] border-[3px] md:h-[75vh] h-[45vh] overflow-y-scroll bg-slate-100 border-black py-5 rounded-md" style="display:none;">
-                                    <!--Patterns-->
-                                    <div class="flex flex-wrap gap-2 justify-center p-4" id="patternContainer">
-                                        <!-- Patterns boxes will be dynamically added here -->
-                                    </div>
-                                </div>
-                                <div id="thirddiv" class="firstdiv w-full lg:w-[500px] border-[3px] md:h-[75vh] h-[45vh] overflow-y-scroll bg-slate-100 border-black py-5 rounded-md" style="display:none;">
-                                    <!--Logos-->
-                                    <div class="flex flex-wrap gap-2 justify-center p-4" id="logoContainer">
-                                        <!-- Logos boxes will be dynamically added here-->
-                                    </div>
-                                </div>
-                                <button class="btnord p-2 hover:scale-95 duration-300 hover:bg-white bg-yellow-500 font-medium float-right mt-1 rounded-md border-2 border-black ">ORDER NOW</button>
+                                
                             </div>
                         </div>
                     </div>
@@ -385,9 +607,57 @@
             </div>
         </div>
     </div>
-    <div class="modal-overlay"></div>
-      </div>
 
+
+    <div id="howtobtn" class="bg-opacity-5 rounded-full bottom-5 float-right md:right-10 right-3 fixed transition-transform duration-500 transform hover:-translate-y-2 animate-jump cursor-pointer">
+        <img src="/janeiwebsite/assets/how.png" alt="" srcset="" class="spacehow md:h-20 h-16">
+    </div>
+
+    <div id="how" class="modal hidden fixed w-full h-full top-0 left-0 z-30 flex items-center justify-center">
+        <div id="backgroundLayer" class="fixed inset-0 bg-black bg-opacity-60 z-30"></div>
+        <!-- Modal content -->
+        <div class="modal-content bg-white border border-slate-600 z-40 shadow-lg shadow-white w-5/6 md:max-w-md mx-auto rounded-md">
+            <div class="bg-slate-900 w-full h-3 rounded-tl-md rounded-tr-md "></div>
+                <div class="flex justify-between w-full px-2 py-1 border-b-2 border-slate-300">
+                    <div class="md:text-xl text-sm font-bold ">HOW TO ORDER?</div>
+                    <div id="howbtn" class="text-slate-900 hover:text-gray-800 focus:outline-none cursor-pointer">
+                        <ion-icon name="arrow-undo" class="md:text-2xl text-xl"></ion-icon>
+                    </div>
+                </div>
+                <div class="px-3 py-2">
+                    <span class="font-bold text-sm ">IN SELECTION DESIGN</span> <br>
+                    <span class="text-[13px] font-normal "> - You can select any provided assets that will serve as a blueprint of your dream design.</span> <br>
+                    <span class="text-[13px] font-normal "> - You can add a logo image of your choice from your device.</span> <br>
+                    <span class="text-[13px] font-normal "> - Click/Tap the Order now to proceed with your order.</span> <br>
+                    <span class="text-[13px] font-normal "> - After that fill the form and put your notes so we, our team will be guided on how we make your dream lanyard design put into reality.✨</span>
+                </div>
+                <div class="px-3 py-1">
+                    <span class="font-bold text-sm ">IN PRESET TEMPLATES</span> <br>
+                    <span class="text-[13px] font-normal "> - You can select one template of your choice.</span> <br>
+                    <span class="text-[13px] font-normal "> - Click/Tap the CART image to proceed with your order.</span> <br>
+                    <span class="text-[13px] font-normal "> - Fill the form and put a notes to guide us.</span> <br>
+                    <span class="text-[13px] font-normal "> - Tap the Order Now and go directly to the Profile page to navigate your Order.✨</span>
+                </div>
+                <div class="px-3 py-1">
+                    <span class="text-[13px] font-semibold "> Refer with this link to remove your image background.</span> <br>
+                    <div class="flex">
+                        <ion-icon name="link" class=" p-1.5"></ion-icon>
+                        <span class="text-[13px] py-1 font-normal text-blue-500 ">https://www.remove.bg/</span> <br>
+                    </div>
+                    <span class="text-sm py-1 ">copy this link and paste to your browser. <br>
+                    credits to @remove.bg, a Canva Austria GmbH brand</span>
+                    <span></span>
+                    
+                </div>
+            </div>
+          <div class="md:flex">
+            <div class=""></div>
+            <div class=""></div>
+          </div>
+    </div>
+    </div>
+   
+    
 <!--FOOTER-->
 <footer class="h-60 bottom-0 p-5 w-auto bg-[#1F1F1F]">
     <div class="">
@@ -417,12 +687,11 @@
 <!--Scripts--> 
 <script type="module" src="/janeiwebsite/scripts/custompreview.js"></script>
 <script type="module" src="/janeiwebsite/scripts/logout.js"></script>  
-<script type="module" src="/janeiwebsite/scripts/home.js"></script>
+<script type="module" src="/janeiwebsite/scripts/modalsheader.js"></script>
+<script type="module" src="/janeiwebsite/scripts/orderinfo.js"></script>
+<script type="module" src="/janeiwebsite/scripts/order.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
-
-
 <script>
 //navbar
      const navLinks = document.querySelector('.nav-links')
@@ -456,6 +725,48 @@
         box.classList.toggle("box-clicked");
     }
 
+    function toggleDropdown() {
+        var dropdown = document.getElementById("dropdownContent");
+        dropdown.classList.toggle("hidden");
+        }
+
+// Function to toggle between dark and light mode
+function toggleDarkMode() {
+    var content2 = document.getElementById('content2');
+    content2.classList.toggle('dark-mode');
+}
+// Event listener for the toggle button
+document.getElementById('toggleButton').addEventListener('click', function() {
+    var icon = document.querySelector('#toggleButton ion-icon');
+    toggleDarkMode();
+    if (icon.getAttribute('name') === 'moon') {
+        icon.setAttribute('name', 'sunny');
+    } else {
+        icon.setAttribute('name', 'moon');
+    }
+});
+
+//modal confirm order
+  var modalcus = document.getElementById("orderModal");
+  var btncus = document.getElementById("orderNowButton");
+  var closeBtn = document.getElementById("closeModalcus");
+  btncus.onclick = function() {
+    modalcus.classList.remove('hidden');
+  }
+  closeBtn.onclick = function() {
+    modalcus.classList.add('hidden');
+  }
+
+  var how = document.getElementById("how");
+  var btnhow = document.getElementById("howtobtn");
+  var howbtn = document.getElementById("howbtn");
+
+  btnhow.onclick = function() {
+    how.classList.remove('hidden');
+  }
+  howbtn.onclick = function() {
+    how.classList.add('hidden');
+  }
 
 </script>
 </body>

@@ -65,6 +65,6 @@
 
 .sec2 {
   height: auto;
-  background-image: linear-gradient(to top, #1B2735 0%, #D9D9D9 50%, #D9D9D9 100%);
+  background-image: linear-gradient(to top, #1B2735 0%, #D9D9D9 70%, #D9D9D9 100%);
   overflow: hidden;
 }
