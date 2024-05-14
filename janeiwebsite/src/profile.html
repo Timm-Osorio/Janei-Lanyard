@@ -165,15 +165,17 @@
                                     <div id="status" class="text-sm text-white">STATUS</div>
                                     <button id="orderdetails" type="button" class="hover:bg-slate-300 rounded-sm px-2 bg-yellow-500 hover:scale-95 duration-200  "><div class="duration-200 hover:text-slate-900 text-sm text-white ">DETAILS</div></button>
                                 </div>     -->
-                                <div id="noorders" class="w-full" style="display: none;">
-                                    <img src="/janeiwebsite/assets/purr.gif" alt="dudesnothing" srcset="" class="mx-auto md:h-72 h-20 " >
-                                    <div class="text-center md:text-xl text-sm font-bold text-yellow-600 ">NO ORDERS YET.</div>
-                                </div>
+                               
                                 <div id="orders-container">
                                     <!--orders goes here-->
+                                    <div id="noorders" class="w-full" style="display: none;">
+                                        <img src="/janeiwebsite/assets/purr.gif" alt="dudesnothing" srcset="" class="mx-auto md:h-72 h-20 " >
+                                        <div class="text-center md:text-xl text-sm font-bold text-yellow-600 ">NO CURRENT ORDERS YET.</div>
+                                    </div>
                                 </div>
                                 <div id="orders-container2">
-                                    <!--complete orders goes here-->    
+                                    <!--complete orders goes here-->  
+                                      
                                 </div>
                                 <div id="orders-container3">
                                     <!--cancelled orders goes here-->    
@@ -422,7 +424,8 @@
                 </div>
                     <div class="md:flex md:px-16 px-3 py-1 gap-7">
                         <div class="shadow-md shadow-black border justify-center mx-auto flex border-black rounded-xl  mb-2 md:mb-0  md:h-full h-48  w-64  md:w-80 ">
-                            <img src="/janeiwebsite/assets/a1.png" alt="" srcset="" class=" ">
+                            <div id="templateIMG" class="bg-[#181818] rounded-lg"></div>
+                            <div class="" id="templateId" style="display: none;"></div>
                         </div>
                         <div class=" shadow-md bg-[#dddddd]  md:w-96 rounded-md ">
                             <div class="p-1 bg-[#DB6900] w-full rounded-tl-md rounded-tr-md "></div>
@@ -444,8 +447,6 @@
                         </div>
                        
                     </div>
-               
-               
             
                     <div class="flex justify-between py-4 px-3 md:px-10">
                         <button id="cancelbtn6" type="button" class=" shadow-md shadow-[#00000075] hover:scale-95 duration-200 bg-[#232323] p-2 px-4 rounded-md text-white hover:bg-red-500 ">CLOSE</button>

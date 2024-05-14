@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 const serviceAccount = require('./path/to/serviceAccountKey.json'); // Replace with your service account key
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://janeidb-default-rtdb.firebaseio.com/' // Replace with your database URL
+  databaseURL: 'https://janeilanyarddb-9ba85-default-rtdb.firebaseio.com/' // Replace with your database URL
 });
 const db = admin.database();
 
